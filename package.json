@@ -1,0 +1,33 @@
+{
+  "name": "pb-tech-laptops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "ts-node-esm server/index.ts",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidannairn/pb-tech-laptops.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aidannairn/pb-tech-laptops/issues"
+  },
+  "homepage": "https://github.com/aidannairn/pb-tech-laptops#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.16",
+    "concurrently": "^7.4.0",
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.19",
+    "typescript": "^4.8.3"
+  },
+  "type": "module"
+}
