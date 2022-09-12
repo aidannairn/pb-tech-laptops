@@ -1,14 +1,27 @@
 version: '3.8'
 services:
-  web:
+  backend:
     build: 
       context: ./
-      target: production
+      target: backend
     volumes:
       - .:/server
     command: npm start
     ports:
       - "3001:3001"
     environment:
-      NODE_ENV: production
+      NODE_ENV: backend
+      DEBUG: nodejs-docker-express:*
+  
+  frontend:
+    build: 
+      context: ./client
+      target: frontend
+    volumes:
+      - .:/client
+    command: npm start
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: frontend
       DEBUG: nodejs-docker-express:*
