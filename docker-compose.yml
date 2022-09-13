@@ -1,7 +1,8 @@
-version: '3.8'
+version: "3.8"
 services:
   backend:
-    build: 
+    restart: always
+    build:
       context: ./
       target: backend
     volumes:
@@ -12,16 +13,35 @@ services:
     environment:
       NODE_ENV: backend
       DEBUG: nodejs-docker-express:*
-  
+      MONGODB_URI: mongodb://mongodb:27017/mongodb
+      DB_NAME: my_db
+    depends_on:
+      - mongo
+
   frontend:
-    build: 
-      context: ./client
+    restart: always
+    build:
+      context: ./
       target: frontend
     volumes:
-      - .:/client
+      - .:/client/src
     command: npm start
     ports:
       - "3000:3000"
     environment:
       NODE_ENV: frontend
       DEBUG: nodejs-docker-express:*
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    ports:
+      - "2717:27017"
+    volumes:
+      - mongodb:/data/db
+
+volumes:
+  mongodb: {}
