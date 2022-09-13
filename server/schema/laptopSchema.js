@@ -41,3 +41,24 @@ const RootQuery = new GraphQLObjectType({
     }
   }
 })
+
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addLaptop: {
+      type: LaptopType,
+      args: {
+        name: { type: GraphQLNonNull(GraphQLString) },
+        type: { type: GraphQLNonNull(GraphQLString) },
+        quantity: { type: GraphQLNonNull(GraphQLInt) },
+        price: { type: GraphQLNonNull(GraphQLInt) },
+        images: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
+      }
+    }
+  }
+})
+
+module.exports = new GraphQLSchema({
+  query: RootQuery,
+  mutation
+})
