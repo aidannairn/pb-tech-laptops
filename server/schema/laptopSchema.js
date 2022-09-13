@@ -63,6 +63,15 @@ const mutation = new GraphQLObjectType({
         })
         return laptop.save()
       }
+    },
+    deleteLaptop: {
+      type: LaptopType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parent, args) {
+        return Laptop.findByIdAndRemove(args.id)
+      }
     }
   }
 })
