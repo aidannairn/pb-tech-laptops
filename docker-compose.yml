@@ -5,6 +5,12 @@ services:
     ports:
       - 3000:3000
   backend:
-    build: ./
+    build: ./server
     ports:
       - 3001:3001
+  mongo:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    ports:
+      - "2717:27017"

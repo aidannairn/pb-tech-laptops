@@ -1,5 +1,5 @@
 FROM node:18-alpine
-WORKDIR /server
+WORKDIR /
 RUN echo "Backend is running at port 3001"
 COPY package*.json /
 EXPOSE 3001
