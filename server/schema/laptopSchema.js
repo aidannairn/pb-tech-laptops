@@ -6,7 +6,6 @@ const {
   GraphQLSchema,
   GraphQLList,
   GraphQLNonNull,
-  GraphQLEnumType,
   GraphQLInt,
   GraphQLObjectType
 } = require('graphql')
@@ -53,6 +52,16 @@ const mutation = new GraphQLObjectType({
         quantity: { type: GraphQLNonNull(GraphQLInt) },
         price: { type: GraphQLNonNull(GraphQLInt) },
         images: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
+      },
+      resolve(parent, args) {
+        const laptop = new Laptop({
+          name: args.name,
+          type: args.type,
+          quantity: args.quantity,
+          price: args.price,
+          images: args.images
+        })
+        return laptop.save()
       }
     }
   }
