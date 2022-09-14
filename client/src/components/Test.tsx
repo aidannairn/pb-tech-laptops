@@ -1,13 +1,14 @@
 import { useQuery } from '@apollo/client'
 import { GET_LAPTOPS } from '../queries/laptopQueries'
+import AddLaptopForm from './AddLaptopForm'
 
 interface Laptop {
-  id: String
-  name: String
-  type: String
-  quantity: Number
+  id: string
+  name: string
+  types: string
+  quantity: number
   price: Number
-  images: String[]
+  images: string[]
 }
 
 interface Laptops {
@@ -23,7 +24,9 @@ const Test: React.FC = () => {
   console.log(data)
   
   return (
-    <div>Test</div>
+    <div>
+      {<AddLaptopForm />}
+    </div>
   )
 }
 
