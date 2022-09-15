@@ -1,8 +1,9 @@
 import React from 'react'
+import Header from '../components/Header/Header'
 
 const LandingPage: React.FC = () => {
   return (
-    <div>LandingPage</div>
+    <Header></Header>
   )
 }
 
