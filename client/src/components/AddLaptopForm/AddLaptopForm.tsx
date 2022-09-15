@@ -39,8 +39,8 @@ const AddLaptopForm: React.FC = () => {
 
     setName('')
     setTypes([])
-    setQuantity(0)
-    setPrice(0)
+    setQuantity('')
+    setPrice('')
     setImages([])
   }
 
