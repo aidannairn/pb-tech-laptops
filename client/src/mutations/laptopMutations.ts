@@ -24,6 +24,19 @@ const ADD_LAPTOP = gql`
   }
 `
 
+const UPDATE_LAPTOP = gql`
+  mutation UpdateLaptop($id: ID! $name: String! $types: [String!]! $quantity: Int! $price: Int! $images: [String!]!) {
+    updateProject(id: $id name: $name types: $types quantity: $quantity price: $price images: $images) {
+      id
+      name
+      types
+      quantity
+      price
+      images
+    }
+  }
+`
+
 const DELETE_LAPTOP = gql`
   mutation DeleteLaptop($id: ID!) {
     deleteLaptop(id: $id) {
@@ -32,4 +45,4 @@ const DELETE_LAPTOP = gql`
   }
 `
 
-export { ADD_LAPTOP, DELETE_LAPTOP };
+export { ADD_LAPTOP, DELETE_LAPTOP, UPDATE_LAPTOP };
