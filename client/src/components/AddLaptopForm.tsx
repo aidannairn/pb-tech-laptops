@@ -29,9 +29,8 @@ const AddLaptopForm: React.FC = () => {
     }
   })
 
-  /* const handleFormSubmit = (e: React.ChangeEvent<FormElements>) => {
+  const handleFormSubmit = (e: React.ChangeEvent<FormElements>) => {
     e.preventDefault()
-
 
     addLaptop()
 
@@ -40,16 +39,14 @@ const AddLaptopForm: React.FC = () => {
     setQuantity(0)
     setPrice(0)
     setImages([])
-  } */
+  }
 
 
   return (
     <div className='AddLaptopForm'>
       <div className="alfModal" >
         <h1 id='addLaptopModalLabel'>Add Laptop</h1>
-        <form 
-        // onSubmit={handleFormSubmit}
-        >
+        <form onSubmit={handleFormSubmit}>
           <div>
             <label className='form-label'>Name</label>
             <input type="text" className="form-control" id="name" value={name} onChange={ e => setName(e.target.value)} />
@@ -68,9 +65,9 @@ const AddLaptopForm: React.FC = () => {
           </div>
           <div>
             <label className='form-label'>Images</label>
-            <input type="number" className="form-control" id="image" value={image} onChange={ e => setImage(e.target.value)} />
+            <input type="text" className="form-control" id="image" value={image} onChange={ e => setImage(e.target.value)} />
           </div>
-          <button onClick={() => name && types && quantity && price && images && addLaptop()}></button>
+          <button type='submit'>Submit</button>
         </form>
       </div>
     </div>

@@ -3,10 +3,10 @@ import { gql } from '@apollo/client'
 const ADD_LAPTOP = gql`
   mutation AddLaptop(
     $name: String!,
-    $types: []!,
+    $types: [String!],
     $quantity: Int!,
     $price: Int!,
-    $images: []!
+    $images: [String!]
   ) {
     addLaptop(
       name: $name,
