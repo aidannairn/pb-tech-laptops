@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/client'
 import { GET_LAPTOPS } from '../queries/laptopQueries'
-import AddLaptopForm from './AddLaptopForm/AddLaptopForm'
 
 interface Laptop {
   id: string
@@ -25,7 +24,7 @@ const Test: React.FC = () => {
   
   return (
     <div>
-      {<AddLaptopForm />}
+      Test
     </div>
   )
 }

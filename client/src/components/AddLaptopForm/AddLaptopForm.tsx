@@ -34,7 +34,6 @@ const AddLaptopForm: React.FC = () => {
   const handleFormSubmit = (e: React.ChangeEvent<FormElements>) => {
     e.preventDefault()
 
-    
     addLaptop()
 
     setName('')
