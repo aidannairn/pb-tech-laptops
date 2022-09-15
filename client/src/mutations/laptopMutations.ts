@@ -22,6 +22,14 @@ const ADD_LAPTOP = gql`
       images
     }
   }
-`;
+`
 
-export { ADD_LAPTOP };
+const DELETE_LAPTOP = gql`
+  mutation DeleteLaptop($id: ID!) {
+    deleteLaptop(id: $id) {
+      id
+    }
+  }
+`
+
+export { ADD_LAPTOP, DELETE_LAPTOP };
