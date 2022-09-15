@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useMutation } from '@apollo/client'
-import { ADD_LAPTOP } from '../mutations/laptopMutations'
+import { ADD_LAPTOP } from '../../mutations/laptopMutations'
+
+import './add-laptop-form.scss'
 
 interface FormElements {
   name?: string
@@ -53,10 +55,11 @@ const AddLaptopForm: React.FC = () => {
   }
 
   return (
-    <div className='AddLaptopForm'>
-      <div className="alfModal" >
+    <div className='add-laptop-form'>
+      <div className="alf-modal" >
         <h1 id='addLaptopModalLabel'>Add Laptop</h1>
         <form onSubmit={handleFormSubmit}>
+          <button type='submit'>Add Laptop</button>
           <div>
             <label className='form-label'>Name</label>
             <input type="text" className="form-control" id="name" value={name} onChange={ e => setName(e.target.value)} />
@@ -70,7 +73,7 @@ const AddLaptopForm: React.FC = () => {
             <input type="number" className="form-control" id="price" value={price} onChange={ e => setPrice(+e.target.value)} />
           </div>
           <div>
-            <label className='form-label'>types</label>
+            <label className='form-label'>Types</label>
             <input type="text" className="form-control" id="type" value={type} onChange={ e => setType(e.target.value)} /><button type='button' onClick={handleAddTypeClick}>Add Type</button>
             {
               types.length > 0 &&
@@ -97,7 +100,6 @@ const AddLaptopForm: React.FC = () => {
               </div>
             }
           </div>
-          <button type='submit'>Submit</button>
         </form>
       </div>
     </div>
