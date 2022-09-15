@@ -1,18 +1,18 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 const ADD_LAPTOP = gql`
   mutation AddLaptop(
-    $name: String!,
-    $types: []!,
-    $quantity: Int!,
-    $price: Int!,
-    $images: []!
+    $name: String!
+    $types: [String!]!
+    $quantity: Int!
+    $price: Int!
+    $images: [String!]!
   ) {
     addLaptop(
-      name: $name,
-      types: $types,
-      quantity: $quantity,
-      price: $price,
+      name: $name
+      types: $types
+      quantity: $quantity
+      price: $price
       images: $images
     ) {
       id
@@ -23,6 +23,6 @@ const ADD_LAPTOP = gql`
       images
     }
   }
-`
+`;
 
-export { ADD_LAPTOP }
+export { ADD_LAPTOP };
