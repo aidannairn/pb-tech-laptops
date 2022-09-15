@@ -15,7 +15,6 @@ const ADD_LAPTOP = gql`
       price: $price
       images: $images
     ) {
-      id
       name
       types
       quantity

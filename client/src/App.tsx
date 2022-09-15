@@ -2,6 +2,7 @@ import React from "react";
 import Test from "./components/Test";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AddLaptopForm from "./components/AddLaptopForm/AddLaptopForm";
 import "./App.css";
 
 const cache = new InMemoryCache({
@@ -30,6 +31,7 @@ const App: React.FC = () => {
       <Router>
         <Routes>
           <Route path="/graphql" element={<Test />} />
+          <Route path="/add-laptop" element={<AddLaptopForm />} />
         </Routes>
       </Router>
     </ApolloProvider>
