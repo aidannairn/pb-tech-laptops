@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 const ADD_LAPTOP = gql`
   mutation AddLaptop(
@@ -22,6 +22,6 @@ const ADD_LAPTOP = gql`
       images
     }
   }
-`
+`;
 
-export { ADD_LAPTOP }
+export { ADD_LAPTOP };
