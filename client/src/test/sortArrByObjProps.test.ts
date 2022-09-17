@@ -18,7 +18,7 @@ const people: Person[] = [
     age: 2
   },
   {
-    firstName: "Dil",
+    firstName: "dil",
     lastName: "PICKLES",
     age: 0
   },
@@ -68,7 +68,7 @@ describe('Sort array by object props', () => {
         age: 1
       },
       {
-        firstName: "Dil",
+        firstName: "dil",
         lastName: "PICKLES",
         age: 0
       }
@@ -97,7 +97,7 @@ describe('Sort array by object props', () => {
         age: 2
       },
       {
-        firstName: "Dil",
+        firstName: "dil",
         lastName: "PICKLES",
         age: 0
       },
@@ -118,44 +118,42 @@ describe('Sort array by object props', () => {
     expect(result).toEqual(expected)
   })
 
-  describe('Sort array by object props', () => {
-    it('Arrange people by descending last name, then ascending first name.', () => {
-      const expected = [
-        {
-          firstName: "Angelica",
-          lastName: "PICKLES",
-          age: 3
-        },
-        {
-          firstName: "Dil",
-          lastName: "PICKLES",
-          age: 0
-        },
-        {
-          firstName: "Tommy",
-          lastName: "PICKLES",
-          age: 1
-        },
-        {
-          firstName: "Chuckie",
-          lastName: "FINSTER",
-          age: 2
-        },
-        {
-          firstName: "Lil",
-          lastName: "DEVILLE",
-          age: 2
-        },
-        {
-          firstName: "Phil",
-          lastName: "DEVILLE",
-          age: 2
-        }
-      ]
-  
-      const result: Person[] = sortArrByObjProps([...people], '-lastName', 'firstName')
-  
-      expect(result).toEqual(expected)
-    })
+  it('Arrange people by descending last name, then ascending first name.', () => {
+    const expected = [
+      {
+        firstName: "Angelica",
+        lastName: "PICKLES",
+        age: 3
+      },
+      {
+        firstName: "dil",
+        lastName: "PICKLES",
+        age: 0
+      },
+      {
+        firstName: "Tommy",
+        lastName: "PICKLES",
+        age: 1
+      },
+      {
+        firstName: "Chuckie",
+        lastName: "FINSTER",
+        age: 2
+      },
+      {
+        firstName: "Lil",
+        lastName: "DEVILLE",
+        age: 2
+      },
+      {
+        firstName: "Phil",
+        lastName: "DEVILLE",
+        age: 2
+      }
+    ]
+
+    const result: Person[] = sortArrByObjProps([...people], '-lastName', 'firstName')
+
+    expect(result).toEqual(expected)
   })
 })

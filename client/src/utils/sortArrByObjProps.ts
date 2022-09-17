@@ -12,27 +12,37 @@ const byPropertiesOf = <T extends object> (sortBy: Array<sortArg<T>>) => {
   const compareByProperty = (arg: sortArg<T>) => {
     let key: keyof T
     let sortOrder = 1
+
     if (typeof arg === 'string' && arg.startsWith('-')) {
       sortOrder = -1
       key = arg.substring(1) as keyof T
     } else {
       key = arg as keyof T
     }
-    return function (a: T, b: T) {
-      const result = a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0
+
+    return (a: T, b: T) => {
+      const genericToLowerCase = (generic: any) => 
+        typeof generic === 'string' ? generic.toLowerCase() : generic
+
+      const currentValue = genericToLowerCase(a[key])
+      const comparandValue = genericToLowerCase(b[key])
+
+      const result = currentValue < comparandValue ? -1 : currentValue > comparandValue ? 1 : 0
 
       return result * sortOrder
     }
   }
-
+  
   return (obj1: T, obj2: T) => {
     let i = 0
     let result = 0
     const numberOfProperties = sortBy?.length
+
     while (!result && i < numberOfProperties) {
       result = compareByProperty(sortBy[i])(obj1, obj2)
       i++
     }
+
     return result
   }
 }
