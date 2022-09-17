@@ -11,7 +11,7 @@ interface Laptop {
 }
 
 interface Laptops {
-  laptopData: Laptop[]
+  laptops: Laptop[]
 }
 
 const Test: React.FC = () => {
@@ -24,7 +24,15 @@ const Test: React.FC = () => {
   
   return (
     <div>
-      Test
+      {data.laptops.map((data: any) => (
+        <div>
+          <h2>
+            <img src={data.images} alt='laptop img'></img>
+            Name: {data.name} <br></br>
+            Stock available: {data.quantity}
+          </h2>
+        </div>
+      ))}
     </div>
   )
 }

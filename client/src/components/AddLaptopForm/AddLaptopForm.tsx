@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { ADD_LAPTOP } from '../../mutations/laptopMutations'
 
-import './add-laptop-form.scss'
+import './add-laptop-form.css'
 
 interface FormElements {
   name?: string
