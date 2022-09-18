@@ -5,7 +5,7 @@ const GET_LAPTOPS = gql`
     laptops {
       id
       name
-      type
+      types
       quantity
       price
       images

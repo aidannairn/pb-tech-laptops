@@ -15,7 +15,7 @@ const LaptopType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    type: { type: GraphQLString },
+    types: { type: new GraphQLList(GraphQLString) },
     quantity: { type: GraphQLInt },
     price: { type: GraphQLInt},
     images: { type: new GraphQLList(GraphQLString) }
@@ -48,7 +48,7 @@ const mutation = new GraphQLObjectType({
       type: LaptopType,
       args: {
         name: { type: GraphQLNonNull(GraphQLString) },
-        type: { type: GraphQLNonNull(GraphQLString) },
+        types: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
         quantity: { type: GraphQLNonNull(GraphQLInt) },
         price: { type: GraphQLNonNull(GraphQLInt) },
         images: { type: GraphQLNonNull(GraphQLList(GraphQLString)) }
@@ -56,7 +56,7 @@ const mutation = new GraphQLObjectType({
       resolve(parent, args) {
         const laptop = new Laptop({
           name: args.name,
-          type: args.type,
+          types: args.types,
           quantity: args.quantity,
           price: args.price,
           images: args.images
@@ -78,7 +78,7 @@ const mutation = new GraphQLObjectType({
       args: {
         id: { type: GraphQLNonNull(GraphQLID) },
         name: { type: GraphQLString },
-        type: { type: GraphQLString },
+        types: { type: GraphQLList(GraphQLString) },
         quantity: { type: GraphQLInt },
         price: { type: GraphQLInt },
         images: { type: GraphQLList(GraphQLString) },
@@ -89,7 +89,7 @@ const mutation = new GraphQLObjectType({
           {
             $set: {
               name: args.name,
-              type: args.type,
+              types: args.types,
               quantity: args.quantity,
               price: args.price,
               images: args.images,
@@ -106,25 +106,3 @@ module.exports = new GraphQLSchema({
   query: RootQuery,
   mutation
 })
-
-/* # UPDATE LAPTOP
-mutation {
-  updateLaptop(
-    id: "6320d23932e0ab7e3b651350",
-    name: "Test Name",
-    type: "Test Type",
-    quantity: 69,
-    price: 420,
-    images: [
-      "https://www.pbtech.co.nz/imgprod/N/B/NBKHNB141003__2.jpg?h=12519866",
-      "https://www.pbtech.co.nz/imgprod/N/B/NBKHNB141003__1.jpg?h=2008561964"
-    ]
-  ) {
-    id
-    name
-    type
-    quantity
-    price
-    images
-  }
-} */
