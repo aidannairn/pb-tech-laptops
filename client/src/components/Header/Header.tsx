@@ -56,6 +56,20 @@ const Header: React.FC = () => {
 
           </div>
         </div>
+        <div className={styles.navbar}>
+          <div className={styles.dept}>Departments</div>
+          <div className={styles.nav}>
+            <ul>
+              <li><a href='brands'>Brands</a></li>
+              <li><a href='services'>Services</a></li>
+              <li><a href='promotions'>Promotions</a></li>
+              <li><a href='clearance'>Clearance</a></li>
+              <li><a href='new-arrivals'>New Arrivals</a></li>
+              <li><a href='tax-free'>Tax Free Shoppping</a></li>
+              <li><a href='byod'>BYOD</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       {/* <div className={styles.inputs}>
         <input type="search"></input>

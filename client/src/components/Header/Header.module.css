@@ -29,7 +29,7 @@
 }
 .headerContainer .headerBlueWrapper .headerBlue {
   width: 80%;
-  height: 8em;
+  height: 6em;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -73,6 +73,28 @@
 .headerContainer .headerBlueWrapper .headerBlue .buttons i {
   font-size: 2em;
   color: #279ACB;
+}
+.headerContainer .headerBlueWrapper .navbar {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+}
+.headerContainer .headerBlueWrapper .navbar .dept {
+  padding-left: 1em;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.headerContainer .headerBlueWrapper .navbar .nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 3em;
+  padding-left: 7em;
+}
+.headerContainer .headerBlueWrapper .navbar .nav ul a {
+  text-decoration: none;
+  color: white;
 }
 
 /*# sourceMappingURL=Header.module.css.map */
