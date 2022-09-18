@@ -1,10 +1,14 @@
-import React from 'react'
-import Header from '../components/Header/Header'
+import React from "react";
+import Banner from "../components/Banner/Banner";
+import Header from "../components/Header/Header";
 
 const LandingPage: React.FC = () => {
   return (
-    <Header></Header>
-  )
-}
+    <>
+      <Header></Header>
+      <Banner></Banner>
+    </>
+  );
+};
 
-export default LandingPage
+export default LandingPage;
