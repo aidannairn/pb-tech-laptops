@@ -18,7 +18,7 @@ $border: 1px solid red
             margin: 0 auto
             display: flex
             // border: $border
-            justify-content: center
+            justify-content: space-around
             gap: 6em
             align-items: center
 
@@ -35,8 +35,53 @@ $border: 1px solid red
     
     .headerBlueWrapper
         width: 100%
-        border: $border
         background-color: $primary-color
-        height: 8em
 
-        
+        .headerBlue
+            width: 80%
+            // border: $border
+            height: 8em
+            margin: 0 auto
+            display: flex
+            align-items: center
+
+            .search
+                padding-left: 2em
+                display: flex
+                align-items: center
+
+                input[type=text]
+                    height: 2em
+                    font-size:1em
+                    width: 32em
+                    border: none
+                    padding-left: 1em
+                
+                select
+                    height: 2.1em
+                    font-size: 1em
+                    border: none
+                    padding-left: 1em
+                    
+
+                button
+                    height: 2.1em
+                    width: 4em
+                    font-size: 1em
+                    color: white
+                    background-color: $pb-orange
+                    border: none
+                    border-top-right-radius: 5px
+                    border-bottom-right-radius: 5px
+
+            .buttons
+                display: flex
+                gap: 2em
+                padding: 5em
+                font-size: 0.8em
+                color: white
+                line-height: 2em
+
+                i
+                    font-size: 2em
+                    color: #279ACB

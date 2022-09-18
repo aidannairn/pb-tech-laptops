@@ -10,7 +10,7 @@
   width: 80%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 6em;
   align-items: center;
 }
@@ -25,9 +25,54 @@
 }
 .headerContainer .headerBlueWrapper {
   width: 100%;
-  border: 1px solid red;
   background-color: #175078;
+}
+.headerContainer .headerBlueWrapper .headerBlue {
+  width: 80%;
   height: 8em;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.headerContainer .headerBlueWrapper .headerBlue .search {
+  padding-left: 2em;
+  display: flex;
+  align-items: center;
+}
+.headerContainer .headerBlueWrapper .headerBlue .search input[type=text] {
+  height: 2em;
+  font-size: 1em;
+  width: 32em;
+  border: none;
+  padding-left: 1em;
+}
+.headerContainer .headerBlueWrapper .headerBlue .search select {
+  height: 2.1em;
+  font-size: 1em;
+  border: none;
+  padding-left: 1em;
+}
+.headerContainer .headerBlueWrapper .headerBlue .search button {
+  height: 2.1em;
+  width: 4em;
+  font-size: 1em;
+  color: white;
+  background-color: #F08222;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.headerContainer .headerBlueWrapper .headerBlue .buttons {
+  display: flex;
+  gap: 2em;
+  padding: 5em;
+  font-size: 0.8em;
+  color: white;
+  line-height: 2em;
+}
+.headerContainer .headerBlueWrapper .headerBlue .buttons i {
+  font-size: 2em;
+  color: #279ACB;
 }
 
 /*# sourceMappingURL=Header.module.css.map */
