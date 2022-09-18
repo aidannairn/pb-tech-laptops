@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors')
-require('dotenv').config()
 const { graphqlHTTP } = require('express-graphql');
 const connectDB = require('./config/mongoConnection.js');
 const schema = require('./schema/laptopSchema')
