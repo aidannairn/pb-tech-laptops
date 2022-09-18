@@ -5,7 +5,11 @@ const LaptopSchema = new mongoose.Schema({
   types: [{ type: String }],
   quantity: { type: Number },
   price: { type: Number },
-  images: [{ type: String }]
+  images: [{ type: String }],
+  bundleIDs: [{ 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'LaptopBundle'
+  }]
 })
 
 module.exports = mongoose.model('Laptop', LaptopSchema)

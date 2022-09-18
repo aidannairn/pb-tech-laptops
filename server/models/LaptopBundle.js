@@ -9,10 +9,6 @@ const LaptopBundleSchema = new mongoose.Schema({
       'Software'
     ]
   },
-  laptopIDs: [{ 
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Laptop'
-  }],
   LaptopExtraIDs: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'LaptopExtra'
