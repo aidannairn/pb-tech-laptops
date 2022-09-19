@@ -6,7 +6,8 @@ const {
   GraphQLString,
   GraphQLList,
   GraphQLNonNull,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLBoolean
 } = require('graphql')
 
 const laptopMutations = {
@@ -18,6 +19,13 @@ const laptopMutations = {
       quantity: { type: GraphQLNonNull(GraphQLInt) },
       price: { type: GraphQLNonNull(GraphQLInt) },
       images: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
+      isTrending: { type: GraphQLBoolean },
+      isOnSpecial: { type: GraphQLBoolean },
+      amountSold: { type: GraphQLNonNull(GraphQLInt) },
+      userRatings: { type: GraphQLList(GraphQLInt)},
+      ram: { type: GraphQLNonNull(GraphQLString) },
+      storage: { type: GraphQLNonNull(GraphQLString) },
+      sizeInInches: { type: GraphQLNonNull(GraphQLString) },
       bundleIDs: { type: GraphQLList(GraphQLID) }
     },
     resolve(parent, args) {
@@ -27,6 +35,13 @@ const laptopMutations = {
         quantity: args.quantity,
         price: args.price,
         images: args.images,
+        isTrending: args.isTrending,
+        isOnSpecial: args.isOnSpecial,
+        amountSold: args.amountSold,
+        userRatings: args.userRatings,
+        ram: args.ram,
+        storage: args.storage,
+        sizeInInches: args.sizeInInches,
         bundleIDs: args.bundleIDs
       })
       return laptop.save()
@@ -50,6 +65,13 @@ const laptopMutations = {
       quantity: { type: GraphQLInt },
       price: { type: GraphQLInt },
       images: { type: GraphQLList(GraphQLString) },
+      isTrending: { type: GraphQLBoolean },
+      isOnSpecial: { type: GraphQLBoolean },
+      amountSold: { type: GraphQLInt },
+      userRatings: { type: GraphQLList(GraphQLInt)},
+      ram: { type: GraphQLString },
+      storage: { type: GraphQLString },
+      sizeInInches: { type: GraphQLString },
       bundleIDs: { type: GraphQLList(GraphQLID) }
     },
     resolve(parent, args) {
@@ -62,6 +84,13 @@ const laptopMutations = {
             quantity: args.quantity,
             price: args.price,
             images: args.images,
+            isTrending: args.isTrending,
+            isOnSpecial: args.isOnSpecial,
+            amountSold: args.amountSold,
+            userRatings: args.userRatings,
+            ram: args.ram,
+            storage: args.storage,
+            sizeInInches: args.sizeInInches,
             bundleIDs: args.bundleIDs
           }
         },

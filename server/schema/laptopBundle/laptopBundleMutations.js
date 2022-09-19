@@ -49,7 +49,7 @@ const laptopBundleMutations = {
     type: LaptopBundleType,
     args: {
       id: { type: GraphQLNonNull(GraphQLID) },
-      name: { type: GraphQLNonNull(GraphQLString) },
+      name: { type: GraphQLString },
       type: {
         type: new GraphQLEnumType({
           name: 'ExtraTypeUpdate',
