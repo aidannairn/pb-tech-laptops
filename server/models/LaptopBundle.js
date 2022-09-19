@@ -10,10 +10,10 @@ const LaptopBundleSchema = new mongoose.Schema({
       'Software'
     ]
   },
-  laptopExtraID: {
+  laptopExtraIDs: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'LaptopExtra'
-  }
+  }]
 })
 
 module.exports = mongoose.model('LaptopBundle', LaptopBundleSchema)

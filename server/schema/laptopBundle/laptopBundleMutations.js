@@ -25,13 +25,13 @@ const laptopBundleMutations = {
         }),
         defaultValue: 'Popular Accessories'
       },
-      laptopExtraID: { type: GraphQLID }
+      laptopExtraIDs: { type: GraphQLList(GraphQLID) }
     },
     resolve(parent, args) {
       const laptopBundle = new LaptopBundle({
         name: args.name,
         type: args.type,
-        laptopExtraID: args.laptopExtraID
+        laptopExtraIDs: args.laptopExtraIDs
       })
       return laptopBundle.save()
     }
@@ -60,7 +60,7 @@ const laptopBundleMutations = {
           }
         })
       },
-      laptopExtraID: { type: GraphQLID }
+      laptopExtraIDs: { type: GraphQLList(GraphQLID) }
     },
     resolve(parent, args) {
       return LaptopBundle.findByIdAndUpdate(
@@ -69,7 +69,7 @@ const laptopBundleMutations = {
           $set: {
             name: args.name,
             type: args.type,
-            laptopExtraID: args.laptopExtraID
+            laptopExtraIDs: args.laptopExtraIDs
           }
         },
         { new: true }

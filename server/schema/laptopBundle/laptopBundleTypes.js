@@ -14,27 +14,15 @@ const LaptopBundleType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     type: { type: GraphQLString },
-    laptopExtra: {
-      type: LaptopExtraType,
+    laptopExtras: { 
+      type: new GraphQLList(LaptopExtraType),
       resolve(parent, args) {
-        return LaptopExtra.findById(parent.laptopExtraID)
+        return LaptopExtra.find({
+          '_id': { $in: [...parent.laptopExtraIDs]}
+        })
       }
     }
   })
-    
-    
-    
-    /* {
-      type: new GraphQLList({
-        type: LaptopExtraType,
-        resolve(parent, args) {
-          console.log('Hit', parent)
-          parent.laptopExtraIDs.map(id => {
-            return LaptopExtra.findById(id)
-          })
-        }
-      })
-    } */
 })
 
 module.exports = { LaptopBundleType }
