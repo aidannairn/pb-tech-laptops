@@ -1,7 +1,7 @@
 const laptopData = [
   {
     price: "$1944",
-    laptopName: "Microsoft Surface Laptop",
+    laptopName: "Microsoft Surface Laptop 4",
     subName:
       '13.5" Intel Core 11th Gen. i5 / 8GB / 256GB /Win10 Pro - Metal Black ',
     description:
@@ -10,15 +10,15 @@ const laptopData = [
     subNameTwo: "Reduce IT complexity",
     subNameThree: "Built-in security",
     mainImage:
-      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw9ae6a8b6/images/hi-res/26/0C/N204017_0.jpg?sw=765&sh=765",
+      "https://www.pbtech.co.nz/imgprod/N/B/NBKMST403525621__1.jpg?h=1325724447",
     subImageOne:
-      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw4084e3d2/images/hi-res/26/0C/N204017_4.jpg?sw=765&sh=765",
+      "https://www.pbtech.co.nz/imgprod/N/B/NBKMST403525621__3.jpg?h=189935495",
     subImageTwo:
-      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw0ffc2458/images/hi-res/26/0C/N204017_3.jpg?sw=765&sh=765",
+      "https://www.pbtech.co.nz/imgprod/N/B/NBKMST403525621__4.jpg?h=2085953297",
     subImageThree:
-      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dwdf5ddc54/images/hi-res/26/0C/N204017_5.jpg?sw=765&sh=765",
+      "https://www.pbtech.co.nz/imgprod/N/B/NBKMST403525621__5.jpg?h=3794897586",
     subImageFour:
-      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw753ef7b9/images/hi-res/26/0C/N204017_2.jpg?sw=765&sh=765",
+      "https://www.pbtech.co.nz/imgprod/N/B/NBKMST403525621__2.jpg?h=2455469629",
   },
 ];
 

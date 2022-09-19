@@ -1,10 +1,11 @@
-import LandingPage from "./pages/LandingPage";
+// import LandingPage from "./pages/LandingPage";
 import React from "react";
 import Test from "./components/Test";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddLaptopForm from "./components/AddLaptopForm/AddLaptopForm";
 import { ProductPage } from "./pages/ProductPage";
+import Header from "./components/Header/Header";
 import "./App.css";
 
 const cache = new InMemoryCache({
@@ -30,10 +31,9 @@ const App: React.FC = () => {
   return (
     <>
       <div className="App">
-        <LandingPage></LandingPage>
+        <Header />
       </div>
       <ApolloProvider client={client}>
-        <h1>Hello World</h1>
         <Router>
           <Routes>
             <Route path="/graphql" element={<Test />} />

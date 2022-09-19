@@ -32,8 +32,10 @@ export const ProductHeader: React.FC = () => {
             return (
               <div className="PH-information" key={i}>
                 <div className="PH-title-container">
-                  <h1 className="PH-product-title">{item.laptopName}</h1>
-                  <h4 className="PH-product-desc">{item.subName}</h4>
+                  <h1 className="PH-product-title">
+                    {item.laptopName} for Business
+                  </h1>
+                  <h3 className="PH-product-desc">{item.subName}</h3>
                 </div>
                 <div className="PH-information-container">
                   <p className="PH-item-desc">{item.description}</p>
@@ -71,12 +73,12 @@ export const ProductHeader: React.FC = () => {
               </div>
             );
           })}
-        </div>
-        <div className="PH-buttons">
-          <button className="PH-add-to-cart">Add to Cart</button>
-          <button className="minus-btn">-</button>
-          <span>0</span>
-          <button className="plus-btn">+</button>
+          <div className="PH-buttons">
+            <button className="PH-add-to-cart">Add to Cart</button>
+            <button className="minus-btn">-</button>
+            <span>0</span>
+            <button className="plus-btn">+</button>
+          </div>
         </div>
       </div>
     </div>

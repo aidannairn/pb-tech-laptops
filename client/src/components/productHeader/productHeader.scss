@@ -1,10 +1,57 @@
+body {
+  font-family: Roboto;
+}
+
+$color-blue: #329acb;
+$color-grey: #696969;
+$color-black: #000000;
+$color-orange: #f08222;
+
 .PH-main-content {
   display: flex;
 }
 
+.PH-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin-left: 10%;
+}
+
+.PH-large-laptop-img {
+  img {
+    width: 579px;
+    height: auto;
+  }
+}
+
 .PH-small-laptop-img {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-top: -10%;
   img {
     width: 70px;
     height: auto;
   }
+}
+
+.PH-right-container {
+  margin-right: 10%;
+  margin-top: 3%;
+  width: 40%;
+}
+
+.PH-product-title {
+  color: $color-blue;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.PH-product-desc {
+  color: $color-grey;
+  font-weight: 400;
+  font-size: 24px;
 }
