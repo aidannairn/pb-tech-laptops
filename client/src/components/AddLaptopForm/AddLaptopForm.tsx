@@ -30,8 +30,9 @@ const AddLaptopForm: React.FC = () => {
   const [image, setImage] = useState<string>('')
   const [images, setImages] = useState<string[]>([])
   const [bundleIDs, setBundleIDs] = useState([
-    "6327af8a1d62412a3455252b",
-    "6327d7b7202ea5ccbe48affd"
+    "6328f932d5b1d9cb47f385c9",
+    "6328fe32d5b1d9cb47f385e3",
+    "6328fbf5d5b1d9cb47f385d6"
   ])
 
   const createUserRatings = async () => {
