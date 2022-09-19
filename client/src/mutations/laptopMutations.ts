@@ -6,20 +6,44 @@ const ADD_LAPTOP = gql`
     $types: [String!]!
     $quantity: Int!
     $price: Int!
+    $ram: String!
+    $storage: String!
+    $sizeInInches: String!
+    $isTrending: Boolean
+    $isOnSpecial: Boolean
+    $amountSold: Int!
+    $userRatings: [Int!]!
     $images: [String!]!
+    $bundleIDs: [String]
   ) {
     addLaptop(
       name: $name
       types: $types
       quantity: $quantity
       price: $price
+      ram: $ram
+      storage: $storage
+      sizeInInches: $sizeInInches
+      isTrending: $isTrending
+      isOnSpecial: $isOnSpecial
+      amountSold: $amountSold
+      userRatings: $userRatings
       images: $images
+      bundleIDs: $bundleIDs
     ) {
       name
       types
       quantity
       price
+      ram
+      storage
+      sizeInInches
+      isTrending
+      isOnSpecial
+      amountSold
+      userRatings
       images
+      bundles
     }
   }
 `

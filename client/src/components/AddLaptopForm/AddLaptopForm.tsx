@@ -17,17 +17,27 @@ const AddLaptopForm: React.FC = () => {
   const [name, setName] = useState<string>('')
   const [type, setType] = useState<string>('')
   const [types, setTypes] = useState<string[]>([])
-  const [quantity, setQuantity] = useState<number | string>('')
+  const [quantity, setQuantity] = useState<number | string>(100)
   const [price, setPrice] = useState<number | string>('')
-  const [ram, setRam] = useState('8')
-  const [storage, setStorage] = useState('256')
-  const [sizeInInches, setSizeInInches] = useState('13')
-  const [isTrending, setIsTrending] = useState(false)
-  const [isOnSpecial, setIsOnSpecial] = useState(false)
-  const [amountSold, setAmountSold] = useState(0)
-  const [userRating, setUserRating] = useState(1)
+  const [ram, setRam] = useState<string>('8')
+  const [storage, setStorage] = useState<string>('256')
+  const [sizeInInches, setSizeInInches] = useState<string>('13')
+  const [isTrending, setIsTrending] = useState<boolean>(false)
+  const [isOnSpecial, setIsOnSpecial] = useState<boolean>(false)
+  const [amountSold, setAmountSold] = useState<number>(10)
+  const [userRating, setUserRating] = useState<number>(3)
+  const [userRatings, setUserRatings] = useState<number[]>([1])
   const [image, setImage] = useState<string>('')
   const [images, setImages] = useState<string[]>([])
+
+  const createUserRatings = async () => {
+    const totalRatings = Math.floor(Math.random() * 20) + 1
+    const ratings = []
+    for (let rating = 1; rating < totalRatings; rating++) {
+      ratings.push(userRating)
+    }
+    setUserRatings(ratings)
+  }
 
   const [addLaptop] = useMutation<{addLaptop: FormElements}>(ADD_LAPTOP, {
     variables: {
@@ -35,20 +45,40 @@ const AddLaptopForm: React.FC = () => {
       types,
       quantity,
       price,
+      ram,
+      storage,
+      sizeInInches,
+      isTrending,
+      isOnSpecial,
+      amountSold,
+      userRatings,
       images
     }
   })
 
-  const handleFormSubmit = (e: React.ChangeEvent<FormElements>) => {
-    e.preventDefault()
-
-    addLaptop()
-
+  const resetInputs = () => {
     setName('')
     setTypes([])
-    setQuantity('')
+    setQuantity(100)
     setPrice('')
+    setRam('8')
+    setStorage('256')
+    setSizeInInches('13')
+    setIsTrending(false)
+    setIsOnSpecial(false)
+    setAmountSold(10)
+    setUserRating(3)
     setImages([])
+  }
+
+  const handleFormSubmit = async (e: React.ChangeEvent<FormElements>) => {
+    e.preventDefault()
+
+    await createUserRatings()
+    
+    addLaptop()
+
+    resetInputs()
   }
 
   const handleAddTypeClick = () => {
@@ -72,39 +102,39 @@ const AddLaptopForm: React.FC = () => {
           </div>
           <div>
             <label className='form-label'>Quantity</label>
-            <input type="number" className="form-control" id="quantity" value={quantity} onChange={ e => setQuantity(+e.target.value)} />
+            <input type="number" className="form-control" min="0" id="quantity" value={quantity} onChange={ e => setQuantity(+e.target.value)} />
           </div>
           <div>
             <label className='form-label'>Price</label>
-            <input type="number" className="form-control" id="price" value={price} onChange={ e => setPrice(+e.target.value)} />
+            <input type="number" className="form-control" min="0" id="price" value={price} onChange={ e => setPrice(+e.target.value)} />
           </div>
           <div>
             <label className='form-label'>Amount Sold</label>
-            <input type="number" className="form-control" id="amountSold" value={amountSold} onChange={ e => setAmountSold(+e.target.value)} />
+            <input type="number" className="form-control" min="0" id="amountSold" value={amountSold} onChange={ e => setAmountSold(+e.target.value)} />
           </div>
           <div>
-            <label className='form-label'>Ram</label>
-            <input type="number" className="form-control" id="ram" value={ram} onChange={ e => setRam(e.target.value)} />
+            <label className='form-label'>Ram <i>(GB)</i></label>
+            <input type="number" className="form-control" min="0" id="ram" value={ram} onChange={ e => setRam(e.target.value)} />
           </div>
           <div>
-            <label className='form-label'>Storage</label>
-            <input type="number" className="form-control" id="storage" value={storage} onChange={ e => setStorage(e.target.value)} />
+            <label className='form-label'>Storage <i>(GB)</i></label>
+            <input type="number" className="form-control" min="0" id="storage" value={storage} onChange={ e => setStorage(e.target.value)} />
           </div>
           <div>
-            <label className='form-label'>Screen Size In Inches</label>
-            <input type="number" className="form-control" id="sizeInInches" value={sizeInInches} onChange={ e => setSizeInInches(e.target.value)} />
+            <label className='form-label'>Screen Size <i>(in inches)</i></label>
+            <input type="number" className="form-control" min="0" id="sizeInInches" value={sizeInInches} onChange={ e => setSizeInInches(e.target.value)} />
           </div>
           <div>
-            <label className='form-label'>Is This Product Trending</label>
-            <ToggleSwitch checked={isTrending} action={setIsTrending} />
+            <label className='form-label'>Is This Product Trending?</label>
+            <ToggleSwitch id="toggleIsTrending" checked={isTrending} action={setIsTrending} />
           </div>
           <div>
-            <label className='form-label'>Is This Product On Special</label>
-            <ToggleSwitch checked={isOnSpecial} action={setIsOnSpecial} />
+            <label className='form-label'>Is This Product On Special?</label>
+            <ToggleSwitch id="toggleOnSpecial" checked={isOnSpecial} action={setIsOnSpecial} />
           </div>
           <div>
-            <label className='form-label'>Rating</label>
-            <input type="number" className="form-control" id="userRating" value={userRating} onChange={ e => setUserRating(+e.target.value)} />
+            <label className='form-label'>Rating <i>(between 1 and 5)</i></label>
+            <input type="number" className="form-control" id="userRating" value={userRating} onChange={ e => setUserRating(+e.target.value)} min="1" max="5" />
           </div>
           <div>
             <label className='form-label'>Types</label>
