@@ -11,6 +11,9 @@ const LaptopSchema = new mongoose.Schema({
   isOnSpecial: { type: Boolean },
   amountSold: { type: Number },
   userRatings: [{ type: Number }],
+  ram: { type: String },
+  storage: { type: String },
+  sizeInInches: { type: String },
   bundleIDs: [{ 
     type: mongoose.Schema.Types.ObjectId,
     ref: 'LaptopBundle'
