@@ -1,0 +1,53 @@
+@import '../Header/Header'
+
+.shopByContainer
+    width: 80%
+    margin: 0 auto
+    // border: $border
+
+    .texts
+        // border: $border
+
+        h1
+            font-size: 3em
+            margin-bottom: 0
+
+        ul
+            list-style: none
+            display: flex
+            justify-content: center
+            padding: 0
+            // border: $border
+
+            li a
+                color: $primary-color
+                text-decoration: none
+                padding-left: 1em
+            
+            li:nth-of-type(2)::before
+                content:'>'
+                margin-left: 1em
+
+            li:nth-of-type(3)::before
+                content:'>'
+                margin-left: 1em
+    
+    .shopBySection
+        padding-top: 2em
+        width: 100%
+        margin: 0 auto
+
+        h4
+            text-align: left
+            color: $primary-color
+            padding-left: 1em
+
+        .imageContainer
+            display: flex
+            gap: 1em
+            justify-content: space-around
+
+        h3
+            text-align: right
+            color: $primary-color
+            padding-right: 1em
