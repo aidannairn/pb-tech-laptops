@@ -1,38 +1,51 @@
+import { useEffect, useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_LAPTOPS } from '../queries/laptopQueries'
+import { sortArrByObjProps } from '../utils/sortArrByObjProps'
 
 interface Laptop {
+  __typename: string
   id: string
   name: string
-  types: string
+  types: string[]
   quantity: number
-  price: Number
+  price: number
   images: string[]
 }
 
-interface Laptops {
+interface Data {
   laptops: Laptop[]
 }
 
 const Test: React.FC = () => {
-  const { loading, error, data } = useQuery<Laptops>(GET_LAPTOPS)
+  const [laptopsArray, setLaptopsArray] = useState<Laptop[] | null>(null)
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error</p>
+  const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
+  
+  if (loading) <p>Loading...</p>
+  if (error) <p>Error</p>
 
-  console.log(data)
+  useEffect(() => {
+    if (data && data.laptops) {
+      // Sort by ascending name, then descending price.
+      console.log('Unsorted:', data.laptops)
+      const laptops: Laptop[] = sortArrByObjProps([...data.laptops], 'name', '-price')
+      console.log('Sorted:', laptops)
+      setLaptopsArray(laptops)
+    }
+  }, [data])
   
   return (
     <div>
-      {data.laptops.map((data: any) => (
-        <div>
-          <h2>
-            <img src={data.images} alt='laptop img'></img>
-            Name: {data.name} <br></br>
-            Stock available: {data.quantity}
-          </h2>
-        </div>
-      ))}
+      {
+        laptopsArray && laptopsArray.map((laptop, i) => (
+          <div key={i}>
+            <h2>{laptop.name}</h2>
+            <p>Price: {laptop.price}</p>
+            <p>quantity: {laptop.quantity}</p>
+          </div>
+        ))
+      }
     </div>
   )
 }
