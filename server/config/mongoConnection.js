@@ -1,10 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-const connectDB = () => {
-  mongoose
-    .connect("mongodb://mongodb:27017/mongodb", { useNewUrlParser: true })
-    .then(() => console.log("mongoDB Connected"))
-    .catch((err) => console.log(err));
-};
+const connectDB = async () => {
+  const conn = await mongoose.connect('mongodb://mongodb:27017/mongodb')
 
-module.exports = connectDB;
+  console.log(`MongoDB Connected: ${conn.connection.host}`)
+}
+
+module.exports = connectDB

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const LaptopBundleSchema = new mongoose.Schema({
+  name: { type: String },
   type: {
     type: String,
     enum: [
@@ -9,10 +10,10 @@ const LaptopBundleSchema = new mongoose.Schema({
       'Software'
     ]
   },
-  LaptopExtraIDs: [{
+  laptopExtraID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'LaptopExtra'
-  }]
+  }
 })
 
 module.exports = mongoose.model('LaptopBundle', LaptopBundleSchema)
