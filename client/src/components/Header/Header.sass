@@ -1,0 +1,110 @@
+$primary-color: #175078
+$secondary-color: #F08222
+$pb-darkblue: #031724
+$pb-grey: #757575
+$pb-orange: #F08222
+$border: 1px solid red
+    
+.headerContainer
+    width: 100%
+
+    .headerBlackWrapper
+        width: 100%
+        background-color: $pb-darkblue
+
+        .headerBlack
+            height: 2em
+            width: 80%
+            margin: 0 auto
+            display: flex
+            // border: $border
+            justify-content: space-around
+            gap: 6em
+            align-items: center
+
+            div
+                color: white
+
+        .inputs
+            
+            input
+                font-size: 2em
+            
+            button
+                font-size: 2em
+    
+    .headerBlueWrapper
+        width: 100%
+        background-color: $primary-color
+
+        .headerBlue
+            width: 80%
+            // border: $border
+            height: 6em
+            margin: 0 auto
+            display: flex
+            align-items: center
+
+            .search
+                padding-left: 2em
+                display: flex
+                align-items: center
+
+                input[type=text]
+                    height: 2em
+                    font-size:1em
+                    width: 32em
+                    border: none
+                    padding-left: 1em
+                
+                select
+                    height: 2.1em
+                    font-size: 1em
+                    border: none
+                    padding-left: 1em
+                    
+
+                button
+                    height: 2.1em
+                    width: 4em
+                    font-size: 1em
+                    color: white
+                    background-color: $pb-orange
+                    border: none
+                    border-top-right-radius: 5px
+                    border-bottom-right-radius: 5px
+
+            .buttons
+                display: flex
+                gap: 2em
+                padding: 5em
+                font-size: 0.8em
+                color: white
+                line-height: 2em
+
+                i
+                    font-size: 2em
+                    color: #279ACB
+        
+        .navbar
+            display: flex
+            width: 80%
+            margin: 0 auto
+            align-items: center
+
+            .dept
+                padding-left: 1em
+                color: white
+                font-weight: bold
+                font-size: 1.1em
+
+            .nav
+                ul
+                    list-style-type: none
+                    display: flex
+                    gap: 3em
+                    padding-left: 7em
+
+                    a
+                        text-decoration: none
+                        color: white
