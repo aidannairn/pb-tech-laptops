@@ -3,6 +3,7 @@ import Banner from "../components/Banner/Banner";
 import Header from "../components/Header/Header";
 import QuizBanner from "../components/QuizBanner/QuizBanner";
 import ShopBy from "../components/shopBy/ShopBy";
+import ShopByBrand from "../components/ShopByBrand/ShopByBrand";
 
 const LandingPage: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const LandingPage: React.FC = () => {
       <Banner></Banner>
       <ShopBy></ShopBy>
       <QuizBanner></QuizBanner>
+      <ShopByBrand></ShopByBrand>
     </>
   );
 };

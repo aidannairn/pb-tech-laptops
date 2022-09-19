@@ -28,13 +28,10 @@ const client = new ApolloClient({
 const App: React.FC = () => {
   return (
     <>
-      <div className="App">
-        <LandingPage></LandingPage>
-      </div>
       <ApolloProvider client={client}>
-        <h1>Hello World</h1>
         <Router>
           <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route path="/graphql" element={<Test />} />
             <Route path="/add-laptop" element={<AddLaptopForm />} />
           </Routes>
