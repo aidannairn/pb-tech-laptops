@@ -18,10 +18,12 @@ const LaptopType = new GraphQLObjectType({
     quantity: { type: GraphQLInt },
     price: { type: GraphQLInt},
     images: { type: new GraphQLList(GraphQLString) },
-    bundle: {
-      type: LaptopBundleType,
+    bundles: { 
+      type: new GraphQLList(LaptopBundleType),
       resolve(parent, args) {
-        return LaptopBundle.findById(parent.bundleID)
+        return LaptopBundle.find({
+          '_id': { $in: [...parent.bundleIDs]}
+        })
       }
     }
   })

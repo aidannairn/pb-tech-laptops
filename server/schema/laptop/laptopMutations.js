@@ -18,7 +18,7 @@ const laptopMutations = {
       quantity: { type: GraphQLNonNull(GraphQLInt) },
       price: { type: GraphQLNonNull(GraphQLInt) },
       images: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
-      bundleID: { type: GraphQLID }
+      bundleIDs: { type: GraphQLList(GraphQLID) }
     },
     resolve(parent, args) {
       const laptop = new Laptop({
@@ -27,7 +27,7 @@ const laptopMutations = {
         quantity: args.quantity,
         price: args.price,
         images: args.images,
-        bundleID: args.bundleID
+        bundleIDs: args.bundleIDs
       })
       return laptop.save()
     }
@@ -50,7 +50,7 @@ const laptopMutations = {
       quantity: { type: GraphQLInt },
       price: { type: GraphQLInt },
       images: { type: GraphQLList(GraphQLString) },
-      bundleID: { type: GraphQLID }
+      bundleIDs: { type: GraphQLList(GraphQLID) }
     },
     resolve(parent, args) {
       return Laptop.findByIdAndUpdate(
@@ -62,7 +62,7 @@ const laptopMutations = {
             quantity: args.quantity,
             price: args.price,
             images: args.images,
-            bundleID: args.bundleID
+            bundleIDs: args.bundleIDs
           }
         },
         { new: true }
