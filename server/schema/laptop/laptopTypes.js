@@ -6,7 +6,8 @@ const {
   GraphQLString,
   GraphQLList,
   GraphQLInt,
-  GraphQLObjectType
+  GraphQLObjectType,
+  GraphQLBoolean
 } = require('graphql')
 
 const LaptopType = new GraphQLObjectType({
@@ -18,6 +19,13 @@ const LaptopType = new GraphQLObjectType({
     quantity: { type: GraphQLInt },
     price: { type: GraphQLInt},
     images: { type: new GraphQLList(GraphQLString) },
+    isTrending: { type: GraphQLBoolean },
+    isOnSpecial: { type: GraphQLBoolean },
+    amountSold: { type: GraphQLInt },
+    userRatings: { type: new GraphQLList(GraphQLInt) },
+    ram: { type: GraphQLString },
+    storage: { type: GraphQLString },
+    sizeInInches: { type: GraphQLString },
     bundles: { 
       type: new GraphQLList(LaptopBundleType),
       resolve(parent, args) {
