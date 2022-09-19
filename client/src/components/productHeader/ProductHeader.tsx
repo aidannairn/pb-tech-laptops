@@ -194,7 +194,7 @@ export const ProductHeader: React.FC = () => {
             >
               -
             </button>
-            <span>{state.count}</span>
+            <span>{state.count > 0 ? state.count : (state.count = 0)}</span>
             <button
               className="plus-btn"
               onClick={() => dispatch({ type: INCREMENT })}

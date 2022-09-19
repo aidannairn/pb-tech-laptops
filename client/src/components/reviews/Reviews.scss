@@ -1,0 +1,29 @@
+body {
+  font-family: Roboto;
+}
+
+$color-blue: #329acb;
+$color-grey: #696969;
+$color-black: #000000;
+$color-orange: #f08222;
+$hr: #e1e1e1;
+$second-blue-color: #175078;
+
+.RV-main-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 7%;
+  .HR {
+    border: 1px solid $hr;
+  }
+}
+
+.RV-title-container {
+  h3 {
+    color: $second-blue-color;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+  }
+}
