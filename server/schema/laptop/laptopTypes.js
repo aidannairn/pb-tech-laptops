@@ -7,7 +7,8 @@ const {
   GraphQLList,
   GraphQLInt,
   GraphQLObjectType,
-  GraphQLBoolean
+  GraphQLBoolean,
+  GraphQLFloat
 } = require('graphql')
 
 const LaptopType = new GraphQLObjectType({
@@ -17,7 +18,7 @@ const LaptopType = new GraphQLObjectType({
     name: { type: GraphQLString },
     types: { type: new GraphQLList(GraphQLString) },
     quantity: { type: GraphQLInt },
-    price: { type: GraphQLInt},
+    price: { type: GraphQLFloat},
     images: { type: new GraphQLList(GraphQLString) },
     isTrending: { type: GraphQLBoolean },
     isOnSpecial: { type: GraphQLBoolean },

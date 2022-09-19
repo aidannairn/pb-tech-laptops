@@ -1,11 +1,10 @@
 const {
   GraphQLID,
   GraphQLString,
-  GraphQLSchema,
   GraphQLList,
-  GraphQLNonNull,
   GraphQLInt,
-  GraphQLObjectType
+  GraphQLObjectType,
+  GraphQLFloat
 } = require('graphql')
 
 const LaptopExtraType = new GraphQLObjectType({
@@ -15,7 +14,7 @@ const LaptopExtraType = new GraphQLObjectType({
     name: { type: GraphQLString },
     types: { type: new GraphQLList(GraphQLString) },
     quantity: { type: GraphQLInt },
-    price: { type: GraphQLInt},
+    price: { type: GraphQLFloat},
     images: { type: new GraphQLList(GraphQLString) }
   })
 })

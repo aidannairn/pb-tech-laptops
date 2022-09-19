@@ -6,7 +6,8 @@ const {
   GraphQLString,
   GraphQLList,
   GraphQLNonNull,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLFloat
 } = require('graphql')
 
 const laptopExtraMutations = {
@@ -16,7 +17,7 @@ const laptopExtraMutations = {
       name: { type: GraphQLNonNull(GraphQLString) },
       types: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
       quantity: { type: GraphQLNonNull(GraphQLInt) },
-      price: { type: GraphQLNonNull(GraphQLInt) },
+      price: { type: GraphQLNonNull(GraphQLFloat) },
       images: { type: GraphQLNonNull(GraphQLList(GraphQLString)) }
     },
     resolve(parent, args) {
@@ -46,7 +47,7 @@ const laptopExtraMutations = {
       name: { type: GraphQLString },
       types: { type: GraphQLList(GraphQLString) },
       quantity: { type: GraphQLInt },
-      price: { type: GraphQLInt },
+      price: { type: GraphQLFloat },
       images: { type: GraphQLList(GraphQLString) },
     },
     resolve(parent, args) {

@@ -7,7 +7,8 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLInt,
-  GraphQLBoolean
+  GraphQLBoolean,
+  GraphQLFloat
 } = require('graphql')
 
 const laptopMutations = {
@@ -17,7 +18,7 @@ const laptopMutations = {
       name: { type: GraphQLNonNull(GraphQLString) },
       types: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
       quantity: { type: GraphQLNonNull(GraphQLInt) },
-      price: { type: GraphQLNonNull(GraphQLInt) },
+      price: { type: GraphQLNonNull(GraphQLFloat) },
       images: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
       isTrending: { type: GraphQLBoolean },
       isOnSpecial: { type: GraphQLBoolean },
@@ -63,7 +64,7 @@ const laptopMutations = {
       name: { type: GraphQLString },
       types: { type: GraphQLList(GraphQLString) },
       quantity: { type: GraphQLInt },
-      price: { type: GraphQLInt },
+      price: { type: GraphQLFloat },
       images: { type: GraphQLList(GraphQLString) },
       isTrending: { type: GraphQLBoolean },
       isOnSpecial: { type: GraphQLBoolean },
