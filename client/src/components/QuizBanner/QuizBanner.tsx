@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./QuizBanner.module.css";
+import banner from '../../images/quizBanner.png'
 
 const QuizBanner = () => {
   return (
@@ -18,6 +19,7 @@ const QuizBanner = () => {
         <button type="button">Take Quiz</button>
         <button type="button">Read buying guide</button>
       </div>
+        <img src={banner} alt='banner'></img>
     </div>
   );
 };
