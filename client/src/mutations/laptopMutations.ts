@@ -5,7 +5,7 @@ const ADD_LAPTOP = gql`
     $name: String!
     $types: [String!]!
     $quantity: Int!
-    $price: Int!
+    $price: Float!
     $ram: String!
     $storage: String!
     $sizeInInches: String!
@@ -14,7 +14,7 @@ const ADD_LAPTOP = gql`
     $amountSold: Int!
     $userRatings: [Int!]!
     $images: [String!]!
-    $bundleIDs: [String]
+    $bundleIDs: [ID!]
   ) {
     addLaptop(
       name: $name
@@ -31,19 +31,7 @@ const ADD_LAPTOP = gql`
       images: $images
       bundleIDs: $bundleIDs
     ) {
-      name
-      types
-      quantity
-      price
-      ram
-      storage
-      sizeInInches
-      isTrending
-      isOnSpecial
-      amountSold
-      userRatings
-      images
-      bundles
+      id
     }
   }
 `

@@ -17,7 +17,7 @@ const AddLaptopForm: React.FC = () => {
   const [name, setName] = useState<string>('')
   const [type, setType] = useState<string>('')
   const [types, setTypes] = useState<string[]>([])
-  const [quantity, setQuantity] = useState<number | string>(100)
+  const [quantity, setQuantity] = useState<number>(100)
   const [price, setPrice] = useState<number | string>('')
   const [ram, setRam] = useState<string>('8')
   const [storage, setStorage] = useState<string>('256')
@@ -29,6 +29,10 @@ const AddLaptopForm: React.FC = () => {
   const [userRatings, setUserRatings] = useState<number[]>([1])
   const [image, setImage] = useState<string>('')
   const [images, setImages] = useState<string[]>([])
+  const [bundleIDs, setBundleIDs] = useState([
+    "6327af8a1d62412a3455252b",
+    "6327d7b7202ea5ccbe48affd"
+  ])
 
   const createUserRatings = async () => {
     const totalRatings = Math.floor(Math.random() * 20) + 1
@@ -52,7 +56,8 @@ const AddLaptopForm: React.FC = () => {
       isOnSpecial,
       amountSold,
       userRatings,
-      images
+      images,
+      bundleIDs
     }
   })
 
