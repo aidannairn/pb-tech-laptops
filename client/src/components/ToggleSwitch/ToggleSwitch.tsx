@@ -7,7 +7,7 @@ interface Props {
 
 const ToggleSwitch: React.FC<Props> = ({ checked, action }) => {
   return (
-    <div className="toggle-switch small-switch">
+    <div className="toggle-switch">
       <input
         type="checkbox"
         className="toggle-switch-checkbox"

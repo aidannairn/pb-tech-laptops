@@ -62,11 +62,10 @@ const AddLaptopForm: React.FC = () => {
   }
 
   return (
-    <div className='add-laptop-form'>
-      <div className="alf-modal" >
-        <h1 id='addLaptopModalLabel'>Add Laptop</h1>
-        <form onSubmit={handleFormSubmit}>
-          <button type='submit'>Add Laptop</button>
+    <div className='modal'>
+      <div className="add-laptop-form" >
+        <form className='scrollable'>
+          <h1 id='addLaptopModalLabel'>Add Laptop</h1>
           <div>
             <label className='form-label'>Name</label>
             <input type="text" className="form-control" id="name" value={name} onChange={ e => setName(e.target.value)} />
@@ -136,6 +135,9 @@ const AddLaptopForm: React.FC = () => {
             }
           </div>
         </form>
+        <div className="form-actions">
+          <button type='button' onClick={handleFormSubmit}>Add Laptop</button>
+        </div>
       </div>
     </div>
   )
