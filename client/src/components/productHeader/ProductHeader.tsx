@@ -13,7 +13,16 @@ export const ProductHeader: React.FC = () => {
         {laptopData.map((image, i) => {
           return (
             <div className="left" key={i}>
-              <img src={image.mainImage} alt="laptop"></img>
+              <div className="large-laptop-img">
+                <img src={image.mainImage} alt="laptop"></img>
+              </div>
+              <div className="small-laptop-img">
+                <img src={image.mainImage} alt="laptop" />
+                <img src={image.subImageOne} alt="laptop" />
+                <img src={image.subImageTwo} alt="laptop" />
+                <img src={image.subImageThree} alt="laptop" />
+                <img src={image.subImageFour} alt="laptop" />
+              </div>
             </div>
           );
         })}

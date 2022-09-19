@@ -11,6 +11,14 @@ const laptopData = [
     subNameThree: "Built-in security",
     mainImage:
       "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw9ae6a8b6/images/hi-res/26/0C/N204017_0.jpg?sw=765&sh=765",
+    subImageOne:
+      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw4084e3d2/images/hi-res/26/0C/N204017_4.jpg?sw=765&sh=765",
+    subImageTwo:
+      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw0ffc2458/images/hi-res/26/0C/N204017_3.jpg?sw=765&sh=765",
+    subImageThree:
+      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dwdf5ddc54/images/hi-res/26/0C/N204017_5.jpg?sw=765&sh=765",
+    subImageFour:
+      "https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw753ef7b9/images/hi-res/26/0C/N204017_2.jpg?sw=765&sh=765",
   },
 ];
 
