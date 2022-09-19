@@ -1,4 +1,4 @@
-import { quickSort } from "./QuickSortFN";
+import { quickSort } from "./quickSortFN";
 
 describe("quicksort", () => {
   it("should sort an array of numbers", () => {
