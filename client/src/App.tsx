@@ -1,4 +1,4 @@
-// import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/LandingPage";
 import React from "react";
 import Test from "./components/Test";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
@@ -36,6 +36,7 @@ const App: React.FC = () => {
       <ApolloProvider client={client}>
         <Router>
           <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route path="/graphql" element={<Test />} />
             <Route path="/add-laptop" element={<AddLaptopForm />} />
             <Route path="/product-page" element={<ProductPage />} />
