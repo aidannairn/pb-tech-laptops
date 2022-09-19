@@ -12,7 +12,7 @@ const QuizBanner = () => {
         <p>
           Answer our <span>short quiz</span> for laptop recommendations that are
           tailored to your needs,<br></br> or read through our
-          <span>buying guide</span> written by our team of tech experts.
+          <span> buying guide</span> written by our team of tech experts.
         </p>
       </div>
       <div className={styles.buttons}>
