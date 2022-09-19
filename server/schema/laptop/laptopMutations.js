@@ -16,6 +16,7 @@ const laptopMutations = {
     type: LaptopType,
     args: {
       name: { type: GraphQLNonNull(GraphQLString) },
+      brand: { type: GraphQLNonNull(GraphQLString) },
       types: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
       quantity: { type: GraphQLNonNull(GraphQLInt) },
       price: { type: GraphQLNonNull(GraphQLFloat) },
@@ -24,6 +25,7 @@ const laptopMutations = {
       isOnSpecial: { type: GraphQLBoolean },
       amountSold: { type: GraphQLNonNull(GraphQLInt) },
       userRatings: { type: GraphQLList(GraphQLInt)},
+      operatingSystem: { type: GraphQLNonNull(GraphQLString) },
       ram: { type: GraphQLNonNull(GraphQLString) },
       storage: { type: GraphQLNonNull(GraphQLString) },
       sizeInInches: { type: GraphQLNonNull(GraphQLString) },
@@ -32,6 +34,7 @@ const laptopMutations = {
     resolve(parent, args) {
       const laptop = new Laptop({
         name: args.name,
+        brand: args.brand,
         types: args.types,
         quantity: args.quantity,
         price: args.price,
@@ -40,6 +43,7 @@ const laptopMutations = {
         isOnSpecial: args.isOnSpecial,
         amountSold: args.amountSold,
         userRatings: args.userRatings,
+        operatingSystem: args.operatingSystem,
         ram: args.ram,
         storage: args.storage,
         sizeInInches: args.sizeInInches,
@@ -62,6 +66,7 @@ const laptopMutations = {
     args: {
       id: { type: GraphQLNonNull(GraphQLID) },
       name: { type: GraphQLString },
+      brand: { type: GraphQLString },
       types: { type: GraphQLList(GraphQLString) },
       quantity: { type: GraphQLInt },
       price: { type: GraphQLFloat },
@@ -70,6 +75,7 @@ const laptopMutations = {
       isOnSpecial: { type: GraphQLBoolean },
       amountSold: { type: GraphQLInt },
       userRatings: { type: GraphQLList(GraphQLInt)},
+      operatingSystem: { type: GraphQLString },
       ram: { type: GraphQLString },
       storage: { type: GraphQLString },
       sizeInInches: { type: GraphQLString },
@@ -81,6 +87,7 @@ const laptopMutations = {
         {
           $set: {
             name: args.name,
+            brand: args.brand,
             types: args.types,
             quantity: args.quantity,
             price: args.price,
@@ -89,6 +96,7 @@ const laptopMutations = {
             isOnSpecial: args.isOnSpecial,
             amountSold: args.amountSold,
             userRatings: args.userRatings,
+            operatingSystem: args.operatingSystem,
             ram: args.ram,
             storage: args.storage,
             sizeInInches: args.sizeInInches,

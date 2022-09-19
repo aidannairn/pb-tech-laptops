@@ -16,6 +16,7 @@ const LaptopType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    brand: { type: GraphQLString },
     types: { type: new GraphQLList(GraphQLString) },
     quantity: { type: GraphQLInt },
     price: { type: GraphQLFloat},
@@ -24,6 +25,7 @@ const LaptopType = new GraphQLObjectType({
     isOnSpecial: { type: GraphQLBoolean },
     amountSold: { type: GraphQLInt },
     userRatings: { type: new GraphQLList(GraphQLInt) },
+    operatingSystem: { type: GraphQLString },
     ram: { type: GraphQLString },
     storage: { type: GraphQLString },
     sizeInInches: { type: GraphQLString },
