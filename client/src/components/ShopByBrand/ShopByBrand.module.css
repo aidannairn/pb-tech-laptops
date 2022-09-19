@@ -108,7 +108,7 @@
   display: flex;
   justify-content: space-evenly;
   padding-top: 2em;
-  padding-bottom: 2em;
+  padding-bottom: 4em;
 }
 .BrandContainer .logos img {
   height: 4em;
