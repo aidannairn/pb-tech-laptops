@@ -1,3 +1,4 @@
+import LandingPage from "./pages/LandingPage";
 import React from "react";
 import Test from "./components/Test";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
@@ -27,16 +28,21 @@ const client = new ApolloClient({
 
 const App: React.FC = () => {
   return (
-    <ApolloProvider client={client}>
-      <h1>Hello World</h1>
-      <Router>
-        <Routes>
-          <Route path="/graphql" element={<Test />} />
-          <Route path="/add-laptop" element={<AddLaptopForm />} />
-          <Route path="/product-page" element={<ProductPage />} />
-        </Routes>
-      </Router>
-    </ApolloProvider>
+    <>
+      <div className="App">
+        <LandingPage></LandingPage>
+      </div>
+      <ApolloProvider client={client}>
+        <h1>Hello World</h1>
+        <Router>
+          <Routes>
+            <Route path="/graphql" element={<Test />} />
+            <Route path="/add-laptop" element={<AddLaptopForm />} />
+            <Route path="/product-page" element={<ProductPage />} />
+          </Routes>
+        </Router>
+      </ApolloProvider>
+    </>
   );
 };
 
