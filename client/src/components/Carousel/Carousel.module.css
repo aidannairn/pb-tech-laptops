@@ -102,6 +102,8 @@
 .carouselContainer {
   width: 100%;
   color: #175078;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 .carouselContainer .wrapper {
   width: 70%;
@@ -125,15 +127,54 @@
   align-items: center;
 }
 .carouselContainer .wrapper .products .card {
-  width: 13em;
-  height: 20em;
-  border: 1px solid red;
+  width: 15em;
+  height: 22em;
+  padding: 1em;
+  border: 1px solid lightgrey;
+}
+.carouselContainer .wrapper .products .card .wish {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: flex-end;
+}
+.carouselContainer .wrapper .products .card .wish img {
+  width: 1.8em;
+}
+.carouselContainer .wrapper .products .card .image {
+  display: flex;
+  justify-content: center;
 }
 .carouselContainer .wrapper .products .card img {
   width: 6em;
+}
+.carouselContainer .wrapper .products .card p {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+.carouselContainer .wrapper .products .card .info {
+  padding-left: 2em;
+  color: black;
+}
+.carouselContainer .wrapper .products .card .info p:nth-of-type(2) {
+  font-weight: bold;
+  color: #329ACB;
+}
+.carouselContainer .wrapper .products .card .info p:nth-of-type(3) {
+  font-size: 0.8em;
+  color: #757575;
+}
+.carouselContainer .wrapper .products .card .button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.carouselContainer .wrapper .products .card .button button {
+  margin-top: 2em;
+  padding: 1em 4em;
+  color: #329ACB;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #329ACB;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=Carousel.module.css.map */

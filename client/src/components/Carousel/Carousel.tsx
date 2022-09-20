@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Carousel.module.css";
+import wish from '../../images/heart.png'
 
 const Carousel: React.FC = () => {
   const test: object[] = [
@@ -65,8 +66,6 @@ const Carousel: React.FC = () => {
     },
   ];
 
-
-
   const [rightIndex, setRightIndex] = useState<number>(4);
   const [leftIndex, setLeftIndex] = useState<number>(0);
 
@@ -83,27 +82,39 @@ const Carousel: React.FC = () => {
   return (
     <div className={styles.carouselContainer}>
       <div className={styles.wrapper}>
-          {rightIndex >= 5 && (
-            <div onClick={handleLeft}>
-              <i className="fa-solid fa-chevron-left"></i>
-            </div>
-          )}
+        {rightIndex >= 5 && (
+          <div onClick={handleLeft}>
+            <i className="fa-solid fa-chevron-left"></i>
+          </div>
+        )}
         <div className={styles.products}>
           {test.slice(leftIndex, rightIndex).map((value: any, i: number) => (
             <div className={styles.card} key={i}>
-              <img src='https://www.pbtech.co.nz/imgprod/T/A/TABMST13106411__1.jpg?h=359492194' alt='laptop'></img>
-              <h3>Price: $$$$</h3>
-              <p>{value.product_name}</p>
-              <p>{value.product_desc}</p>
-              <button type="button">Add to cart</button>
+              <div className={styles.wish}><img src={wish} alt='wish'></img></div>
+              <div className={styles.image}>
+                <img
+                  src="https://www.pbtech.co.nz/imgprod/T/A/TABMST13106411__1.jpg?h=359492194"
+                  alt="laptop"
+                ></img>
+              </div>
+
+              <div className={styles.info}>
+                <h3>$1000</h3>
+                <p>Ratings</p>
+                <p>{value.product_name}</p>
+                <p>{value.product_desc}</p>
+              </div>
+              <div className={styles.button}>
+                <button type="button">Add to cart</button>
+              </div>
             </div>
           ))}
         </div>
-          {rightIndex <= test.length - 1 && (
-            <div onClick={handleRight}>
-              <i className="fa-solid fa-chevron-right"></i>
-            </div>
-          )}
+        {rightIndex <= test.length - 1 && (
+          <div onClick={handleRight}>
+            <i className="fa-solid fa-chevron-right"></i>
+          </div>
+        )}
       </div>
     </div>
   );

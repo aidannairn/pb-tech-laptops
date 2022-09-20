@@ -143,4 +143,11 @@
   bottom: 10.8em;
 }
 
+.secondaryTitle {
+  color: #175078;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2em;
+}
+
 /*# sourceMappingURL=QuizBanner.module.css.map */
