@@ -53,7 +53,7 @@ const Header: React.FC = () => {
             <div><i className="fa-solid fa-heart"></i><br></br>WISHLIST</div>
             <div><i className="fa-solid fa-user"></i><br></br>SIGN IN</div>
             <div><i className="fa-solid fa-cart-shopping"></i><br></br>CART</div>
-
+            <div className={styles.counts}>0</div>
           </div>
         </div>
         <div className={styles.navbar}>
