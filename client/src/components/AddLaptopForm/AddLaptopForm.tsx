@@ -15,6 +15,7 @@ interface FormElements {
 
 const AddLaptopForm: React.FC = () => {
   const [name, setName] = useState<string>('')
+  const [caption, setCaption] = useState('')
   const [brand, setBrand] = useState('')
   const [type, setType] = useState<string>('')
   const [types, setTypes] = useState<string[]>([])
@@ -49,6 +50,7 @@ const AddLaptopForm: React.FC = () => {
   const [addLaptop] = useMutation<{addLaptop: FormElements}>(ADD_LAPTOP, {
     variables: {
       name,
+      caption,
       brand,
       types,
       quantity,
@@ -68,6 +70,7 @@ const AddLaptopForm: React.FC = () => {
 
   const resetInputs = () => {
     setName('')
+    setCaption('')
     setBrand('')
     setTypes([])
     setQuantity(100)
@@ -109,8 +112,12 @@ const AddLaptopForm: React.FC = () => {
         <form className='scrollable'>
           <h1 id='addLaptopModalLabel'>Add Laptop</h1>
           <div>
-            <label className='form-label'>Name</label>
+            <label className='form-label'>Laptop Name</label>
             <input type="text" className="form-control" id="name" value={name} onChange={ e => setName(e.target.value)} />
+          </div>
+          <div>
+            <label className='form-label'>Short Description <i>(caption)</i></label>
+            <input type="text" className="form-control" id="caption" value={caption} onChange={ e => setCaption(e.target.value)} />
           </div>
           <div>
             <label className='form-label'>Brand</label>

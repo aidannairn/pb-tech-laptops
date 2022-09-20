@@ -4,6 +4,7 @@ const ADD_LAPTOP = gql`
   mutation AddLaptop(
     $name: String!
     $brand: String!
+    $caption: String
     $types: [String!]!
     $quantity: Int!
     $price: Float!
@@ -21,6 +22,7 @@ const ADD_LAPTOP = gql`
     addLaptop(
       name: $name
       brand: $brand
+      caption: $caption
       types: $types
       quantity: $quantity
       price: $price
