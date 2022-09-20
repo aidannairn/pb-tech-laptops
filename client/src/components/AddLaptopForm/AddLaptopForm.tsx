@@ -15,10 +15,12 @@ interface FormElements {
 
 const AddLaptopForm: React.FC = () => {
   const [name, setName] = useState<string>('')
+  const [brand, setBrand] = useState('')
   const [type, setType] = useState<string>('')
   const [types, setTypes] = useState<string[]>([])
   const [quantity, setQuantity] = useState<number>(100)
   const [price, setPrice] = useState<number | string>('')
+  const [operatingSystem, setOperatingSystem] = useState('')
   const [ram, setRam] = useState<string>('8')
   const [storage, setStorage] = useState<string>('256')
   const [sizeInInches, setSizeInInches] = useState<string>('13')
@@ -47,9 +49,11 @@ const AddLaptopForm: React.FC = () => {
   const [addLaptop] = useMutation<{addLaptop: FormElements}>(ADD_LAPTOP, {
     variables: {
       name,
+      brand,
       types,
       quantity,
       price,
+      operatingSystem,
       ram,
       storage,
       sizeInInches,
@@ -64,9 +68,11 @@ const AddLaptopForm: React.FC = () => {
 
   const resetInputs = () => {
     setName('')
+    setBrand('')
     setTypes([])
     setQuantity(100)
     setPrice('')
+    setOperatingSystem('')
     setRam('8')
     setStorage('256')
     setSizeInInches('13')
@@ -107,6 +113,10 @@ const AddLaptopForm: React.FC = () => {
             <input type="text" className="form-control" id="name" value={name} onChange={ e => setName(e.target.value)} />
           </div>
           <div>
+            <label className='form-label'>Brand</label>
+            <input type="text" className="form-control" id="brand" value={brand} onChange={ e => setBrand(e.target.value)} />
+          </div>
+          <div>
             <label className='form-label'>Quantity</label>
             <input type="number" className="form-control" min="0" id="quantity" value={quantity} onChange={ e => setQuantity(+e.target.value)} />
           </div>
@@ -117,6 +127,10 @@ const AddLaptopForm: React.FC = () => {
           <div>
             <label className='form-label'>Amount Sold</label>
             <input type="number" className="form-control" min="0" id="amountSold" value={amountSold} onChange={ e => setAmountSold(+e.target.value)} />
+          </div>
+          <div>
+            <label className='form-label'>Operating System</label>
+            <input type="text" className="form-control" id="operatingSystem" value={operatingSystem} onChange={ e => setOperatingSystem(e.target.value)} />
           </div>
           <div>
             <label className='form-label'>Ram <i>(GB)</i></label>
