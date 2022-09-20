@@ -34,8 +34,8 @@ const ProductsPage: React.FC = () => {
   const [priceRange, setPriceRange] = useState<NumberRange>([0, 9999.99])
   const [storageRange, setStorageRange] = useState<NumberRange>([128, 2500])
   const [ramRange, setRamRange] = useState<NumberRange>([4, 64])
-  const [searchBrands, setSearchBrands] = useState<string[]>(['Apple'])
-  const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS'])
+  const [searchBrands, setSearchBrands] = useState<string[]>(['Apple', 'HP'])
+  const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS', 'Windows 10 Pro', 'Windows 10 Pro 64', 'Windows 10 Home'])
 
 
   const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
