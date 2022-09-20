@@ -1,15 +1,17 @@
 const express = require('express');
 const cors = require('cors')
-require('dotenv').config()
 const { graphqlHTTP } = require('express-graphql');
 const connectDB = require('./config/mongoConnection.js');
-const schema = require('./schema/laptopSchema')
+const schema = require('./schema/schema')
+
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT;
 
 connectDB()
+// laptopExtraSchema,
+// laptopBundleSchema,
 
 app.use(cors())
 app.use('/graphql', graphqlHTTP({

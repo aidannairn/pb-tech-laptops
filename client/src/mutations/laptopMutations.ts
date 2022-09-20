@@ -3,23 +3,39 @@ import { gql } from "@apollo/client";
 const ADD_LAPTOP = gql`
   mutation AddLaptop(
     $name: String!
+    $brand: String!
     $types: [String!]!
     $quantity: Int!
-    $price: Int!
+    $price: Float!
+    $operatingSystem: String!,
+    $ram: String!
+    $storage: String!
+    $sizeInInches: String!
+    $isTrending: Boolean
+    $isOnSpecial: Boolean
+    $amountSold: Int!
+    $userRatings: [Int!]!
     $images: [String!]!
+    $bundleIDs: [ID!]
   ) {
     addLaptop(
       name: $name
+      brand: $brand
       types: $types
       quantity: $quantity
       price: $price
+      operatingSystem: $operatingSystem
+      ram: $ram
+      storage: $storage
+      sizeInInches: $sizeInInches
+      isTrending: $isTrending
+      isOnSpecial: $isOnSpecial
+      amountSold: $amountSold
+      userRatings: $userRatings
       images: $images
+      bundleIDs: $bundleIDs
     ) {
-      name
-      types
-      quantity
-      price
-      images
+      id
     }
   }
 `
