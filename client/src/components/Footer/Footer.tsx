@@ -66,7 +66,10 @@ const Footer = () => {
         <i className="fa-regular fa-envelope"></i>
       </div>
       <hr></hr>
-      <div className={styles.copyRight}></div>
+      <div className={styles.copyRight}>
+        <p>Copyright © 2022 PB Tech NZ. All rights reserved.</p>
+        <p>🌐 New Zealand  |  Terms & conditions  |  Privacy policy</p>
+      </div>
     </div>
   );
 };

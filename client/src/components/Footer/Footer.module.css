@@ -136,5 +136,12 @@
   justify-content: flex-end;
   padding-bottom: 1em;
 }
+.footerContainer .copyRight {
+  width: 80%;
+  color: #CCCCCC;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=Footer.module.css.map */
