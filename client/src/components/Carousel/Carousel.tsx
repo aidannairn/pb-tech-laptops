@@ -65,7 +65,7 @@ const Carousel: React.FC = () => {
     },
   ];
 
-  
+
 
   const [rightIndex, setRightIndex] = useState<number>(4);
   const [leftIndex, setLeftIndex] = useState<number>(0);
@@ -91,8 +91,8 @@ const Carousel: React.FC = () => {
         <div className={styles.products}>
           {test.slice(leftIndex, rightIndex).map((value: any, i: number) => (
             <div className={styles.card} key={i}>
-              {/* <img src='' alt='laptop'></img> */}
-              <h3>{value.id}</h3>
+              <img src='https://www.pbtech.co.nz/imgprod/T/A/TABMST13106411__1.jpg?h=359492194' alt='laptop'></img>
+              <h3>Price: $$$$</h3>
               <p>{value.product_name}</p>
               <p>{value.product_desc}</p>
               <button type="button">Add to cart</button>
