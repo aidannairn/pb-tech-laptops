@@ -2,7 +2,7 @@ import laptopData from "./mockData";
 import "./productHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faCheck } from "@fortawesome/free-solid-svg-icons";
-import Heart from "../../images/Heart.png";
+import Heart from "../../images/heart.png";
 import { useReducer, useState } from "react";
 
 interface State {
