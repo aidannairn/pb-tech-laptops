@@ -17,37 +17,62 @@ interface Laptop {
   isOnSpecial: boolean
   userRatings: number[]
   amountSold: number
+  storage: string
+  ram: string
+  operatingSystem: string
+  brand: string
 }
 
 interface Data {
-  laptops: Laptop[]
+  laptops: Laptop[] | null
 }
+
+type NumberRange = [number, number]
 
 const ProductsPage: React.FC = () => {
   const [laptopsArray, setLaptopsArray] = useState<Laptop[] | null>(null)
+  const [priceRange, setPriceRange] = useState<NumberRange>([0, 9999.99])
+  const [storageRange, setStorageRange] = useState<NumberRange>([128, 2500])
+  const [ramRange, setRamRange] = useState<NumberRange>([4, 64])
+  const [searchBrands, setSearchBrands] = useState<string[]>(['Apple'])
+  const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS'])
+
 
   const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
   
   if (loading) <p>Loading...</p>
   if (error) <p>Error</p>
 
+  const checkNumBetweenRange = (num: number, range: NumberRange) => 
+    num >= range[0] && num <= range[1]
+
+  const filterLaptops = (laptops: any) => {
+    const filteredLaptops = laptops.filter((laptop: any) => {
+      const { price, storage, brand, operatingSystem, ram } = laptop
+      return searchBrands.includes(brand)
+        && searchOperatingSystems.includes(operatingSystem)
+        && checkNumBetweenRange(price, priceRange)
+        && checkNumBetweenRange(storage, storageRange)
+        && checkNumBetweenRange(ram, ramRange)
+    })
+    return filteredLaptops
+  }
+
   useEffect(() => {
     if (data && data.laptops) {
-      // Sort by ascending name, then descending price.
-      console.log('Unsorted:', data.laptops)
       const laptops: Laptop[] = sortArrByObjProps([...data.laptops], '-price')
-      console.log('Sorted:', laptops)
       setLaptopsArray(laptops)
+      const filteredLaptops = filterLaptops(laptops)
+      setLaptopsArray(filteredLaptops)
     }
   }, [data])
   
-
   return (
     <div>
       <Banner />
       {
         laptopsArray && laptopsArray.map((laptop, i) => (
-          <p>{laptop.name}</p>
+          <p key={i} >{laptop.name}</p>
         ))
       }
     </div>

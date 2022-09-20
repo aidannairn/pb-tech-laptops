@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client'
 
-const allLaptopFields = [ 'id', 'name', 'types', 'price', 'images', 'isTrending', 'isOnSpecial', 'caption', 'userRatings', 'amountSold']
+const allLaptopFields = [ 'id', 'name', 'types', 'price', 'images', 'isTrending', 'isOnSpecial', 'caption', 'userRatings', 'amountSold', 'operatingSystem', 'brand', 'storage', 'ram' ]
 const allLaptopFieldsStr = allLaptopFields.join(' ')
 
 const GET_LAPTOPS = gql`
