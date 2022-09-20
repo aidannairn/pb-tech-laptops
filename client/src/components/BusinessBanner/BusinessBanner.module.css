@@ -65,13 +65,15 @@
 .headerContainer .headerBlueWrapper .headerBlue .buttons {
   display: flex;
   gap: 2em;
-  padding: 5em;
+  padding-left: 5em;
   font-size: 0.8em;
   color: white;
-  line-height: 2em;
 }
 .headerContainer .headerBlueWrapper .headerBlue .buttons i {
   font-size: 2em;
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
   color: #279ACB;
 }
 .headerContainer .headerBlueWrapper .navbar {
@@ -97,53 +99,41 @@
   color: white;
 }
 
-.shopByContainer {
+.bannerContainer {
+  width: 100%;
+  background-color: #175078;
+  height: 25em;
+  color: white;
+}
+.bannerContainer .wrapper {
   width: 80%;
   margin: 0 auto;
+  padding: 2em 0;
 }
-.shopByContainer .texts h1 {
-  font-size: 3em;
-  text-align: center;
-  margin-bottom: 0;
+.bannerContainer .wrapper span {
+  color: #F08222;
 }
-.shopByContainer .texts ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 0;
+.bannerContainer .wrapper h2 {
+  font-size: 2em;
 }
-.shopByContainer .texts ul li a {
-  color: #175078;
-  text-decoration: none;
-  padding-left: 1em;
+.bannerContainer .wrapper button {
+  padding: 1em 7em;
+  display: inline;
+  border: 1px solid #F08222;
+  background-color: #F08222;
+  color: white;
+  border-radius: 5px;
+  margin-top: 2em;
 }
-.shopByContainer .texts ul li:nth-of-type(2)::before {
-  content: ">";
-  margin-left: 1em;
+.bannerContainer .wrapper button:nth-of-type(2) {
+  margin-left: 2em;
+  background-color: transparent;
+  color: #F08222;
 }
-.shopByContainer .texts ul li:nth-of-type(3)::before {
-  content: ">";
-  margin-left: 1em;
-}
-.shopByContainer .shopBySection {
-  padding-top: 2em;
-  width: 100%;
-  margin: 0 auto;
-}
-.shopByContainer .shopBySection h4 {
-  text-align: left;
-  color: #175078;
-  padding-left: 1em;
-}
-.shopByContainer .shopBySection .imageContainer {
-  display: flex;
-  gap: 1em;
-  justify-content: space-around;
-}
-.shopByContainer .shopBySection h3 {
-  text-align: right;
-  color: #175078;
-  padding-right: 1em;
+.bannerContainer .wrapper img {
+  position: absolute;
+  left: 60em;
+  top: 126em;
 }
 
-/*# sourceMappingURL=ShopBy.module.css.map */
+/*# sourceMappingURL=BusinessBanner.module.css.map */

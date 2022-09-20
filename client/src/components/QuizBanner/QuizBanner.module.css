@@ -65,13 +65,15 @@
 .headerContainer .headerBlueWrapper .headerBlue .buttons {
   display: flex;
   gap: 2em;
-  padding: 5em;
+  padding-left: 5em;
   font-size: 0.8em;
   color: white;
-  line-height: 2em;
 }
 .headerContainer .headerBlueWrapper .headerBlue .buttons i {
   font-size: 2em;
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
   color: #279ACB;
 }
 .headerContainer .headerBlueWrapper .navbar {
@@ -115,6 +117,9 @@
 .quizBannerContainer .texts h2 {
   font-size: 2em;
 }
+.quizBannerContainer .texts p {
+  text-align: center;
+}
 .quizBannerContainer .buttons {
   display: flex;
   justify-content: center;
@@ -134,8 +139,15 @@
 }
 .quizBannerContainer img {
   position: relative;
-  right: 35em;
-  bottom: 10.2em;
+  left: 15em;
+  bottom: 10.8em;
+}
+
+.secondaryTitle {
+  color: #175078;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2em;
 }
 
 /*# sourceMappingURL=QuizBanner.module.css.map */
