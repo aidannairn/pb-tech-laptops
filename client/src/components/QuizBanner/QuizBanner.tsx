@@ -4,6 +4,7 @@ import banner from "../../images/quizBanner.png";
 
 const QuizBanner = () => {
   return (
+    <>
     <div className={styles.quizBannerContainer}>
       <div className={styles.texts}>
         <h2>
@@ -12,7 +13,7 @@ const QuizBanner = () => {
         <p>
           Answer our <span>short quiz</span> for laptop recommendations that are
           tailored to your needs,<br></br> or read through our
-          <span>buying guide</span> written by our team of tech experts.
+          <span> buying guide</span> written by our team of tech experts.
         </p>
       </div>
       <div className={styles.buttons}>
@@ -21,6 +22,11 @@ const QuizBanner = () => {
       </div>
       <img src={banner} alt="banner"></img>
     </div>
+    <div className={styles.secondaryTitle}>
+      <h3>Our Best Sellers</h3>
+      <hr></hr>
+    </div>
+    </>
   );
 };
 

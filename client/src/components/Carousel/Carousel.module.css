@@ -65,13 +65,15 @@
 .headerContainer .headerBlueWrapper .headerBlue .buttons {
   display: flex;
   gap: 2em;
-  padding: 5em;
+  padding-left: 5em;
   font-size: 0.8em;
   color: white;
-  line-height: 2em;
 }
 .headerContainer .headerBlueWrapper .headerBlue .buttons i {
   font-size: 2em;
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
   color: #279ACB;
 }
 .headerContainer .headerBlueWrapper .navbar {
@@ -97,53 +99,82 @@
   color: white;
 }
 
-.shopByContainer {
-  width: 80%;
+.carouselContainer {
+  width: 100%;
+  color: #175078;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.carouselContainer .wrapper {
+  width: 70%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
-.shopByContainer .texts h1 {
-  font-size: 3em;
-  text-align: center;
-  margin-bottom: 0;
-}
-.shopByContainer .texts ul {
-  list-style: none;
+.carouselContainer .wrapper i {
+  font-size: 2em;
+  color: #175078;
   display: flex;
   justify-content: center;
-  padding: 0;
+  align-items: center;
 }
-.shopByContainer .texts ul li a {
-  color: #175078;
-  text-decoration: none;
-  padding-left: 1em;
-}
-.shopByContainer .texts ul li:nth-of-type(2)::before {
-  content: ">";
-  margin-left: 1em;
-}
-.shopByContainer .texts ul li:nth-of-type(3)::before {
-  content: ">";
-  margin-left: 1em;
-}
-.shopByContainer .shopBySection {
-  padding-top: 2em;
-  width: 100%;
+.carouselContainer .wrapper .products {
+  width: 85em;
   margin: 0 auto;
-}
-.shopByContainer .shopBySection h4 {
-  text-align: left;
-  color: #175078;
-  padding-left: 1em;
-}
-.shopByContainer .shopBySection .imageContainer {
   display: flex;
   gap: 1em;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.shopByContainer .shopBySection h3 {
-  text-align: right;
-  color: #175078;
-  padding-right: 1em;
+.carouselContainer .wrapper .products .card {
+  width: 15em;
+  height: 22em;
+  padding: 1em;
+  border: 1px solid lightgrey;
+}
+.carouselContainer .wrapper .products .card .wish {
+  display: flex;
+  justify-content: flex-end;
+}
+.carouselContainer .wrapper .products .card .wish img {
+  width: 1.8em;
+}
+.carouselContainer .wrapper .products .card .image {
+  display: flex;
+  justify-content: center;
+}
+.carouselContainer .wrapper .products .card img {
+  width: 6em;
+}
+.carouselContainer .wrapper .products .card p {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+.carouselContainer .wrapper .products .card .info {
+  padding-left: 2em;
+  color: black;
+}
+.carouselContainer .wrapper .products .card .info p:nth-of-type(2) {
+  font-weight: bold;
+  color: #329ACB;
+}
+.carouselContainer .wrapper .products .card .info p:nth-of-type(3) {
+  font-size: 0.8em;
+  color: #757575;
+}
+.carouselContainer .wrapper .products .card .button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.carouselContainer .wrapper .products .card .button button {
+  margin-top: 2em;
+  padding: 1em 4em;
+  color: #329ACB;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #329ACB;
+  border-radius: 5px;
 }
 
-/*# sourceMappingURL=ShopBy.module.css.map */
+/*# sourceMappingURL=Carousel.module.css.map */
