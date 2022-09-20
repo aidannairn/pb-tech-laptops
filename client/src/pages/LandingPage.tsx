@@ -10,7 +10,6 @@ import ShopByBrand from "../components/ShopByBrand/ShopByBrand";
 const LandingPage: React.FC = () => {
   return (
     <>
-      <Header></Header>
       <Banner></Banner>
       <ShopBy></ShopBy>
       <QuizBanner></QuizBanner>
