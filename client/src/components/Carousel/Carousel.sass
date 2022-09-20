@@ -1,0 +1,79 @@
+@import '../Header/Header'
+
+.carouselContainer
+    width: 100%
+    color: $primary-color
+    padding-top: 2em
+    padding-bottom: 2em
+
+    .wrapper
+        width: 70%
+        margin: 0 auto
+        display: flex
+        align-items: center
+
+        i
+            font-size: 2em
+            color: $primary-color
+            display: flex
+            justify-content: center
+            align-items: center
+
+        .products
+            width: 85em
+            margin: 0 auto
+            // border: $border
+            display: flex
+            gap: 1em
+            justify-content: space-evenly
+            align-items: center
+
+            .card
+                width: 15em
+                height: 22em
+                padding: 1em
+                border: 1px solid lightgrey
+
+                .wish
+                    display: flex
+                    justify-content: flex-end
+                    img
+                        width: 1.8em
+
+                .image
+                    // border: $border
+                    display: flex
+                    justify-content: center
+
+                img
+                    width: 6em 
+
+                p
+                    margin-top: 0.5em
+                    margin-bottom: 0
+                
+                .info
+                    padding-left: 2em
+                    color: black
+
+                    p:nth-of-type(2)
+                        font-weight: bold
+                        color: #329ACB
+
+                    p:nth-of-type(3)
+                        font-size: 0.8em
+                        color: $pb-grey
+        
+                .button
+                    width: 100%
+                    display: flex
+                    justify-content: center
+
+                    button
+                        margin-top: 2em
+                        padding: 1em 4em
+                        color: #329ACB
+                        font-weight: bold
+                        background-color: white
+                        border: 1px solid #329ACB
+                        border-radius: 5px
