@@ -17,7 +17,7 @@ const laptopMutations = {
     args: {
       name: { type: GraphQLNonNull(GraphQLString) },
       brand: { type: GraphQLNonNull(GraphQLString) },
-      caption: { type: GraphQLNonNull(GraphQLString) },
+      caption: { type: GraphQLString },
       types: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
       quantity: { type: GraphQLNonNull(GraphQLInt) },
       price: { type: GraphQLNonNull(GraphQLFloat) },
