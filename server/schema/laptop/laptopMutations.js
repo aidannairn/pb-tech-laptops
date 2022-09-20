@@ -17,6 +17,7 @@ const laptopMutations = {
     args: {
       name: { type: GraphQLNonNull(GraphQLString) },
       brand: { type: GraphQLNonNull(GraphQLString) },
+      caption: { type: GraphQLNonNull(GraphQLString) },
       types: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
       quantity: { type: GraphQLNonNull(GraphQLInt) },
       price: { type: GraphQLNonNull(GraphQLFloat) },
@@ -35,6 +36,7 @@ const laptopMutations = {
       const laptop = new Laptop({
         name: args.name,
         brand: args.brand,
+        caption: args.caption,
         types: args.types,
         quantity: args.quantity,
         price: args.price,
@@ -67,6 +69,7 @@ const laptopMutations = {
       id: { type: GraphQLNonNull(GraphQLID) },
       name: { type: GraphQLString },
       brand: { type: GraphQLString },
+      caption: { type: GraphQLString },
       types: { type: GraphQLList(GraphQLString) },
       quantity: { type: GraphQLInt },
       price: { type: GraphQLFloat },
@@ -88,6 +91,7 @@ const laptopMutations = {
           $set: {
             name: args.name,
             brand: args.brand,
+            caption: args.caption,
             types: args.types,
             quantity: args.quantity,
             price: args.price,

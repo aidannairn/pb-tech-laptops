@@ -16,6 +16,7 @@ const LaptopType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    caption: { type: GraphQLString },
     brand: { type: GraphQLString },
     types: { type: new GraphQLList(GraphQLString) },
     quantity: { type: GraphQLInt },
