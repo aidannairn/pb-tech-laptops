@@ -4,6 +4,8 @@ import Test from "./components/Test";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddLaptopForm from "./components/AddLaptopForm/AddLaptopForm";
+import { ProductPage } from "./pages/ProductPage";
+import Header from "./components/Header/Header";
 import "./App.css";
 
 const cache = new InMemoryCache({
@@ -29,14 +31,15 @@ const App: React.FC = () => {
   return (
     <>
       <div className="App">
-        <LandingPage></LandingPage>
+        <Header />
       </div>
       <ApolloProvider client={client}>
-        <h1>Hello World</h1>
         <Router>
           <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route path="/graphql" element={<Test />} />
             <Route path="/add-laptop" element={<AddLaptopForm />} />
+            <Route path="/product-page" element={<ProductPage />} />
           </Routes>
         </Router>
       </ApolloProvider>

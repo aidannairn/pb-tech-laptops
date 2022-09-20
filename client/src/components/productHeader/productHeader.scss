@@ -1,0 +1,170 @@
+body {
+  font-family: Roboto;
+}
+
+$color-blue: #329acb;
+$color-grey: #696969;
+$color-black: #000000;
+$color-orange: #f08222;
+
+.PH-main-content {
+  display: flex;
+}
+
+.PH-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin-left: 10%;
+}
+
+.PH-large-laptop-img {
+  img {
+    width: 579px;
+    height: auto;
+  }
+}
+
+.PH-small-laptop-img {
+  display: flex;
+  justify-content: center;
+  gap: 7%;
+  margin-top: -7%;
+  .normal-image {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+
+    padding: 5px 12px;
+  }
+  .boxed-image {
+    border: 1px solid #175078;
+    border-radius: 3px;
+    width: 70px;
+    height: auto;
+    padding: 5px 12px;
+  }
+}
+
+.PH-right-container {
+  margin-right: 10%;
+  margin-top: 3%;
+  width: 40%;
+}
+
+.PH-product-title {
+  color: $color-blue;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.PH-product-desc {
+  color: $color-grey;
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: -2.5%;
+}
+
+.PH-item-desc {
+  color: $color-black;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.PH-UL {
+  padding: 0;
+  margin-left: 20px;
+  margin-bottom: 5%;
+  li {
+    color: $color-black;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 1%;
+  }
+}
+
+.PH-stars {
+  .faStar {
+    color: $color-orange;
+    font-size: 24px;
+    margin-right: 1%;
+  }
+  p {
+    color: $color-blue;
+  }
+}
+
+.PH-shipping-info {
+  .faCheck {
+    color: #1fa114;
+  }
+  .checkone,
+  .checktwo {
+    display: flex;
+    align-items: center;
+  }
+  p {
+    color: $color-grey;
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 1%;
+
+    span {
+      color: $color-blue;
+    }
+  }
+}
+
+.checkone {
+  margin-bottom: -2%;
+}
+
+.PH-add-to-cart {
+  padding: 10px 70px;
+  color: $color-blue;
+  border: 1px solid $color-blue;
+  background-color: white;
+  border-radius: 3px;
+  margin-right: 3%;
+}
+
+.PH-buttons {
+  display: flex;
+  align-items: center;
+  .minus-btn,
+  .plus-btn {
+    padding: 10px 15px;
+    color: $color-orange;
+    background-color: white;
+    border: 1px solid $color-orange;
+  }
+
+  span {
+    padding: 7px 15px 9px 15px;
+    color: $color-orange;
+    background-color: white;
+    outline: 1px solid $color-orange;
+  }
+}
+
+.minus-btn {
+  border-radius: 3px 0 0 3px;
+}
+
+.plus-btn {
+  border-radius: 0 3px 3px 0;
+}
+
+.heart-icon {
+  margin-left: 3%;
+}
+
+.PH-price {
+  font-size: 20px;
+  font-weight: 600;
+  color: $color-black;
+  margin-bottom: -2%;
+  margin-top: -2%;
+}
