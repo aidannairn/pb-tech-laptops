@@ -30,13 +30,13 @@ interface Data {
   laptops: Laptop[] | null
 }
 
-type NumberRange = [number, number]
+type NumberRange = [string, number, number]
 
 const ProductsPage: React.FC = () => {
   const [laptopsArray, setLaptopsArray] = useState<Laptop[] | null>(null)
-  const [priceRange, setPriceRange] = useState<NumberRange>([0, 9999.99])
-  const [storageRange, setStorageRange] = useState<NumberRange>([128, 2500])
-  const [ramRange, setRamRange] = useState<NumberRange>([4, 64])
+  const [priceRange, setPriceRange] = useState<NumberRange>(['$', 0, 9999.99])
+  const [storageRange, setStorageRange] = useState<NumberRange>(['GB', 128, 2500])
+  const [ramRange, setRamRange] = useState<NumberRange>(['GB', 4, 64])
   const [searchBrands, setSearchBrands] = useState<string[]>(['Apple', 'HP'])
   const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS', 'Windows 10 Pro', 'Windows 10 Pro 64', 'Windows 10 Home'])
   const [uniqueBrands, setUniqueBrands] = useState<string[]>([''])
@@ -49,7 +49,7 @@ const ProductsPage: React.FC = () => {
   if (error) <p>Error</p>
 
   const checkNumBetweenRange = (num: number, range: NumberRange) => 
-    num >= range[0] && num <= range[1]
+    num >= range[1] && num <= range[2]
 
   const filterLaptops = (laptops: any) => {
     const filteredLaptops = laptops.filter((laptop: any) => {
@@ -62,8 +62,6 @@ const ProductsPage: React.FC = () => {
     })
     return filteredLaptops
   }
-
-
 
   useEffect(() => {
     if (data && data.laptops) {
@@ -87,12 +85,20 @@ const ProductsPage: React.FC = () => {
       <div className="products-page">
         <div className="product-filters">
           { uniqueBrands && <FilterBlock 
-            list={uniqueBrands.map((brand) => brand)} 
             heading="Brand"
+            list={uniqueBrands.map((brand) => brand)} 
+          /> }
+          { priceRange && <FilterBlock 
+            heading="Price"
+            range={priceRange}
+          /> }
+          { ramRange && <FilterBlock 
+            heading="RAM"
+            range={ramRange}
           /> }
           { uniqueOperatingSystems && <FilterBlock 
-            list={uniqueOperatingSystems.map((os) => os)} 
             heading="Operating Systems"
+            list={uniqueOperatingSystems.map((os) => os)} 
           /> }
         </div>
         <div className="products-collection">

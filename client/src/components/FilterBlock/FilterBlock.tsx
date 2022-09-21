@@ -4,7 +4,7 @@ import './filter-block.scss'
 interface Props {
   heading: string
   list?: any
-  range?: number[]
+  range?: [string, number, number]
 }
 
 const FilterBlock: React.FC<Props> = ({ heading, list, range }) => {
@@ -28,6 +28,13 @@ const FilterBlock: React.FC<Props> = ({ heading, list, range }) => {
               </div>
             ))
           }
+        </div>
+      }
+      {
+        range &&
+        <div className="fb-range">
+          { range[0] === '$' && <p>${range[1]} - ${range[2]}</p> }
+          { range[0] === 'GB' && <p>{range[1]}GB - {range[2]}GB</p> }
         </div>
       }
     </div>
