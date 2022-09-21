@@ -4,8 +4,14 @@ import specicon2 from "../../images/spec-icon2.png";
 import specicon3 from "../../images/spec-icon3.png";
 import specicon4 from "../../images/spec-icon4.png";
 import "./Specifications.scss";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { SpecificationList } from "./SpecificationList";
 
 export const Specifications: React.FC = () => {
+  const [specOpen, setSpecOpen] = useState<boolean>(false);
+
   return (
     <div className="spec-main-container">
       <div className="spec-title-container">
@@ -48,6 +54,23 @@ export const Specifications: React.FC = () => {
       </div>
       <div className="spec-show-all">
         <h4>Show All Specifications</h4>
+        <div
+          className="spec-icon-change-container"
+          onClick={() => setSpecOpen(!specOpen)}
+        >
+          {specOpen ? (
+            <FontAwesomeIcon
+              icon={faChevronUp}
+              className="
+        chevron-up"
+            />
+          ) : (
+            <FontAwesomeIcon icon={faChevronDown} className="chevron-down" />
+          )}
+        </div>
+      </div>
+      <div className="spec-list-setting">
+        {specOpen && <SpecificationList />}
       </div>
     </div>
   );

@@ -74,3 +74,14 @@ $second-blue-color: #175078;
     font-size: 20px;
   }
 }
+
+.spec-icon-change-container {
+  margin-left: 1%;
+
+  .chevron-down,
+  .chevron-up {
+    color: $color-blue;
+    font-weight: 600;
+    font-size: 30px;
+  }
+}
