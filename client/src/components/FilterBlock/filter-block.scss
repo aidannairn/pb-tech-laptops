@@ -1,0 +1,19 @@
+.filter-block {
+  width: 100%;
+  border: 2px solid #E1E1E1;
+  margin-bottom: 1rem;
+  background-color: #FFFFFF;
+  color: #696969;
+
+  .filter-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    > p {
+      margin: 0;
+    }
+  }
+}

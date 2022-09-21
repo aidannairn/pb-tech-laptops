@@ -7,7 +7,7 @@ import AddLaptopForm from "./components/AddLaptopForm/AddLaptopForm";
 import { ProductPage } from "./pages/ProductPage";
 import Header from "./components/Header/Header";
 import "./App.css";
-import ProductsPage from "./pages/ProductsPage";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 
 const cache = new InMemoryCache({
   typePolicies: {

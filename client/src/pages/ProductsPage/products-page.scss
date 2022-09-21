@@ -1,0 +1,14 @@
+.products-page {
+  margin: 2rem 5%;
+  display: flex;
+  justify-content: space-around;
+
+  .product-filters {
+    width: 20%;
+  }
+
+  .products-collection {
+    width: 80%;
+    margin-left: 1rem;
+  }
+}

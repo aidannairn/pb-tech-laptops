@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useQuery } from "@apollo/client"
-import { GET_LAPTOPS } from "../queries/laptopQueries"
-import { sortArrByObjProps } from "../utils/sortArrByObjProps"
-import FilterBlock from "../components/FilterBlock/FilterBlock"
-import getUniqueObjFields from "../utils/getUniqueObjFields"
-import Banner from "../components/Banner/Banner"
+import { GET_LAPTOPS } from "../../queries/laptopQueries"
+import { sortArrByObjProps } from "../../utils/sortArrByObjProps"
+import FilterBlock from "../../components/FilterBlock/FilterBlock"
+import getUniqueObjFields from "../../utils/getUniqueObjFields"
+import Banner from "../../components/Banner/Banner"
+import './products-page.scss'
 
 interface Laptop {
   __typename: string
@@ -81,23 +82,28 @@ const ProductsPage: React.FC = () => {
   }, [data])
   
   return (
-    <div>
+    <>
       <Banner />
-      { uniqueBrands && <FilterBlock 
-        list={uniqueBrands.map((brand) => brand)} 
-        heading="Brand"
-      /> }
-      { uniqueOperatingSystems && <FilterBlock 
-        list={uniqueOperatingSystems.map((os) => os)} 
-        heading="Operating Systems"
-      /> }
-      
-      {
-        laptopsArray && laptopsArray.map((laptop, i) => (
-          <p key={i} >{laptop.name}</p>
-        ))
-      }
-    </div>
+      <div className="products-page">
+        <div className="product-filters">
+          { uniqueBrands && <FilterBlock 
+            list={uniqueBrands.map((brand) => brand)} 
+            heading="Brand"
+          /> }
+          { uniqueOperatingSystems && <FilterBlock 
+            list={uniqueOperatingSystems.map((os) => os)} 
+            heading="Operating Systems"
+          /> }
+        </div>
+        <div className="products-collection">
+          {
+            laptopsArray && laptopsArray.map((laptop, i) => (
+              <p key={i} >{laptop.name}</p>
+            ))
+          }
+        </div>
+      </div>
+    </>
   )
 }
 
