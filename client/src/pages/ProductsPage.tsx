@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useQuery } from "@apollo/client"
 import { GET_LAPTOPS } from "../queries/laptopQueries"
 import { sortArrByObjProps } from "../utils/sortArrByObjProps"
+import FilterBlock from "../components/FilterBlock/FilterBlock"
+import getUniqueObjFields from "../utils/getUniqueObjFields"
 import Banner from "../components/Banner/Banner"
 
 interface Laptop {
@@ -36,6 +38,8 @@ const ProductsPage: React.FC = () => {
   const [ramRange, setRamRange] = useState<NumberRange>([4, 64])
   const [searchBrands, setSearchBrands] = useState<string[]>(['Apple', 'HP'])
   const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS', 'Windows 10 Pro', 'Windows 10 Pro 64', 'Windows 10 Home'])
+  const [uniqueBrands, setUniqueBrands] = useState<string[]>([''])
+  const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<string[]>([''])
 
 
   const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
@@ -58,10 +62,19 @@ const ProductsPage: React.FC = () => {
     return filteredLaptops
   }
 
+
+
   useEffect(() => {
     if (data && data.laptops) {
       const laptops: Laptop[] = sortArrByObjProps([...data.laptops], '-price')
       setLaptopsArray(laptops)
+
+      const uniqueBrandsArray = getUniqueObjFields('brand', laptops)
+      setUniqueBrands(uniqueBrandsArray)
+
+      const uniqueOperatingSystemsArray = getUniqueObjFields('operatingSystem', laptops)
+      setUniqueOperatingSystems(uniqueOperatingSystemsArray)
+
       const filteredLaptops = filterLaptops(laptops)
       setLaptopsArray(filteredLaptops)
     }
@@ -70,6 +83,15 @@ const ProductsPage: React.FC = () => {
   return (
     <div>
       <Banner />
+      { uniqueBrands && <FilterBlock 
+        list={uniqueBrands.map((brand) => brand)} 
+        heading="Brand"
+      /> }
+      { uniqueOperatingSystems && <FilterBlock 
+        list={uniqueOperatingSystems.map((os) => os)} 
+        heading="Operating Systems"
+      /> }
+      
       {
         laptopsArray && laptopsArray.map((laptop, i) => (
           <p key={i} >{laptop.name}</p>
