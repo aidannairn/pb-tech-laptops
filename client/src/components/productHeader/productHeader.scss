@@ -13,8 +13,8 @@ $color-orange: #f08222;
 
 .PH-left-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 40%;
   margin-left: 10%;
@@ -22,16 +22,16 @@ $color-orange: #f08222;
 
 .PH-large-laptop-img {
   img {
-    width: 579px;
-    height: auto;
+    max-width: 579px;
+    max-height: fit-content;
   }
 }
 
 .PH-small-laptop-img {
   display: flex;
   justify-content: center;
-  gap: 7%;
-  margin-top: -7%;
+  margin-top: -5%;
+  gap: 5%;
   .normal-image {
     width: 70px;
     height: auto;
@@ -48,6 +48,14 @@ $color-orange: #f08222;
   }
 }
 
+.PH-small-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: auto;
+}
+
 .PH-right-container {
   margin-right: 10%;
   margin-top: 3%;
@@ -57,13 +65,13 @@ $color-orange: #f08222;
 .PH-product-title {
   color: $color-blue;
   font-weight: 600;
-  font-size: 32px;
+  font-size: 30px;
 }
 
 .PH-product-desc {
   color: $color-grey;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: -2.5%;
 }
 
@@ -167,4 +175,59 @@ $color-orange: #f08222;
   color: $color-black;
   margin-bottom: -2%;
   margin-top: -2%;
+}
+
+// Bundles CSS
+
+.bundles-main-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: -8%;
+  display: flex;
+  flex-direction: column;
+  hr {
+    margin-top: -25px;
+    width: 1090px;
+    margin-right: 27%;
+    border: 1px solid #e1e1e1;
+  }
+  .bundles-product-container {
+    width: 1130px;
+    height: 400px;
+    margin-top: -8px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .bundles-card-container {
+    width: 200px;
+    height: 250px;
+    img {
+      max-height: 200px;
+      max-width: 200px;
+      outline: 1px solid #e1e1e1;
+      border-radius: 3px;
+    }
+  }
+  .bundles-add-title {
+    margin-left: 1%;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .bundles-title-container {
+    margin-left: 1%;
+    color: #175078;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: -2%;
+  }
+  .bundles-name-price-container {
+    margin-top: -8px;
+    font-weight: 600;
+    font-size: 13px;
+    .bundle-price {
+      color: #175078;
+    }
+  }
 }

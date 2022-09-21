@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Carousel.module.css";
-import wish from '../../images/heart.png'
+import wish from "../../images/heart.png";
 
 const Carousel: React.FC = () => {
   const test: object[] = [
@@ -90,7 +90,9 @@ const Carousel: React.FC = () => {
         <div className={styles.products}>
           {test.slice(leftIndex, rightIndex).map((value: any, i: number) => (
             <div className={styles.card} key={i}>
-              <div className={styles.wish}><img src={wish} alt='wish'></img></div>
+              <div className={styles.wish}>
+                <img src={wish} alt="wish"></img>
+              </div>
               <div className={styles.image}>
                 <img
                   src="https://www.pbtech.co.nz/imgprod/T/A/TABMST13106411__1.jpg?h=359492194"
