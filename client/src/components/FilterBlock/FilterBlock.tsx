@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MultiRangeSlider from '../MultiRangeSlider/MultiRangeSlider'
 import './filter-block.scss'
+
+type NumberRange = [string, number, number]
 
 interface Props {
   heading: string
   list?: any
-  range?: [string, number, number]
+  range?: NumberRange
+  filteredRange?: NumberRange
+  action?: any
 }
 
-const FilterBlock: React.FC<Props> = ({ heading, list, range }) => {
+const FilterBlock: React.FC<Props> = ({ heading, list, range, filteredRange, action }) => {
   const [blockType, setBlockType] = useState<string>('list')
   const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
@@ -32,11 +36,11 @@ const FilterBlock: React.FC<Props> = ({ heading, list, range }) => {
         </div>
       }
       {
-        range &&
+        range && filteredRange &&
         <div className="fb-range">
-          <MultiRangeSlider min={range[1]} max={range[2]} />
-          { range[0] === '$' && <p>${range[1]} - ${range[2]}</p> }
-          { range[0] === 'GB' && <p>{range[1]}GB - {range[2]}GB</p> }
+          <MultiRangeSlider range={range} action={action} />
+          { filteredRange[0] === '$' && <p>${filteredRange[1]} - ${filteredRange[2]}</p> }
+          { filteredRange[0] === 'GB' && <p>{filteredRange[1]}GB - {filteredRange[2]}GB</p> }
         </div>
       }
     </div>

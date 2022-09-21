@@ -34,9 +34,11 @@ type NumberRange = [string, number, number]
 
 const ProductsPage: React.FC = () => {
   const [laptopsArray, setLaptopsArray] = useState<Laptop[] | null>(null)
-  const [priceRange, setPriceRange] = useState<NumberRange>(['$', 0, 9999.99])
+  const [defaultPriceRange, setDefaultPriceRange] = useState<NumberRange>(['$', 0, 9999])
+  const [filteredPriceRange, setFilteredPriceRange] = useState<NumberRange>(['$', 0, 9999])
   const [storageRange, setStorageRange] = useState<NumberRange>(['GB', 128, 2500])
-  const [ramRange, setRamRange] = useState<NumberRange>(['GB', 4, 64])
+  const [defaultRamRange, setDefaultRamRange] = useState<NumberRange>(['GB', 4, 64])
+  const [filteredRamRange, setFilteredRamRange] = useState<NumberRange>(['GB', 4, 64])
   const [searchBrands, setSearchBrands] = useState<string[]>(['Apple', 'HP'])
   const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS', 'Windows 10 Pro', 'Windows 10 Pro 64', 'Windows 10 Home'])
   const [uniqueBrands, setUniqueBrands] = useState<string[]>([''])
@@ -56,12 +58,13 @@ const ProductsPage: React.FC = () => {
       const { price, storage, brand, operatingSystem, ram } = laptop
       return searchBrands.includes(brand)
         && searchOperatingSystems.includes(operatingSystem)
-        && checkNumBetweenRange(price, priceRange)
+        && checkNumBetweenRange(price, filteredPriceRange)
         && checkNumBetweenRange(storage, storageRange)
-        && checkNumBetweenRange(ram, ramRange)
+        && checkNumBetweenRange(ram, filteredRamRange)
     })
     return filteredLaptops
   }
+
 
   useEffect(() => {
     if (data && data.laptops) {
@@ -77,7 +80,7 @@ const ProductsPage: React.FC = () => {
       const filteredLaptops = filterLaptops(laptops)
       setLaptopsArray(filteredLaptops)
     }
-  }, [data])
+  }, [data, searchBrands, searchOperatingSystems, filteredPriceRange, filteredRamRange, storageRange])
   
   return (
     <>
@@ -88,13 +91,17 @@ const ProductsPage: React.FC = () => {
             heading="Brand"
             list={uniqueBrands.map((brand) => brand)} 
           /> }
-          { priceRange && <FilterBlock 
+          { defaultPriceRange && filteredPriceRange && <FilterBlock 
             heading="Price"
-            range={priceRange}
+            range={defaultPriceRange}
+            filteredRange={filteredPriceRange}
+            action={setFilteredPriceRange}
           /> }
-          { ramRange && <FilterBlock 
+          { defaultRamRange && <FilterBlock 
             heading="RAM"
-            range={ramRange}
+            range={defaultRamRange}
+            filteredRange={filteredRamRange}
+            action={setFilteredRamRange}
           /> }
           { uniqueOperatingSystems && <FilterBlock 
             heading="Operating Systems"

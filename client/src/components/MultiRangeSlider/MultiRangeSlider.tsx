@@ -2,12 +2,15 @@ import { useState, useRef, useCallback, useEffect, ChangeEvent } from "react"
 import './multi-range-slider.scss'
 
 interface Props {
-  min: number
-  max: number
+  range: [string, number, number]
   action?: any
 }
 
-const MultiRangeSlider: React.FC<Props> = ({ min, max, action }) => {
+const MultiRangeSlider: React.FC<Props> = ({ range, action }) => {
+  const rangeType = range[0]
+  const min = range[1]
+  const max = range[2]
+
   const [minVal, setMinVal] = useState<number>(min)
   const [maxVal, setMaxVal] = useState<number>(max)
 
@@ -43,9 +46,9 @@ const MultiRangeSlider: React.FC<Props> = ({ min, max, action }) => {
     }
   }, [maxVal, getPercent])
 
-  /* useEffect(() => {
-    action({ min: minVal, max: maxVal })
-  }, [minVal, maxVal, action]) */
+  useEffect(() => {
+    action([rangeType, minVal, maxVal])
+  }, [minVal, maxVal, action])
 
   const onMinValChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.min(+e.target.value, maxVal - 1)
