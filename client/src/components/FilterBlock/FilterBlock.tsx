@@ -4,7 +4,7 @@ import './filter-block.scss'
 
 type NumberRange = [string, number, number]
 
-interface Props {
+interface FilterBlockProps {
   heading: string
   list?: any
   range?: NumberRange
@@ -12,7 +12,36 @@ interface Props {
   action?: any
 }
 
-const FilterBlock: React.FC<Props> = ({ heading, list, range, filteredRange, action }) => {
+interface ListItemProps {
+  index: number
+  heading: string
+  list: any
+  item: any
+  action: any
+}
+
+const ListItem: React.FC<ListItemProps> = ({ index, heading, list, item, action }) => {
+  const [isChecked, setIsChecked] = useState(true)
+
+  const handleCheckboxClick = () => {
+    const updatedItems = [...list]
+    const updatedItem = !updatedItems[index]['isChecked']
+    
+    updatedItems[index]['isChecked'] = updatedItem 
+    
+    setIsChecked(!isChecked)
+    action(updatedItems)
+  }
+
+  return (
+    <div className="fb-checklist-item">
+      <input type="checkbox" name={heading} id={`${item.name}-${index}`} onClick={handleCheckboxClick} checked={isChecked} readOnly />
+      <label htmlFor={`${item.name}-${index}`} className={`${isChecked ? 'active' : null}`}>{item.name}</label>
+    </div>
+  )
+}
+
+const FilterBlock: React.FC<FilterBlockProps> = ({ heading, list, range, filteredRange, action }) => {
   const [blockType, setBlockType] = useState<string>('list')
   const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
@@ -27,10 +56,7 @@ const FilterBlock: React.FC<Props> = ({ heading, list, range, filteredRange, act
         <div className="fb-checklist">
           {
             list.map((item: any, i: number) => (
-              <div key={i} className="fb-checklist-item">
-                <input type="checkbox" name={heading} id={`${item}-${i}`} />
-                <label htmlFor={`${item}-${i}`}>{item}</label>
-              </div>
+              <ListItem key={i} list={list} index={i} item={item} heading={heading} action={action} />
             ))
           }
         </div>
@@ -39,9 +65,7 @@ const FilterBlock: React.FC<Props> = ({ heading, list, range, filteredRange, act
         range && filteredRange &&
         <div className="fb-range">
           <MultiRangeSlider range={range} action={action} />
-          { filteredRange[0] === '$' && <p>${filteredRange[1]} - ${filteredRange[2]}</p> }
-          { filteredRange[0] === 'GB' && <p>{filteredRange[1]}GB - {filteredRange[2]}GB</p> }
-          { filteredRange[0] === '"' && <p>{filteredRange[1]}" - {filteredRange[2]}"</p> }
+          { filteredRange[0] === '$' ? <p>${filteredRange[1]} - ${filteredRange[2]}</p> : <p>{filteredRange[1]}{range[0]} - {filteredRange[2]}{range[0]}</p>}
         </div>
       }
     </div>

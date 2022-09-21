@@ -32,8 +32,14 @@ interface Data {
 
 type NumberRange = [string, number, number]
 
+interface UniqueItem {
+  name: string
+  isChecked: boolean
+}
+
 const ProductsPage: React.FC = () => {
   const [laptopsArray, setLaptopsArray] = useState<Laptop[] | null>(null)
+  const [filteredlaptopsArray, setFilteredLaptopsArray] = useState<Laptop[] | null>(null)
   const [defaultPriceRange, setDefaultPriceRange] = useState<NumberRange>(['$', 0, 9999])
   const [filteredPriceRange, setFilteredPriceRange] = useState<NumberRange>(['$', 0, 9999])
   const [defaultStorageRange, setDefaultStorageRange] = useState<NumberRange>(['GB', 128, 2500])
@@ -41,11 +47,11 @@ const ProductsPage: React.FC = () => {
   const [defaultRamRange, setDefaultRamRange] = useState<NumberRange>(['GB', 4, 64])
   const [filteredRamRange, setFilteredRamRange] = useState<NumberRange>(['GB', 4, 64])
   const [searchBrands, setSearchBrands] = useState<string[]>(['Apple', 'HP', 'Acer', 'Dell'])
-  const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS', 'Windows 10 Pro', 'Windows 10 Pro 64', 'Windows 10 Home', 'Windows 11 Pro', 'Windows 11 Home', 'Windows 10 S'])
+  const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Windows 10 Pro', 'Mac OS', 'Windows 10 Pro 64', 'Windows 10 Home', 'Windows 11 Pro', 'Windows 11 Home', 'Windows 10 S'])
   const [defaultSizeRange, setdefaultSizeRange] = useState<NumberRange>(['"', 10, 16])
   const [filteredSizeRange, setFilteredSizeRange] = useState<NumberRange>(['"', 10, 16])
-  const [uniqueBrands, setUniqueBrands] = useState<string[]>([''])
-  const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<string[]>([''])
+  const [uniqueBrands, setUniqueBrands] = useState<UniqueItem[]>([])
+  const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<UniqueItem[]>([])
 
 
   const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
@@ -59,16 +65,18 @@ const ProductsPage: React.FC = () => {
   const filterLaptops = (laptops: any) => {
     const filteredLaptops = laptops.filter((laptop: any) => {
       const { price, storage, brand, operatingSystem, ram, sizeInInches } = laptop
-      return searchBrands.includes(brand)
-        && searchOperatingSystems.includes(operatingSystem)
+
+      return (
+        uniqueBrands.some(uBrand => uBrand.name === brand && uBrand.isChecked === true)
+        && uniqueOperatingSystems.some(uOS => uOS.name === operatingSystem && uOS.isChecked === true)
         && checkNumBetweenRange(price, filteredPriceRange)
         && checkNumBetweenRange(storage, filteredStorageRange)
         && checkNumBetweenRange(ram, filteredRamRange)
         && checkNumBetweenRange(sizeInInches, filteredSizeRange)
+      )
     })
     return filteredLaptops
   }
-
 
   useEffect(() => {
     if (data && data.laptops) {
@@ -80,11 +88,15 @@ const ProductsPage: React.FC = () => {
 
       const uniqueOperatingSystemsArray = getUniqueObjFields('operatingSystem', laptops)
       setUniqueOperatingSystems(uniqueOperatingSystemsArray)
-
-      const filteredLaptops = filterLaptops(laptops)
-      setLaptopsArray(filteredLaptops)
     }
-  }, [data, searchBrands, searchOperatingSystems, filteredPriceRange, filteredRamRange, filteredStorageRange, filteredSizeRange])
+  }, [data])
+
+  useEffect(() => {
+    const filteredLaptops = laptopsArray && filterLaptops([...laptopsArray])
+    
+    setFilteredLaptopsArray(filteredLaptops)
+  }, [searchBrands, searchOperatingSystems, filteredPriceRange, filteredRamRange, filteredStorageRange, filteredSizeRange, uniqueBrands, uniqueOperatingSystems])
+  
   
   return (
     <>
@@ -94,6 +106,7 @@ const ProductsPage: React.FC = () => {
           { uniqueBrands && <FilterBlock 
             heading="Brand"
             list={uniqueBrands.map((brand) => brand)} 
+            action={setUniqueBrands}
           /> }
           { defaultPriceRange && filteredPriceRange && <FilterBlock 
             heading="Price"
@@ -116,6 +129,7 @@ const ProductsPage: React.FC = () => {
           { uniqueOperatingSystems && <FilterBlock 
             heading="Operating Systems"
             list={uniqueOperatingSystems.map((os) => os)} 
+            action={setUniqueOperatingSystems}
           /> }
           { defaultSizeRange && <FilterBlock 
             heading="Screen Size"
@@ -126,7 +140,7 @@ const ProductsPage: React.FC = () => {
         </div>
         <div className="products-collection">
           {
-            laptopsArray && laptopsArray.map((laptop, i) => (
+            filteredlaptopsArray && filteredlaptopsArray.map((laptop, i) => (
               <p key={i} >{laptop.name}</p>
             ))
           }
