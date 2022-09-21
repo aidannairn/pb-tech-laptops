@@ -41,6 +41,7 @@ const FilterBlock: React.FC<Props> = ({ heading, list, range, filteredRange, act
           <MultiRangeSlider range={range} action={action} />
           { filteredRange[0] === '$' && <p>${filteredRange[1]} - ${filteredRange[2]}</p> }
           { filteredRange[0] === 'GB' && <p>{filteredRange[1]}GB - {filteredRange[2]}GB</p> }
+          { filteredRange[0] === '"' && <p>{filteredRange[1]}" - {filteredRange[2]}"</p> }
         </div>
       }
     </div>

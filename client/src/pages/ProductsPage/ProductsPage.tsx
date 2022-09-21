@@ -36,11 +36,14 @@ const ProductsPage: React.FC = () => {
   const [laptopsArray, setLaptopsArray] = useState<Laptop[] | null>(null)
   const [defaultPriceRange, setDefaultPriceRange] = useState<NumberRange>(['$', 0, 9999])
   const [filteredPriceRange, setFilteredPriceRange] = useState<NumberRange>(['$', 0, 9999])
-  const [storageRange, setStorageRange] = useState<NumberRange>(['GB', 128, 2500])
+  const [defaultStorageRange, setDefaultStorageRange] = useState<NumberRange>(['GB', 128, 2500])
+  const [filteredStorageRange, setFilteredStorageRange] = useState<NumberRange>(['GB', 128, 2500])
   const [defaultRamRange, setDefaultRamRange] = useState<NumberRange>(['GB', 4, 64])
   const [filteredRamRange, setFilteredRamRange] = useState<NumberRange>(['GB', 4, 64])
-  const [searchBrands, setSearchBrands] = useState<string[]>(['Apple', 'HP'])
-  const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS', 'Windows 10 Pro', 'Windows 10 Pro 64', 'Windows 10 Home'])
+  const [searchBrands, setSearchBrands] = useState<string[]>(['Apple', 'HP', 'Acer', 'Dell'])
+  const [searchOperatingSystems, setSearchOperatingSystems] = useState<string[]>(['Mac OS', 'Windows 10 Pro', 'Windows 10 Pro 64', 'Windows 10 Home', 'Windows 11 Pro', 'Windows 11 Home', 'Windows 10 S'])
+  const [defaultSizeRange, setdefaultSizeRange] = useState<NumberRange>(['"', 10, 16])
+  const [filteredSizeRange, setFilteredSizeRange] = useState<NumberRange>(['"', 10, 16])
   const [uniqueBrands, setUniqueBrands] = useState<string[]>([''])
   const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<string[]>([''])
 
@@ -55,12 +58,13 @@ const ProductsPage: React.FC = () => {
 
   const filterLaptops = (laptops: any) => {
     const filteredLaptops = laptops.filter((laptop: any) => {
-      const { price, storage, brand, operatingSystem, ram } = laptop
+      const { price, storage, brand, operatingSystem, ram, sizeInInches } = laptop
       return searchBrands.includes(brand)
         && searchOperatingSystems.includes(operatingSystem)
         && checkNumBetweenRange(price, filteredPriceRange)
-        && checkNumBetweenRange(storage, storageRange)
+        && checkNumBetweenRange(storage, filteredStorageRange)
         && checkNumBetweenRange(ram, filteredRamRange)
+        && checkNumBetweenRange(sizeInInches, filteredSizeRange)
     })
     return filteredLaptops
   }
@@ -80,7 +84,7 @@ const ProductsPage: React.FC = () => {
       const filteredLaptops = filterLaptops(laptops)
       setLaptopsArray(filteredLaptops)
     }
-  }, [data, searchBrands, searchOperatingSystems, filteredPriceRange, filteredRamRange, storageRange])
+  }, [data, searchBrands, searchOperatingSystems, filteredPriceRange, filteredRamRange, filteredStorageRange, filteredSizeRange])
   
   return (
     <>
@@ -103,9 +107,21 @@ const ProductsPage: React.FC = () => {
             filteredRange={filteredRamRange}
             action={setFilteredRamRange}
           /> }
+          { defaultStorageRange && <FilterBlock 
+            heading="Storage"
+            range={defaultStorageRange}
+            filteredRange={filteredStorageRange}
+            action={setFilteredStorageRange}
+          /> }
           { uniqueOperatingSystems && <FilterBlock 
             heading="Operating Systems"
             list={uniqueOperatingSystems.map((os) => os)} 
+          /> }
+          { defaultSizeRange && <FilterBlock 
+            heading="Screen Size"
+            range={defaultSizeRange}
+            filteredRange={filteredSizeRange}
+            action={setFilteredSizeRange}
           /> }
         </div>
         <div className="products-collection">
