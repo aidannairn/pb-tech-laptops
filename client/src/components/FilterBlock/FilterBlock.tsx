@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MultiRangeSlider from '../MultiRangeSlider/MultiRangeSlider'
 import './filter-block.scss'
 
 interface Props {
@@ -33,6 +34,7 @@ const FilterBlock: React.FC<Props> = ({ heading, list, range }) => {
       {
         range &&
         <div className="fb-range">
+          <MultiRangeSlider min={range[1]} max={range[2]} />
           { range[0] === '$' && <p>${range[1]} - ${range[2]}</p> }
           { range[0] === 'GB' && <p>{range[1]}GB - {range[2]}GB</p> }
         </div>
