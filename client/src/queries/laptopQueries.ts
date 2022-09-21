@@ -1,7 +1,7 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
-const allLaptopFields = [ 'id', 'name', 'types', 'quantity', 'price', 'images']
-const allLaptopFieldsStr = allLaptopFields.join(' ')
+const allLaptopFields = ["id", "name", "types", "quantity", "price", "images"];
+const allLaptopFieldsStr = allLaptopFields.join(" ");
 
 const GET_LAPTOPS = gql`
   query getLaptops {
@@ -9,7 +9,7 @@ const GET_LAPTOPS = gql`
       ${allLaptopFieldsStr}
     }
   }
-`
+`;
 
 const GET_LAPTOP = gql`
   query GetLaptop($id: ID!) {
@@ -17,6 +17,23 @@ const GET_LAPTOP = gql`
       ${allLaptopFieldsStr}
     }
   }
-`
+`;
 
-export { GET_LAPTOPS, GET_LAPTOP }
+const GET_ALL_LAPTOPS = gql`
+  query {
+    laptops {
+      name
+      brand
+      caption
+      types
+      price
+      images
+      isTrending
+      isOnSpecial
+      amountSold
+      userRatings
+    }
+  }
+`;
+
+export { GET_LAPTOPS, GET_LAPTOP, GET_ALL_LAPTOPS };

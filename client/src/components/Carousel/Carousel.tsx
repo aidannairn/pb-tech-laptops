@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Carousel.module.css";
 import wish from '../../images/heart.png'
+import {useQuery} from '@apollo/client'
+import { GET_ALL_LAPTOPS } from "../../queries/laptopQueries";
 
 const Carousel: React.FC = () => {
   const test: object[] = [
@@ -65,6 +67,30 @@ const Carousel: React.FC = () => {
       quantity: 13,
     },
   ];
+
+  interface Laptops {
+      name: string
+      brand: string
+      caption: string
+      types: [string]
+      price: number
+      images: string
+      isTrending: boolean
+      isOnSpecial: boolean
+      amountSold: number
+      userRatings: [number]
+  }
+
+  interface Laptops {
+    laptops: []
+  }
+
+  const {error, loading, data} = useQuery<Laptops>(GET_ALL_LAPTOPS)
+
+  if(error){console.log(error)}
+  if(loading === true){console.log(loading)}
+
+  console.log(data?.laptops.map((value: any) => console.log(value.name, value.price)))
 
   const [rightIndex, setRightIndex] = useState<number>(4);
   const [leftIndex, setLeftIndex] = useState<number>(0);
