@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useQuery } from "@apollo/client"
-import { GET_LAPTOPS } from "../../queries/laptopQueries"
+import { GET_LAPTOPS, GET_LAPTOPS_BY_TYPE } from "../../queries/laptopQueries"
 import { sortArrByObjProps } from "../../utils/sortArrByObjProps"
 import FilterBlock from "../../components/FilterBlock/FilterBlock"
 import getUniqueObjFields from "../../utils/getUniqueObjFields"
@@ -29,7 +29,8 @@ interface Laptop {
 }
 
 interface Data {
-  laptops: Laptop[] | null
+  laptops?: Laptop[] | null
+  laptopsByType?: Laptop[] | null
 }
 
 type NumberRange = [string, number, number]
@@ -56,12 +57,13 @@ const ProductsPage: React.FC = () => {
   const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<UniqueItem[]>([])
   const [sortType, setSortType] = useState('Most Popular')
   
-  const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
-  
+  const { loading, error, data } = useQuery<Data>(GET_LAPTOPS_BY_TYPE, {
+    variables: { type: "Business" }
+  })
+
   const navigate = useNavigate()
 
   const handleLaptopClick = (id: string) => {
-    console.log(id)
     navigate(`/product-page/${id}`)
   }
 
@@ -110,8 +112,13 @@ const ProductsPage: React.FC = () => {
   }, [sortType])
 
   useEffect(() => {
-    if (data && data.laptops) {
-      const laptops: Laptop[] = sortArrByObjProps([...data.laptops], '-price')
+    if (data) {
+      let laptops: Laptop[] = []
+
+      if (data.laptops) laptops = data.laptops
+      if (data.laptopsByType) laptops = data.laptopsByType
+
+      laptops = sortArrByObjProps([...laptops], '-price')
       setLaptopsArray(laptops)
 
       const uniqueBrandsArray = getUniqueObjFields('brand', laptops)
@@ -174,7 +181,6 @@ const ProductsPage: React.FC = () => {
             {
               filteredLaptopsArray && filteredLaptopsArray.map((laptop, i) => (
                 <div key={i} onClick={() => handleLaptopClick(laptop.id)}>{laptop.name}</div>
-                
               ))
             }
           </div>
