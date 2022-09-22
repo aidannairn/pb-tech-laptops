@@ -6,6 +6,7 @@ import FilterBlock from "../../components/FilterBlock/FilterBlock"
 import getUniqueObjFields from "../../utils/getUniqueObjFields"
 import Banner from "../../components/Banner/Banner"
 import './products-page.scss'
+import ProductsSortingBar from "../../components/ProductsSortingBar/ProductsSortingBar"
 
 interface Laptop {
   __typename: string
@@ -39,7 +40,7 @@ interface UniqueItem {
 
 const ProductsPage: React.FC = () => {
   const [laptopsArray, setLaptopsArray] = useState<Laptop[] | null>(null)
-  const [filteredlaptopsArray, setFilteredLaptopsArray] = useState<Laptop[] | null>(null)
+  const [filteredLaptopsArray, setFilteredLaptopsArray] = useState<Laptop[] | null>(null)
   const [defaultPriceRange, setDefaultPriceRange] = useState<NumberRange>(['$', 0, 9999])
   const [filteredPriceRange, setFilteredPriceRange] = useState<NumberRange>(['$', 0, 9999])
   const [defaultStorageRange, setDefaultStorageRange] = useState<NumberRange>(['GB', 128, 2500])
@@ -52,7 +53,7 @@ const ProductsPage: React.FC = () => {
   const [filteredSizeRange, setFilteredSizeRange] = useState<NumberRange>(['"', 10, 16])
   const [uniqueBrands, setUniqueBrands] = useState<UniqueItem[]>([])
   const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<UniqueItem[]>([])
-
+  const [sortType, setSortType] = useState('Most Popular')
 
   const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
   
@@ -79,6 +80,32 @@ const ProductsPage: React.FC = () => {
   }
 
   useEffect(() => {
+    let sortField
+
+    switch (sortType) {
+      case 'Most Popular': sortField = '-amountSold'
+        break;
+      case 'Highest Price': sortField = '-price'
+        break;
+      case 'Lowest Price': sortField = 'price'
+        break;
+      case 'Name [A-Z]': sortField = 'name'
+        break;
+      case 'Name [Z-A]': sortField = '-name'
+        break;
+      default: sortField = '-price'
+        break;
+    }
+
+    console.log(sortField)
+
+
+
+    const laptops = filteredLaptopsArray && sortArrByObjProps([...filteredLaptopsArray], sortField)
+      setFilteredLaptopsArray(laptops)
+  }, [sortType])
+
+  useEffect(() => {
     if (data && data.laptops) {
       const laptops: Laptop[] = sortArrByObjProps([...data.laptops], '-price')
       setLaptopsArray(laptops)
@@ -93,10 +120,9 @@ const ProductsPage: React.FC = () => {
 
   useEffect(() => {
     const filteredLaptops = laptopsArray && filterLaptops([...laptopsArray])
-    
+
     setFilteredLaptopsArray(filteredLaptops)
   }, [searchBrands, searchOperatingSystems, filteredPriceRange, filteredRamRange, filteredStorageRange, filteredSizeRange, uniqueBrands, uniqueOperatingSystems])
-  
   
   return (
     <>
@@ -138,12 +164,15 @@ const ProductsPage: React.FC = () => {
             action={setFilteredSizeRange}
           /> }
         </div>
-        <div className="products-collection">
-          {
-            filteredlaptopsArray && filteredlaptopsArray.map((laptop, i) => (
-              <p key={i} >{laptop.name}</p>
-            ))
-          }
+        <div className="products-container">
+          <ProductsSortingBar action={setSortType} />
+          <div className="products-collection">
+            {
+              filteredLaptopsArray && filteredLaptopsArray.map((laptop, i) => (
+                <p key={i} >{laptop.name}</p>
+              ))
+            }
+          </div>
         </div>
       </div>
     </>

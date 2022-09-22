@@ -1,0 +1,12 @@
+.products-sorting-bar {
+  display: flex;
+  justify-content: space-between;
+
+  .psb-sort-filters {
+    display: flex;
+    .psb-dropdown {
+      border: 1px solid #555555;
+      border-radius: 0.25rem;
+    }
+  }
+}

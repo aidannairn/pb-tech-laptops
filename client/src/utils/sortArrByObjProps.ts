@@ -1,4 +1,4 @@
-type sortArg<T> = keyof T | `-${string & keyof T}`
+type sortArg<T> = keyof T | `-${string & keyof T}` | string
 
 /**
 * Returns a comparator for objects of type T that can be used by sort functions, where T objects are compared by the specified T properties.

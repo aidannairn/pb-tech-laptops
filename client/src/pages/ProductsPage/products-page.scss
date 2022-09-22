@@ -7,8 +7,11 @@
     width: 250px;
   }
 
-  .products-collection {
+  .products-container {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     margin-left: 1rem;
   }
+
 }
