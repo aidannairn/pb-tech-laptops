@@ -1,62 +1,62 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import styles from "./Carousel.module.css";
 import wish from "../../images/heart.png";
 import { useQuery } from "@apollo/client";
-import { GET_ALL_LAPTOPS } from "../../queries/laptopQueries";
+import { GET_ALL_LAPTOPS} from "../../queries/laptopQueries";
 import Rating from "@mui/material/Rating";
 
+interface Laptop {
+  name: string
+  brand: string
+  caption?: string
+  types?: [string]
+  price: number
+  images: [string]
+  isTrending: boolean
+  isOnSpecial: boolean
+  amountSold: number
+  userRatings: [number]
+}
+
+interface Data {
+laptops: Laptop[]
+}
+
 const Carousel: React.FC = () => {
-  interface LaptopsData {
-    name?: string;
-    brand?: string;
-    caption?: string;
-    types?: [string];
-    price?: number;
-    images?: string;
-    isTrending?: boolean;
-    isOnSpecial?: boolean;
-    amountSold?: number;
-    userRatings?: [number];
-  }
-
-  interface Laptops {
-    laptop: LaptopsData
-  }
-
-  const { error, loading, data } = useQuery<Laptops>(GET_ALL_LAPTOPS)
-
-  if (error) {
-    console.log(error);
-  }
-  if (loading) {
-    console.log("Loading...");
-  }
-
-  console.log(data?.laptop);
 
   const [rightIndex, setRightIndex] = useState<number>(4);
   const [leftIndex, setLeftIndex] = useState<number>(0);
-
+  
   const handleRight = () => {
     setRightIndex(rightIndex + 1);
     setLeftIndex(leftIndex + 1);
   };
-
+  
   const handleLeft = () => {
     setLeftIndex(leftIndex - 1);
     setRightIndex(rightIndex - 1);
   };
 
+  const {loading, error, data} = useQuery<Data>(GET_ALL_LAPTOPS)
+  
+  if(loading){<h2>Loading..</h2>}
+  if(error){<h2>Error..</h2>}
+
+  console.log(data && data.laptops)
+
+
+
   return (
-    <div className={styles.carouselContainer}>
+       <div className={styles.carouselContainer}>
       <div className={styles.wrapper}>
         {rightIndex >= 5 && (
           <div onClick={handleLeft}>
             <i className="fa-solid fa-chevron-left"></i>
           </div>
         )}
-        <div className={styles.products}>
-          {data?.laptops
+        <div className={styles.products}> 
+
+          {data && data.laptops
             .slice(leftIndex, rightIndex)
             .map((value: any, i: number) => (
               <div className={styles.card} key={i}>
@@ -64,7 +64,7 @@ const Carousel: React.FC = () => {
                   <img src={wish} alt="wish"></img>
                 </div>
                 <div className={styles.image}>
-                  <img src={value.images} alt="laptop"></img>
+                  <img src={value.images[0]} alt="laptop"></img>
                 </div>
 
                 <div className={styles.info}>
@@ -73,7 +73,7 @@ const Carousel: React.FC = () => {
                     <Rating
                       name="read-only"
                       value={value.userRatings[0]}
-                      readOnly
+                      
                     />
                   </p>
                   <p>{value.name}</p>
@@ -83,16 +83,21 @@ const Carousel: React.FC = () => {
                   <button type="button">Add to cart</button>
                 </div>
               </div>
-            ))}
-        </div>
-        {rightIndex <= data.laptops.length - 1 && (
+            ))} 
+          </div> 
+       { data && rightIndex <= data.laptops.length -1 && (
           <div onClick={handleRight}>
             <i className="fa-solid fa-chevron-right"></i>
           </div>
-        )}
-      </div>
-    </div>
-  );
-};
+        )} 
+      </div> 
+     </div>
+      ); 
+  
+  
+   
+    
+}
 
 export default Carousel;
+

@@ -6,8 +6,30 @@ import Footer from "../components/Footer/Footer";
 import QuizBanner from "../components/QuizBanner/QuizBanner";
 import ShopBy from "../components/shopBy/ShopBy";
 import ShopByBrand from "../components/ShopByBrand/ShopByBrand";
+// import { useQuery } from "@apollo/client";
+// import { GET_ALL_LAPTOPS } from "../queries/laptopQueries";
+
+// interface Laptop {
+//   name: string
+//   brand: string
+//   caption?: string
+//   types?: [string]
+//   price: number
+//   images: string
+//   isTrending: boolean
+//   isOnSpecial: boolean
+//   amountSold: number
+//   userRatings: [number]
+// }
+
+// interface Data {
+// laptops: Laptop[]
+// }
 
 const LandingPage: React.FC = () => {
+//   const {loading, error, data} = useQuery<Data | any>(GET_ALL_LAPTOPS)
+// console.log(data)
+
   return (
     <>
       <Banner></Banner>
