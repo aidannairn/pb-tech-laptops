@@ -1,0 +1,77 @@
+.laptop-card {
+  width: 18%;
+  min-width: 18%;
+  max-width: 18%;
+  margin-left: 1.53rem;
+  height: auto;
+  padding: 1em;
+  border: 1px solid lightgrey;
+
+  .lc-wish {
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      width: 1.8em;
+    }
+  }
+
+  .lc-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    width: 6em;
+  }
+
+  p {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  .lc-info {
+    color: black;
+
+    h3 {
+      margin: 0;
+    }
+
+    p:nth-of-type(2) {
+      font-weight: bold;
+      color: #329ACB;
+    }
+
+    p:nth-of-type(3) {
+      font-size: 0.8em;
+      color: #757575;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: 2.2em;
+    }
+  }
+
+  .lc-button {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      margin-top: 2em;
+      padding: 1em 4em;
+      color: #329ACB;
+      font-weight: bold;
+      background-color: white;
+      border: 1px solid #329ACB;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  &:nth-of-type(4n) {
+    margin-right: 4.4rem;
+  }
+}

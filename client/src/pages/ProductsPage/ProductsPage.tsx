@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useQuery } from "@apollo/client"
 import { GET_LAPTOPS, GET_LAPTOPS_BY_TYPE } from "../../queries/laptopQueries"
@@ -8,6 +8,7 @@ import getUniqueObjFields from "../../utils/getUniqueObjFields"
 import Banner from "../../components/Banner/Banner"
 import './products-page.scss'
 import ProductsSortingBar from "../../components/ProductsSortingBar/ProductsSortingBar"
+import LaptopCard from '../../components/LaptopCard/LaptopCard'
 
 interface Laptop {
   __typename: string
@@ -57,11 +58,14 @@ const ProductsPage: React.FC = () => {
   const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<UniqueItem[]>([])
   const [sortType, setSortType] = useState('Most Popular')
   
-  const { loading, error, data } = useQuery<Data>(GET_LAPTOPS_BY_TYPE, {
-    variables: { type: "Business" }
-  })
-
   const navigate = useNavigate()
+
+  const { type } = useParams()
+  console.log(type)
+
+  const { loading, error, data } = useQuery<Data>(GET_LAPTOPS_BY_TYPE, {
+      variables: { type },
+  })
 
   const handleLaptopClick = (id: string) => {
     navigate(`/product-page/${id}`)
@@ -180,7 +184,8 @@ const ProductsPage: React.FC = () => {
           <div className="products-collection">
             {
               filteredLaptopsArray && filteredLaptopsArray.map((laptop, i) => (
-                <div key={i} onClick={() => handleLaptopClick(laptop.id)}>{laptop.name}</div>
+                // <div key={i} onClick={() => handleLaptopClick(laptop.id)}>{laptop.name}</div>
+                <LaptopCard key={i} name={laptop.name} caption={laptop.caption} userRating={laptop.userRatings[0]} price={laptop.price} image={laptop.images[0]} />
               ))
             }
           </div>
