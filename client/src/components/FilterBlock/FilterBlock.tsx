@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons"
 import MultiRangeSlider from '../MultiRangeSlider/MultiRangeSlider'
 import './filter-block.scss'
 
@@ -42,17 +44,23 @@ const ListItem: React.FC<ListItemProps> = ({ index, heading, list, item, action 
 }
 
 const FilterBlock: React.FC<FilterBlockProps> = ({ heading, list, range, filteredRange, action }) => {
-  const [blockType, setBlockType] = useState<string>('list')
-  const [isExpanded, setIsExpanded] = useState<boolean>(true)
+  const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
   return (
     <div className="filter-block">
-      <div className="filter-block-header">
+      <div className="filter-block-header" onClick={() => setIsExpanded(!isExpanded)}>
         <p className="filter-block-title">{heading}</p>
-        <div className="filter-block-toggle-btn">-</div>
+        <div className="filter-block-toggle-btn">
+          {
+            isExpanded
+              ? <FontAwesomeIcon icon={faMinus} className="faMinus"/>
+              : <FontAwesomeIcon icon={faPlus} className="faPlus"/>
+          }
+          
+        </div>
       </div>
       {
-        list &&
+        list && isExpanded &&
         <div className="fb-checklist">
           {
             list.map((item: any, i: number) => (
@@ -62,7 +70,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({ heading, list, range, filtere
         </div>
       }
       {
-        range && filteredRange &&
+        range && filteredRange && isExpanded &&
         <div className="fb-range">
           <MultiRangeSlider range={range} action={action} />
           { filteredRange[0] === '$' ? <p>${filteredRange[1]} - ${filteredRange[2]}</p> : <p>{filteredRange[1]}{range[0]} - {filteredRange[2]}{range[0]}</p>}
