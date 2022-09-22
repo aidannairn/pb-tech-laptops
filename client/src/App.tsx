@@ -39,7 +39,7 @@ const App: React.FC = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/graphql" element={<Test />} />
             <Route path="/add-laptop" element={<AddLaptopForm />} />
-            <Route path="/product-page" element={<ProductPage />} />
+            <Route path="/product-page/:id" element={<ProductPage />} />
           </Routes>
         </Router>
       </ApolloProvider>

@@ -1,10 +1,16 @@
 import "./productHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faCheck } from "@fortawesome/free-solid-svg-icons";
-import Heart from "../../images/heart.png";
+import {
+  faStar,
+  faCheck,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import Heart from "../../images/Heart.png";
 import { useReducer, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
+import { BundleModal } from "../bundleModal/BundleModal";
+import { useParams } from "react-router-dom";
 
 interface State {
   count: number;
@@ -57,10 +63,11 @@ interface Data {
 }
 
 export const ProductHeader: React.FC = () => {
+  const { id } = useParams();
   const [state, dispatch] = useReducer(reducer, initialState);
   const { INCREMENT, DECREMENT } = Types;
   const { loading, error, data } = useQuery<Data>(GET_LAPTOP_AND_BUNDLE, {
-    variables: { id: "632a23c19674b3293311e7a8" },
+    variables: { id },
   });
 
   const [bigPicture, setBigPicture] = useState<string | null>(null);
@@ -79,10 +86,11 @@ export const ProductHeader: React.FC = () => {
   return (
     <div className="PH-main-container">
       <div className="PH-page-link">
-        <h3>
-          Placeholder Home {">"} computers laptops {">"} laptops {">"} business
-          laptops
-        </h3>
+        <p>
+          Home {">"} computers laptops {">"} laptops {">"} business laptops{" "}
+          {">"}
+          {data?.laptop.name}
+        </p>
       </div>
       <div className="PH-main-content">
         <div className="PH-left-container">
@@ -179,6 +187,7 @@ export const ProductHeader: React.FC = () => {
             </button>
             <img src={Heart} alt="heart icon" className="heart-icon" />
           </div>
+          {state.count >= 5 && <BundleModal />}
         </div>
       </div>
       {state.count >= 5 && (
@@ -208,6 +217,10 @@ export const ProductHeader: React.FC = () => {
                   </div>
                 );
               })}
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              className="bundle-chev-right"
+            />
           </div>
           <hr></hr>
           <div className="bundles-add-title">
@@ -232,6 +245,10 @@ export const ProductHeader: React.FC = () => {
                   </div>
                 );
               })}
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              className="bundle-chev-right"
+            />
           </div>
           <hr></hr>
           <div className="bundles-add-title">
@@ -256,6 +273,10 @@ export const ProductHeader: React.FC = () => {
                   </div>
                 );
               })}
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              className="bundle-chev-right"
+            />
           </div>
         </div>
       )}
