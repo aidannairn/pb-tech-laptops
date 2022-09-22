@@ -20,6 +20,12 @@ $second-blue-color: #175078;
 }
 
 .D-W-title-container {
+  display: flex;
+  justify-content: space-between;
+  .chev-up {
+    font-size: xx-large;
+    color: #1278a5;
+  }
   h3 {
     color: $second-blue-color;
     font-weight: 600;

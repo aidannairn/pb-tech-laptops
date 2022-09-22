@@ -4,6 +4,7 @@ import { OtherViewedLaptops } from "../components/otherViewedLaptops/OtherViewed
 import { Reviews } from "../components/reviews/Reviews";
 import { DeliveryWarrantyEmpty } from "../components/deliveryWarrantyEmpty/DeliveryWarrantyEmpty";
 import Carousel from "../components/Carousel/Carousel";
+import Footer from "../components/Footer/Footer";
 
 export const ProductPage: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ export const ProductPage: React.FC = () => {
       <Carousel />
       <Reviews />
       <DeliveryWarrantyEmpty />
+      <Footer />
     </div>
   );
 };
