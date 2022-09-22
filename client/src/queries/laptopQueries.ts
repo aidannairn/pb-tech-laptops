@@ -20,7 +20,7 @@ const GET_LAPTOP = gql`
 `;
 
 const GET_ALL_LAPTOPS = gql`
-  query {
+  query getLaptop {
     laptops {
       name
       brand

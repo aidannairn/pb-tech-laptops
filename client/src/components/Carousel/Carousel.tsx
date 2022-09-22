@@ -6,26 +6,24 @@ import { GET_ALL_LAPTOPS } from "../../queries/laptopQueries";
 import Rating from "@mui/material/Rating";
 
 const Carousel: React.FC = () => {
-  interface Laptops {
-    name: string;
-    brand: string;
-    caption: string;
-    types: [string];
-    price: number;
-    images: string;
-    isTrending: boolean;
-    isOnSpecial: boolean;
-    amountSold: number;
-    userRatings: [number];
+  interface LaptopsData {
+    name?: string;
+    brand?: string;
+    caption?: string;
+    types?: [string];
+    price?: number;
+    images?: string;
+    isTrending?: boolean;
+    isOnSpecial?: boolean;
+    amountSold?: number;
+    userRatings?: [number];
   }
 
   interface Laptops {
-    laptops: []
+    laptop: LaptopsData
   }
 
-  console.log(GET_ALL_LAPTOPS)
-
-  const { error, loading, data } = useQuery<Laptops | any>(GET_ALL_LAPTOPS);
+  const { error, loading, data } = useQuery<Laptops>(GET_ALL_LAPTOPS)
 
   if (error) {
     console.log(error);
@@ -34,7 +32,7 @@ const Carousel: React.FC = () => {
     console.log("Loading...");
   }
 
-  console.log(data);
+  console.log(data?.laptop);
 
   const [rightIndex, setRightIndex] = useState<number>(4);
   const [leftIndex, setLeftIndex] = useState<number>(0);
