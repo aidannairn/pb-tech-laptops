@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons"
+import { faMinus, faPlus, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import MultiRangeSlider from '../MultiRangeSlider/MultiRangeSlider'
 import './filter-block.scss'
 
@@ -12,6 +13,7 @@ interface FilterBlockProps {
   range?: NumberRange
   filteredRange?: NumberRange
   action?: any
+  category?: string
 }
 
 interface ListItemProps {
@@ -43,8 +45,10 @@ const ListItem: React.FC<ListItemProps> = ({ index, heading, list, item, action 
   )
 }
 
-const FilterBlock: React.FC<FilterBlockProps> = ({ heading, list, range, filteredRange, action }) => {
+const FilterBlock: React.FC<FilterBlockProps> = ({ heading, list, range, filteredRange, action, category }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
+
+  const navigate = useNavigate()
 
   return (
     <div className="filter-block">
@@ -59,6 +63,15 @@ const FilterBlock: React.FC<FilterBlockProps> = ({ heading, list, range, filtere
           
         </div>
       </div>
+      {
+        category && isExpanded &&
+        <div className="fb-categories">
+          <p onClick={() => navigate('/')}><FontAwesomeIcon icon={faChevronLeft} className="faChevronLeft" /><span>{heading}</span></p>
+          <p>{category}</p>
+          <p>Shop All Laptops</p>
+        </div>
+
+      }
       {
         list && isExpanded &&
         <div className="fb-checklist">

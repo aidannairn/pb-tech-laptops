@@ -142,6 +142,11 @@ const ProductsPage: React.FC = () => {
       <Banner />
       <div className="products-page">
         <div className="product-filters">
+          {
+            type && <FilterBlock
+              heading="Categories"
+              category={type}
+          /> }
           { uniqueBrands && <FilterBlock 
             heading="Brand"
             list={uniqueBrands.map((brand) => brand)} 
