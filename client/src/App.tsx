@@ -7,6 +7,7 @@ import AddLaptopForm from "./components/AddLaptopForm/AddLaptopForm";
 import { ProductPage } from "./pages/ProductPage";
 import Header from "./components/Header/Header";
 import "./App.css";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -39,6 +40,7 @@ const App: React.FC = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/graphql" element={<Test />} />
             <Route path="/add-laptop" element={<AddLaptopForm />} />
+            <Route path="/products/:type" element={<ProductsPage />} />
             <Route path="/product-page/:id" element={<ProductPage />} />
           </Routes>
         </Router>

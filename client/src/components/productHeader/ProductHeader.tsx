@@ -5,7 +5,7 @@ import {
   faCheck,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import Heart from "../../images/Heart.png";
+import Heart from "../../images/heart.png";
 import { useReducer, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
