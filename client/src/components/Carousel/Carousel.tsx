@@ -24,12 +24,12 @@ const Carousel: React.FC = () => {
     laptops: []
   }
 
-  const {error, loading, data} = useQuery<Laptops | any>(GET_ALL_LAPTOPS)
+  const {error, loading, data} = useQuery<Laptops>(GET_ALL_LAPTOPS)
 
   if(error){console.log(error)}
   if(loading){console.log('loading...')}
 
-  // console.log(data.laptops)
+  console.log(data?.laptops)
 
   const [rightIndex, setRightIndex] = useState<number>(4);
   const [leftIndex, setLeftIndex] = useState<number>(0);
