@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./ShopBy.module.css";
-import image1 from "../../images/imag1.png";
-import image2 from "../../images/image2.png";
-import image3 from "../../images/image3.png";
+// import image1 from "../../images/imag1.png";
+// import image2 from "../../images/image2.png";
+// import image3 from "../../images/image3.png";
 
 const ShopBy = () => {
   return (
@@ -24,17 +24,13 @@ const ShopBy = () => {
       <div className={styles.shopBySection}>
         <h4>Shop by Laptop Use</h4>
         <div className={styles.imageContainer}>
-          <a href="business">
-            <img src={image1} alt=""></img>
-          </a>
-          <a href="homeAndStudy">
-            <img src={image2} alt=""></img>
-          </a>
-          <a href="gaming">
-            <img src={image3} alt=""></img>
-          </a>
+          <div>Business</div>
+          <div>Home & Study</div>
+          <div>Gaming</div>
         </div>
-          <h3>Shop All <i className="fa-solid fa-chevron-right"></i></h3>
+        <h3>
+          Shop All <i className="fa-solid fa-chevron-right"></i>
+        </h3>
       </div>
     </div>
   );
