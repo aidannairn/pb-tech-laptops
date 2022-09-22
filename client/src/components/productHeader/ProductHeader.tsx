@@ -10,6 +10,7 @@ import { useReducer, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
 import { BundleModal } from "../bundleModal/BundleModal";
+import { useParams } from "react-router-dom";
 
 interface State {
   count: number;
@@ -62,6 +63,7 @@ interface Data {
 }
 
 export const ProductHeader: React.FC = () => {
+  // const { id } = useParams();
   const [state, dispatch] = useReducer(reducer, initialState);
   const { INCREMENT, DECREMENT } = Types;
   const { loading, error, data } = useQuery<Data>(GET_LAPTOP_AND_BUNDLE, {
