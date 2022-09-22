@@ -1,10 +1,15 @@
 import "./productHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faCheck } from "@fortawesome/free-solid-svg-icons";
-import Heart from "../../images/heart.png";
+import {
+  faStar,
+  faCheck,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import Heart from "../../images/Heart.png";
 import { useReducer, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
+import { BundleModal } from "../bundleModal/BundleModal";
 
 interface State {
   count: number;
@@ -60,7 +65,7 @@ export const ProductHeader: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { INCREMENT, DECREMENT } = Types;
   const { loading, error, data } = useQuery<Data>(GET_LAPTOP_AND_BUNDLE, {
-    variables: { id: "632a23c19674b3293311e7a8" },
+    variables: { id: "632a22ec9674b3293311e7a6" },
   });
 
   const [bigPicture, setBigPicture] = useState<string | null>(null);
@@ -179,6 +184,7 @@ export const ProductHeader: React.FC = () => {
             </button>
             <img src={Heart} alt="heart icon" className="heart-icon" />
           </div>
+          {state.count >= 5 && <BundleModal />}
         </div>
       </div>
       {state.count >= 5 && (
@@ -208,6 +214,10 @@ export const ProductHeader: React.FC = () => {
                   </div>
                 );
               })}
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              className="bundle-chev-right"
+            />
           </div>
           <hr></hr>
           <div className="bundles-add-title">
@@ -232,6 +242,10 @@ export const ProductHeader: React.FC = () => {
                   </div>
                 );
               })}
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              className="bundle-chev-right"
+            />
           </div>
           <hr></hr>
           <div className="bundles-add-title">
@@ -256,6 +270,10 @@ export const ProductHeader: React.FC = () => {
                   </div>
                 );
               })}
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              className="bundle-chev-right"
+            />
           </div>
         </div>
       )}
