@@ -49,16 +49,13 @@ const ProductsSortingBar: React.FC<ProductSortingBarProps> = ({ action }) => {
 
   const availability: string[] = ['Show All', 'Ships within 1 working day', 'Click & Collect today']
 
+  const itemsPerPage: string[] = ['24', '36', '48', '60']
+
   return (
     <div className="products-sorting-bar">
       <div className="psb-page-layout">
         <label htmlFor="productPageItemsAmount">Items per page</label>
-        <select name="productPageItemsAmount" id="productPageItemsAmount">
-          <option value="24">24</option>
-          <option value="36">36</option>
-          <option value="48">48</option>
-          <option value="60">60</option>
-        </select>
+        <PSBDropdown options={itemsPerPage} />
           <img className="product-list-view-icon" src="/images/product-list-icon.png" alt="Product list icon."/>
           <img className="product-grid-view-icon" src="/images/product-grid-icon.png" alt="Product grid view icon."/>
       </div>
