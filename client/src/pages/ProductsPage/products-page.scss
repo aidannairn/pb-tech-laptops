@@ -1,3 +1,30 @@
+header.products-page-header {
+  width: 100%;
+  margin-top: 5rem;
+  text-transform: capitalize;
+  text-align: center;
+
+  h3 {
+    color: #175078;
+    font-weight: 400;
+
+    span:first-of-type {
+      cursor: pointer;
+    }
+
+    span:last-of-type {
+      text-decoration: underline;
+      color: #133f5e
+    }
+  }
+}
+
+.industry-types {
+  width: 90%;
+  padding: 4rem 0;
+  border-radius: 1rem ;
+}
+
 .products-page {
   margin: 2rem 5%;
   display: flex;
@@ -19,6 +46,7 @@
       position: absolute;
       padding-top: 1rem;
       display: flex;
+      flex-wrap: wrap;
     }
   }
 

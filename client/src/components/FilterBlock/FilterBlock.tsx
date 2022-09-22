@@ -46,7 +46,7 @@ const ListItem: React.FC<ListItemProps> = ({ index, heading, list, item, action 
 }
 
 const FilterBlock: React.FC<FilterBlockProps> = ({ heading, list, range, filteredRange, action, category }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false)
+  const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
   const navigate = useNavigate()
 

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useQuery } from "@apollo/client"
 import { GET_LAPTOPS, GET_LAPTOPS_BY_TYPE } from "../../queries/laptopQueries"
@@ -9,6 +9,7 @@ import Banner from "../../components/Banner/Banner"
 import './products-page.scss'
 import ProductsSortingBar from "../../components/ProductsSortingBar/ProductsSortingBar"
 import LaptopCard from '../../components/LaptopCard/LaptopCard'
+import Footer from "../../components/Footer/Footer"
 
 interface Laptop {
   __typename: string
@@ -64,6 +65,8 @@ const ProductsPage: React.FC = () => {
   }
   
   const { type } = useParams()
+
+  const navigate = useNavigate()
   
   const { loading, error, data } = useQuery<Data>(GET_LAPTOPS_BY_TYPE, {
     variables: { type: type && capitaliseWords(type) },
@@ -140,6 +143,11 @@ const ProductsPage: React.FC = () => {
   return (
     <>
       <Banner />
+      <header className="products-page-header">
+        <h1>{type} Laptops</h1>
+        <h3>Home {`>`} Computers {`&`} Laptops {`>`} <span onClick={() => navigate('/')}>Laptops</span> {`>`} <span>{type} Laptops</span></h3>
+        <img className="industry-types" src="/images/industry-type.png" alt="Industry types." />
+      </header>
       <div className="products-page">
         <div className="product-filters">
           {
@@ -193,6 +201,7 @@ const ProductsPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }
