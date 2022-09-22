@@ -84,10 +84,11 @@ export const ProductHeader: React.FC = () => {
   return (
     <div className="PH-main-container">
       <div className="PH-page-link">
-        <h3>
-          Placeholder Home {">"} computers laptops {">"} laptops {">"} business
-          laptops
-        </h3>
+        <p>
+          Home {">"} computers laptops {">"} laptops {">"} business laptops{" "}
+          {">"}
+          {data?.laptop.name}
+        </p>
       </div>
       <div className="PH-main-content">
         <div className="PH-left-container">
