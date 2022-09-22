@@ -80,7 +80,7 @@ const ProductsPage: React.FC = () => {
   }
 
   useEffect(() => {
-    let sortField
+    let sortField: string
 
     switch (sortType) {
       case 'Most Popular': sortField = '-amountSold'
@@ -96,10 +96,6 @@ const ProductsPage: React.FC = () => {
       default: sortField = '-price'
         break;
     }
-
-    console.log(sortField)
-
-
 
     const laptops = filteredLaptopsArray && sortArrByObjProps([...filteredLaptopsArray], sortField)
       setFilteredLaptopsArray(laptops)
