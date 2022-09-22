@@ -1,4 +1,7 @@
 .laptop-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 18%;
   min-width: 18%;
   max-width: 18%;
@@ -6,10 +9,12 @@
   height: auto;
   padding: 1em;
   border: 1px solid lightgrey;
+  border-radius: 0.2rem;
 
   .lc-wish {
     display: flex;
     justify-content: flex-end;
+    cursor: not-allowed;
 
     img {
       width: 1.8em;
@@ -22,13 +27,29 @@
   }
 
   img {
-    width: 6em;
+    width: 70%;
   }
 
   p {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
+
+  .lc-rating-container {
+    display: flex;
+
+    span {
+      color: #FF951E;
+    }
+
+    .lc-reviews-number {
+      color: #329ACB;
+      font-weight: 500;
+      margin-left: 0.5rem;
+      margin-top: 0.14rem;
+    }
+  }
+
 
   .lc-info {
     color: black;
@@ -40,10 +61,12 @@
     p:nth-of-type(2) {
       font-weight: bold;
       color: #329ACB;
+      cursor: pointer;
     }
 
     p:nth-of-type(3) {
       font-size: 0.8em;
+      font-weight: 400;
       color: #757575;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -51,16 +74,25 @@
     }
   }
 
+  .lc-info-and-btn {
+    display: flex;
+    min-height: max-content;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .lc-button {
     width: 100%;
     display: flex;
     flex-grow: 1;
-    justify-content: flex-end;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
 
     button {
-      margin-top: 2em;
+      width: 100%;
+      margin-bottom: 0;
       padding: 1em 4em;
       color: #329ACB;
       font-weight: bold;
@@ -68,6 +100,29 @@
       border: 1px solid #329ACB;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 1rem;
+
+      &:hover {
+        background-color: #329ACB;
+        color: white
+      }
+
+      &:active {
+        background-color: #2b89b5;
+      }
+    }
+  }
+
+  .lc-compare-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    color: #329ACB;
+    font-weight: 500;
+
+    input {
+      margin-right: 0.5rem;
     }
   }
 

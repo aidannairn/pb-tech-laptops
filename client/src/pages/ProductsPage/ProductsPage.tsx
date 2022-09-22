@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useQuery } from "@apollo/client"
 import { GET_LAPTOPS, GET_LAPTOPS_BY_TYPE } from "../../queries/laptopQueries"
@@ -57,19 +57,17 @@ const ProductsPage: React.FC = () => {
   const [uniqueBrands, setUniqueBrands] = useState<UniqueItem[]>([])
   const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<UniqueItem[]>([])
   const [sortType, setSortType] = useState('Most Popular')
-  
-  const navigate = useNavigate()
 
-  const { type } = useParams()
-  console.log(type)
-
-  const { loading, error, data } = useQuery<Data>(GET_LAPTOPS_BY_TYPE, {
-      variables: { type },
-  })
-
-  const handleLaptopClick = (id: string) => {
-    navigate(`/product-page/${id}`)
+  const capitaliseWords = (text: string) => {
+    const finalSentence = text.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+    return finalSentence
   }
+  
+  const { type } = useParams()
+  
+  const { loading, error, data } = useQuery<Data>(GET_LAPTOPS_BY_TYPE, {
+    variables: { type: type && capitaliseWords(type) },
+  })
 
   if (loading) <p>Loading...</p>
   if (error) <p>Error</p>
@@ -184,8 +182,7 @@ const ProductsPage: React.FC = () => {
           <div className="products-collection">
             {
               filteredLaptopsArray && filteredLaptopsArray.map((laptop, i) => (
-                // <div key={i} onClick={() => handleLaptopClick(laptop.id)}>{laptop.name}</div>
-                <LaptopCard key={i} name={laptop.name} caption={laptop.caption} userRating={laptop.userRatings[0]} price={laptop.price} image={laptop.images[0]} />
+                <LaptopCard key={i} id={laptop.id} name={laptop.name} caption={laptop.caption} userRating={laptop.userRatings[0]} price={laptop.price} image={laptop.images[0]} numReviews={laptop.userRatings.length} />
               ))
             }
           </div>
