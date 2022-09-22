@@ -22,7 +22,7 @@ const PSBDropdown: React.FC<PSBDropdownProps> = ({ action, options }) => {
 
   return (
     <div className='psb-dropdown-container'>
-      <div className="psb-dropdown" onClick={action && (() => setIsExpanded(!isExpanded))} >
+      <div className="psb-dropdown-main" onClick={action && (() => setIsExpanded(!isExpanded))} >
         <div className={`psb-current-option ${!action ?'psb-disabled' : ''}`}>
           <p>{currentOption}</p>
           <img src="/images/dropdown-arrow.png" className={`psb-dropdown-arrow ${isExpanded ? '-active' : ''}`} alt="Dropdown arrow." />

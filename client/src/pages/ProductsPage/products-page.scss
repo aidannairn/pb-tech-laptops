@@ -15,7 +15,8 @@
 
     .products-collection {
       margin-top: 3rem;
-      z-index: -1;
+      position: absolute;
+      padding-top: 1rem;
     }
   }
 

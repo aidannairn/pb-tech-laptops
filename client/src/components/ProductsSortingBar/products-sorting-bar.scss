@@ -1,10 +1,9 @@
 .products-sorting-bar {
-  position: absolute;
-  width: calc(80% - 150px);
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   color: #555555;
-  z-index: 1;
 
   .psb-page-layout {
     display: flex;
@@ -24,15 +23,14 @@
     }
 
     label {
-      align-self: center;
-      margin-bottom: 0.4rem;
-      margin-right: 0.75rem;
+      margin: 0.55rem 0.7rem 0.4rem 0;
     }
   }
 
   .psb-dropdown-container {
     border: 1px solid #8C8C8C;
     height: fit-content;
+    z-index: 1;
   }
 
   .psb-sort-filters {
@@ -46,7 +44,7 @@
     }
   }
 
-  .psb-dropdown {
+  .psb-dropdown, .psb-dropdown-main {
     border-radius: 0.2rem;
     height: fit-content;
     background-color: white;

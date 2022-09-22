@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useQuery } from "@apollo/client"
 import { GET_LAPTOPS } from "../../queries/laptopQueries"
@@ -54,15 +55,22 @@ const ProductsPage: React.FC = () => {
   const [uniqueBrands, setUniqueBrands] = useState<UniqueItem[]>([])
   const [uniqueOperatingSystems, setUniqueOperatingSystems] = useState<UniqueItem[]>([])
   const [sortType, setSortType] = useState('Most Popular')
-
+  
   const { loading, error, data } = useQuery<Data>(GET_LAPTOPS)
   
+  const navigate = useNavigate()
+
+  const handleLaptopClick = (id: string) => {
+    console.log(id)
+    navigate(`/product-page/${id}`)
+  }
+
   if (loading) <p>Loading...</p>
   if (error) <p>Error</p>
 
   const checkNumBetweenRange = (num: number, range: NumberRange) => 
-    num >= range[1] && num <= range[2]
-
+  num >= range[1] && num <= range[2]
+  
   const filterLaptops = (laptops: any) => {
     const filteredLaptops = laptops.filter((laptop: any) => {
       const { price, storage, brand, operatingSystem, ram, sizeInInches } = laptop
@@ -165,7 +173,8 @@ const ProductsPage: React.FC = () => {
           <div className="products-collection">
             {
               filteredLaptopsArray && filteredLaptopsArray.map((laptop, i) => (
-                <p key={i} >{laptop.name}</p>
+                <div key={i} onClick={() => handleLaptopClick(laptop.id)}>{laptop.name}</div>
+                
               ))
             }
           </div>

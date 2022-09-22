@@ -1,28 +1,16 @@
 import "./productHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-<<<<<<< HEAD
-import { faStar, faCheck } from "@fortawesome/free-solid-svg-icons";
-import Heart from "../../images/heart.png";
-<<<<<<< HEAD
-import { useReducer, useState } from "react";
-=======
-import { useReducer, useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
->>>>>>> main
-=======
 import {
   faStar,
   faCheck,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import Heart from "../../images/Heart.png";
+import Heart from "../../images/heart.png";
 import { useReducer, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
 import { BundleModal } from "../bundleModal/BundleModal";
 import { useParams } from "react-router-dom";
->>>>>>> main
 
 interface State {
   count: number;

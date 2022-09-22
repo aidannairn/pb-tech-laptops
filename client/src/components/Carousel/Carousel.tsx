@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Carousel.module.css";
-import wish from "../../images/Heart.png";
+import wish from "../../images/heart.png";
 
 const Carousel: React.FC = () => {
   const test: object[] = [
