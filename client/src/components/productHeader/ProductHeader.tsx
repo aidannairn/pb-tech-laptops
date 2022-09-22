@@ -63,11 +63,11 @@ interface Data {
 }
 
 export const ProductHeader: React.FC = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
   const [state, dispatch] = useReducer(reducer, initialState);
   const { INCREMENT, DECREMENT } = Types;
   const { loading, error, data } = useQuery<Data>(GET_LAPTOP_AND_BUNDLE, {
-    variables: { id: "632a22ec9674b3293311e7a6" },
+    variables: { id },
   });
 
   const [bigPicture, setBigPicture] = useState<string | null>(null);

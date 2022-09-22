@@ -2,7 +2,7 @@ import React from "react";
 import "./DeliveryWarrantyEmpty.scss";
 import msfooterbanner from "../../images/msfooterbanner.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export const DeliveryWarrantyEmpty = () => {
   return (
@@ -10,14 +10,14 @@ export const DeliveryWarrantyEmpty = () => {
       <div className="D-W-main-container">
         <div className="D-W-title-container">
           <h3>Delivery {"&"} Pickup</h3>
-          <FontAwesomeIcon icon={faChevronUp} className="chev-up" />
+          <FontAwesomeIcon icon={faChevronDown} className="chev-up" />
         </div>
         <hr className="HR"></hr>
       </div>
       <div className="D-W-main-container">
         <div className="D-W-title-container">
           <h3>Warranty</h3>
-          <FontAwesomeIcon icon={faChevronUp} className="chev-up" />
+          <FontAwesomeIcon icon={faChevronDown} className="chev-up" />
         </div>
         <hr className="HR"></hr>
       </div>

@@ -20,7 +20,7 @@ export const Reviews = () => {
       <div className="RV-title-container">
         <h3>Reviews</h3>
         <FontAwesomeIcon
-          icon={openReview ? faChevronDown : faChevronUp}
+          icon={openReview ? faChevronUp : faChevronDown}
           className="chev-up"
           onClick={() => handleReviewOpen()}
         />
