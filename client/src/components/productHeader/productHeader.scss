@@ -7,6 +7,10 @@ $color-grey: #696969;
 $color-black: #000000;
 $color-orange: #f08222;
 
+.links {
+  cursor: pointer;
+}
+
 .PH-main-content {
   display: flex;
 }
@@ -41,6 +45,7 @@ $color-orange: #f08222;
   justify-content: center;
   margin-top: 5%;
   gap: 5%;
+
   .normal-image {
     width: 70px;
     height: auto;
@@ -54,6 +59,7 @@ $color-orange: #f08222;
     width: 70px;
     height: auto;
     padding: 5px 12px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
   }
 }
 

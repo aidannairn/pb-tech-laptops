@@ -1,12 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronUp,
-  faChevronDown,
-  faStar,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import "./Reviews.scss";
 import { fakeReviews } from "./fakeReviews";
+import { Rating } from "@mui/material";
 
 export const Reviews = () => {
   const [openReview, setOpenReview] = React.useState<boolean>(false);
@@ -45,7 +42,7 @@ export const Reviews = () => {
               (
                 review: {
                   name: string;
-                  stars: string[];
+                  stars: number[];
                   review: string;
                   date: string;
                   pictures: string[];
@@ -56,13 +53,11 @@ export const Reviews = () => {
                   <div key={i} className="reviews-card-main-container">
                     <div className="reviews-card-container">
                       <div className="star-container">
-                        {review.stars.map((star, i) => {
+                        {review.stars.map((star: number, i: number) => {
                           return (
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              className={star}
-                              key={i}
-                            />
+                            <div key={i}>
+                              <Rating value={star} readOnly />
+                            </div>
                           );
                         })}
                       </div>

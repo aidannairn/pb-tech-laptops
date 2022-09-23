@@ -1,16 +1,13 @@
 import "./productHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar,
-  faCheck,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Heart from "../../images/heart.png";
 import { useReducer, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
 import { BundleModal } from "../bundleModal/BundleModal";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Rating } from "@mui/material";
 
 interface State {
   count: number;
@@ -70,6 +67,8 @@ export const ProductHeader: React.FC = () => {
     variables: { id },
   });
 
+  const navigate = useNavigate();
+
   const [bigPicture, setBigPicture] = useState<string | null>(null);
 
   const onClickImageHandler = (image: string) => {
@@ -87,9 +86,17 @@ export const ProductHeader: React.FC = () => {
     <div className="PH-main-container">
       <div className="PH-page-link">
         <p>
-          Home {">"} computers laptops {">"} laptops {">"} business laptops{" "}
-          {">"}
-          {data?.laptop.name}
+          <span onClick={() => navigate(`/`)} className="links">
+            Home
+          </span>{" "}
+          {">"} computers laptops {">"} laptops {">"}{" "}
+          <span
+            onClick={() => navigate(`/products/${data?.laptop.types[0]}`)}
+            className="links"
+          >
+            {data?.laptop.types[0]} laptops{" "}
+          </span>
+          {">"} {data?.laptop.name}
         </p>
       </div>
       <div className="PH-main-content">
@@ -145,11 +152,11 @@ export const ProductHeader: React.FC = () => {
           </div>
           <div className="PH-reviews">
             <div className="PH-stars">
-              <FontAwesomeIcon icon={faStar} className="faStar" />
-              <FontAwesomeIcon icon={faStar} className="faStar" />
-              <FontAwesomeIcon icon={faStar} className="faStar" />
-              <FontAwesomeIcon icon={faStar} className="faStar" />
-              <FontAwesomeIcon icon={faStar} className="faStar" />
+              <Rating
+                name="read-only"
+                value={data?.laptop.userRatings[0]}
+                readOnly
+              />
               <p>See all Reviews ({data && data.laptop.userRatings.length})</p>
             </div>
           </div>
