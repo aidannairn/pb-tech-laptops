@@ -8,6 +8,7 @@
   .psb-page-layout {
     display: flex;
     align-items: flex-start;
+    margin-left: 2%;
 
     .product-list-view-icon {
       margin: 0 0.5rem 0 0.8rem;
@@ -28,7 +29,7 @@
   }
 
   .psb-dropdown-container {
-    border: 1px solid #8C8C8C;
+    border: 1px solid #8c8c8c;
     height: fit-content;
     z-index: 1;
   }
@@ -37,25 +38,27 @@
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
-    
+    margin-right: 12%;
 
     > label {
-      margin: 0.6rem 1rem 0 2rem
+      margin: 0.6rem 1rem 0 2rem;
     }
   }
 
-  .psb-dropdown, .psb-dropdown-main {
+  .psb-dropdown,
+  .psb-dropdown-main {
     border-radius: 0.2rem;
     height: fit-content;
     background-color: white;
     cursor: pointer;
     width: 10rem;
 
-    .psb-dropdown-option, .psb-current-option {
+    .psb-dropdown-option,
+    .psb-current-option {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #8C8C8C;
+      border-top: 1px solid #8c8c8c;
       padding: 0.57rem;
 
       p {
@@ -73,11 +76,11 @@
       }
 
       &:hover {
-        background-color: whitesmoke
+        background-color: whitesmoke;
       }
 
       &.psb-disabled:hover {
-        background-color: white
+        background-color: white;
       }
 
       .psb-dropdown-arrow.-active {
@@ -87,7 +90,7 @@
 
     .psb-current-option {
       border-top: none;
-      color: #8C8C8C;
+      color: #8c8c8c;
     }
   }
 }
