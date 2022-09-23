@@ -79,6 +79,10 @@ export const ProductHeader: React.FC = () => {
     data && setBigPicture(data.laptop.images[0]);
   }, [data]);
 
+  useEffect(() => {
+    data && window.scrollTo(0, 0);
+  }, [data]);
+
   if (loading) return <h1>Loading ...</h1>;
   if (error) return <h1>Error ...</h1>;
 
