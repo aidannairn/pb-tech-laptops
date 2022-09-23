@@ -1,0 +1,49 @@
+.bundle-model-container {
+  height: 119px;
+  width: 471px;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  .bundle-modal-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 1%;
+    margin-top: -1%;
+    span {
+      margin-left: 50%;
+    }
+    .facircle {
+      margin-left: -5%;
+      color: #f08222;
+      margin-right: 1%;
+    }
+    p,
+    span {
+      font-size: 13px;
+      color: #f08222;
+      font-weight: 600;
+    }
+  }
+  .bundle-modal-para {
+    margin-left: 5%;
+    margin-top: -3%;
+    p {
+      font-size: 13px;
+      color: #696969;
+      span {
+        color: #329acb;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.modal-background {
+  margin-top: 1%;
+  margin-left: 12%;
+  position: absolute;
+}

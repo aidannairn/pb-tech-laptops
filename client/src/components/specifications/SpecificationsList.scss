@@ -1,0 +1,173 @@
+body {
+  font-family: Roboto;
+}
+
+$color-blue: #329acb;
+$color-grey: #696969;
+$color-black: #000000;
+$color-orange: #f08222;
+$hr: #e1e1e1;
+$second-blue-color: #175078;
+$left-background: #e7e7e7;
+$right-background: #f5f5f5;
+
+.spec-list-main-container {
+  width: 100%;
+  margin-top: 1%;
+}
+
+.first-spec-container,
+.second-spec-container,
+.third-spec-container,
+.fourth-spec-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 16px;
+  font-weight: 400;
+  .left-spec {
+    width: 30%;
+    height: 49px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+
+  .right-spec {
+    width: 55%;
+    height: 49px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+  }
+  .right-spec-S {
+    width: 55%;
+    height: 225px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-S {
+    width: 30%;
+    height: 225px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+  .right-spec-BL {
+    width: 55%;
+    height: 290px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-BL {
+    width: 30%;
+    height: 290px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+  .right-spec-C {
+    width: 55%;
+    height: 135px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-C {
+    width: 30%;
+    height: 135px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+  .right-spec-CVA {
+    width: 55%;
+    height: 190px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-CVA {
+    width: 30%;
+    height: 190px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+  .right-spec-W {
+    width: 55%;
+    height: 83px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-W {
+    width: 30%;
+    height: 83px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+  .right-spec-WITB {
+    width: 55%;
+    height: 105px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-WITB {
+    width: 30%;
+    height: 105px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+  .right-spec-KBL {
+    width: 55%;
+    height: 137px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-KBL {
+    width: 30%;
+    height: 137px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+  .right-spec-BC {
+    width: 55%;
+    height: 86px;
+    background-color: $right-background;
+    padding-left: 25px;
+    border: 1px solid white;
+    white-space: pre-line;
+  }
+  .left-spec-BC {
+    width: 30%;
+    height: 86px;
+    background-color: $left-background;
+    border: 1px solid white;
+    padding-left: 25px;
+  }
+}
+
+.spec-titles {
+  margin-left: 5.5%;
+  margin-top: 2%;
+  color: $second-blue-color;
+  font-weight: 600;
+  font-size: 20px;
+}

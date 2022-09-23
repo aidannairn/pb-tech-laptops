@@ -55,7 +55,6 @@ const Carousel: React.FC = () => {
           </div>
         )}
         <div className={styles.products}> 
-
           {data && data.laptops
             .slice(leftIndex, rightIndex)
             .map((value: any, i: number) => (

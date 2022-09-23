@@ -1,4 +1,4 @@
-const { GraphQLID, GraphQLList } = require('graphql')
+const { GraphQLID, GraphQLList, GraphQLString } = require('graphql')
 const Laptop = require('../../models/Laptop')
 const { LaptopType } = require('./laptopTypes')
 
@@ -7,6 +7,15 @@ const laptopQueries = {
     type: new GraphQLList(LaptopType),
     resolve(parent, args) {
       return Laptop.find()
+    }
+  },
+  laptopsByType: {
+    type: new GraphQLList(LaptopType),
+    args: { type: { type: GraphQLString }},
+    resolve(parent, args) {
+      return Laptop.find({
+        types: args.type
+      })
     }
   },
   laptop: {

@@ -1,0 +1,77 @@
+.filter-block {
+  width: 100%;
+  border: 2px solid #E1E1E1;
+  border-radius: 0.2rem;
+  margin-bottom: 1rem;
+  background-color: #FFFFFF;
+  color: #696969;
+
+  .filter-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    
+    p {
+      margin: 0;
+    }
+    
+    .filter-block-toggle-btn {
+      cursor: pointer;
+    }
+  }
+  
+  .fb-categories {
+    display: flex;
+    flex-direction: column;
+    
+    p {
+      margin: 0 0 0 1rem;
+      border-top: 1px solid #E1E1E1;
+      padding: 0.5rem 1rem;
+      text-transform: capitalize;
+
+      &:first-of-type {
+        margin: 0 0 0 -0.25rem;
+        cursor: pointer;
+
+        span {
+          margin-left: 0.5rem;
+        }
+      }
+
+      &:nth-of-type(2) {
+        font-weight: bold;
+      }
+
+      &:nth-of-type(3) {
+        cursor: not-allowed;
+      }
+    }
+
+  }
+
+  .fb-checklist-item {
+    border-top: 1px solid #E1E1E1;
+    padding: 0.5rem 1rem;
+    display: flex;
+
+    label {
+      margin-top: 0.07rem;
+    }
+    
+    input {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .fb-range {
+    text-align: center;
+
+    > p {
+      margin-top: 0;
+    }
+  }
+}
