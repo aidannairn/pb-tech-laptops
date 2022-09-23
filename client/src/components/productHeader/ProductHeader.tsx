@@ -83,7 +83,8 @@ export const ProductHeader: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (loading) return <h1>Getting your product, please wait...</h1>;
+  if (loading)
+    return <h1 className="loading">Getting your product, please wait...</h1>;
   if (error) return <h1>Error ...</h1>;
 
   return (
