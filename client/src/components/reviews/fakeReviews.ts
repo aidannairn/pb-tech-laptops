@@ -1,7 +1,7 @@
 export const fakeReviews = [
   {
     name: "Joseph Bing",
-    stars: ["faStar", "faStar", "faStar", "faStar", "faStar"],
+    stars: [5],
     review:
       "Great speed, lots of space , nice design. Upgraded from a previous pro book and defiantly happy I have chosen\n another Microsoft laptop. Good value for the money , thanks for the assistance by staff on choosing the right PC\n for...",
     date: "28/06/2022",
@@ -12,7 +12,7 @@ export const fakeReviews = [
   },
   {
     name: "Stella Jang",
-    stars: ["faStar", "faStar", "faStar", "faStar", "faStar"],
+    stars: [4],
     review:
       "I managed to get this laptop on sale. Great model, easy and quick to set up. \nPlenty of specs for my business work and for the general home needs.",
     date: "10/07/2021",
