@@ -15,6 +15,14 @@ $color-orange: #f08222;
   display: flex;
 }
 
+.loading {
+  color: $color-grey;
+  font-weight: 400;
+  font-size: 22px;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
 .PH-page-link {
   position: relative;
   margin-left: 10%;
