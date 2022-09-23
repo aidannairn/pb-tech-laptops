@@ -173,13 +173,15 @@
 .carouselContainer .wrapper .products .card .info p:nth-of-type(2) {
   font-weight: bold;
   color: #329ACB;
+  text-overflow: ellipsis;
+  height: 2.5em;
 }
 .carouselContainer .wrapper .products .card .info p:nth-of-type(3) {
   font-size: 0.8em;
   color: #757575;
   text-overflow: ellipsis;
   overflow: hidden;
-  height: 2.2 em;
+  height: 2.5em;
 }
 .carouselContainer .wrapper .products .card .button {
   width: 100%;
@@ -187,7 +189,7 @@
   justify-content: center;
 }
 .carouselContainer .wrapper .products .card .button button {
-  margin-top: 2em;
+  margin-top: 1em;
   padding: 1em 4em;
   color: #329ACB;
   font-weight: bold;

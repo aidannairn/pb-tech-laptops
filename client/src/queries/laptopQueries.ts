@@ -49,6 +49,7 @@ const GET_ALL_LAPTOPS = gql`
       amountSold
       userRatings
     }
+
   }
 `;
 
