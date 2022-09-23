@@ -1,10 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import styles from "./ShopBy.module.css";
-// import image1 from "../../images/imag1.png";
-// import image2 from "../../images/image2.png";
-// import image3 from "../../images/image3.png";
 
 const ShopBy = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className={styles.shopByContainer}>
       <div className={styles.texts}>
@@ -24,9 +25,9 @@ const ShopBy = () => {
       <div className={styles.shopBySection}>
         <h4>Shop by Laptop Use</h4>
         <div className={styles.imageContainer}>
-          <div>Business</div>
-          <div>Home & Study</div>
-          <div>Gaming</div>
+          <div onClick={() => navigate(`/products/Business`)}>Business</div>
+          <div onClick={() => navigate(`/products/Study`)}>Home & Study</div>
+          <div onClick={() => navigate(`/products/Gaming`)}>Gaming</div>
         </div>
         <h3>
           Shop All <i className="fa-solid fa-chevron-right"></i>
