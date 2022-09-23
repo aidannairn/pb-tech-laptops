@@ -44,8 +44,6 @@ const Carousel: React.FC = () => {
 
   console.log(data && data.laptops)
 
-
-
   return (
        <div className={styles.carouselContainer}>
       <div className={styles.wrapper}>
