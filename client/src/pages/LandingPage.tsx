@@ -8,7 +8,6 @@ import ShopBy from "../components/shopBy/ShopBy";
 import ShopByBrand from "../components/ShopByBrand/ShopByBrand";
 
 const LandingPage: React.FC = () => {
-
   return (
     <>
       <Banner></Banner>

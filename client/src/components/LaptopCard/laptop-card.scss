@@ -40,17 +40,16 @@
     display: flex;
 
     span {
-      color: #FF951E;
+      color: #ff951e;
     }
 
     .lc-reviews-number {
-      color: #329ACB;
+      color: #329acb;
       font-weight: 500;
       margin-left: 0.5rem;
       margin-top: 0.14rem;
     }
   }
-
 
   .lc-info {
     color: black;
@@ -61,7 +60,7 @@
 
     p:nth-of-type(2) {
       font-weight: bold;
-      color: #329ACB;
+      color: #329acb;
       cursor: pointer;
     }
 
@@ -95,17 +94,17 @@
       width: 100%;
       margin-bottom: 0;
       padding: 1em 4em;
-      color: #329ACB;
+      color: #329acb;
       font-weight: bold;
       background-color: white;
-      border: 1px solid #329ACB;
+      border: 1px solid #329acb;
       border-radius: 5px;
       cursor: pointer;
       margin-top: 1rem;
 
       &:hover {
-        background-color: #329ACB;
-        color: white
+        background-color: #329acb;
+        color: white;
       }
 
       &:active {
@@ -119,7 +118,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-    color: #329ACB;
+    color: #329acb;
     font-weight: 500;
 
     input {
