@@ -32,7 +32,8 @@ const GET_ALL_LAPTOPS = gql`
       isOnSpecial
       amountSold
       userRatings
-    }`
+    }
+  }`
 
 const GET_LAPTOP_AND_BUNDLE = gql`
   query getLaptop($id: ID!) {

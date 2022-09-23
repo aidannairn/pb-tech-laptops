@@ -27,8 +27,6 @@ import ShopByBrand from "../components/ShopByBrand/ShopByBrand";
 // }
 
 const LandingPage: React.FC = () => {
-//   const {loading, error, data} = useQuery<Data | any>(GET_ALL_LAPTOPS)
-// console.log(data)
 
   return (
     <>
