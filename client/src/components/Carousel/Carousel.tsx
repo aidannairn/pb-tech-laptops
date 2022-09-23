@@ -73,7 +73,7 @@ const Carousel: React.FC = () => {
                     <Rating
                       name="read-only"
                       value={value.userRatings[0]}
-                      
+                      readOnly
                     />
                   </p>
                   <p>{value.name}</p>
