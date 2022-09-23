@@ -80,10 +80,10 @@ export const ProductHeader: React.FC = () => {
   }, [data]);
 
   useEffect(() => {
-    data && window.scrollTo(0, 0);
-  }, [data]);
+    window.scrollTo(0, 0);
+  }, []);
 
-  if (loading) return <h1>Loading ...</h1>;
+  if (loading) return <h1>Getting your product, please wait...</h1>;
   if (error) return <h1>Error ...</h1>;
 
   return (
