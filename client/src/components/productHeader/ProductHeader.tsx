@@ -6,7 +6,7 @@ import { useReducer, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAPTOP_AND_BUNDLE } from "../../queries/laptopQueries";
 import { BundleModal } from "../bundleModal/BundleModal";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Rating } from "@mui/material";
 
 interface State {
@@ -67,6 +67,8 @@ export const ProductHeader: React.FC = () => {
     variables: { id },
   });
 
+  const navigate = useNavigate();
+
   const [bigPicture, setBigPicture] = useState<string | null>(null);
 
   const onClickImageHandler = (image: string) => {
@@ -84,8 +86,17 @@ export const ProductHeader: React.FC = () => {
     <div className="PH-main-container">
       <div className="PH-page-link">
         <p>
-          Home {">"} computers laptops {">"} laptops {">"}{" "}
-          {data?.laptop.types[0]} laptops {">"} {data?.laptop.name}
+          <span onClick={() => navigate(`/`)} className="links">
+            Home
+          </span>{" "}
+          {">"} computers laptops {">"} laptops {">"}{" "}
+          <span
+            onClick={() => navigate(`/products/${data?.laptop.types[0]}`)}
+            className="links"
+          >
+            {data?.laptop.types[0]} laptops{" "}
+          </span>
+          {">"} {data?.laptop.name}
         </p>
       </div>
       <div className="PH-main-content">
