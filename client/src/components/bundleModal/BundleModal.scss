@@ -26,6 +26,7 @@
       font-size: 13px;
       color: #f08222;
       font-weight: 600;
+      cursor: pointer;
     }
   }
   .bundle-modal-para {
@@ -46,4 +47,8 @@
   margin-top: 1%;
   margin-left: 12%;
   position: absolute;
+}
+
+.hidden {
+  display: none;
 }
