@@ -32,11 +32,11 @@ const AddLaptopForm: React.FC = () => {
   const [userRatings, setUserRatings] = useState<number[]>([1])
   const [image, setImage] = useState<string>('')
   const [images, setImages] = useState<string[]>([])
-  const [bundleIDs, setBundleIDs] = useState([
-    "6328f932d5b1d9cb47f385c9",
-    "6328fe32d5b1d9cb47f385e3",
-    "6328fbf5d5b1d9cb47f385d6"
-  ])
+  // const [bundleIDs, setBundleIDs] = useState([
+  //   "6328f932d5b1d9cb47f385c9",
+  //   "6328fe32d5b1d9cb47f385e3",
+  //   "6328fbf5d5b1d9cb47f385d6"
+  // ])
 
   const createUserRatings = async () => {
     const totalRatings = Math.floor(Math.random() * 20) + 1
@@ -64,7 +64,7 @@ const AddLaptopForm: React.FC = () => {
       amountSold,
       userRatings,
       images,
-      bundleIDs
+      // bundleIDs
     }
   })
 

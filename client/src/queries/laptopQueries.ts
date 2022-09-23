@@ -17,7 +17,22 @@ const GET_LAPTOPS_BY_TYPE = gql`
       ${allLaptopFieldsStr}
     }
   }
-`
+`;
+
+const GET_ALL_LAPTOPS = gql`
+  query getAllLaptops {
+    laptops {
+      name
+      brand
+      caption
+      types
+      price
+      images
+      isTrending
+      isOnSpecial
+      amountSold
+      userRatings
+    }`
 
 const GET_LAPTOP_AND_BUNDLE = gql`
   query getLaptop($id: ID!) {
@@ -40,4 +55,4 @@ const GET_LAPTOP_AND_BUNDLE = gql`
   }
 `;
 
-export { GET_LAPTOPS, GET_LAPTOP_AND_BUNDLE, GET_LAPTOPS_BY_TYPE };
+export { GET_LAPTOPS, GET_LAPTOP_AND_BUNDLE, GET_LAPTOPS_BY_TYPE, GET_ALL_LAPTOPS };
