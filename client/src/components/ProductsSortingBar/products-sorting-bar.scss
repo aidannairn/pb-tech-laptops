@@ -38,7 +38,6 @@
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
-    margin-right: 12%;
 
     > label {
       margin: 0.6rem 1rem 0 2rem;
@@ -92,5 +91,13 @@
       border-top: none;
       color: #8c8c8c;
     }
+  }
+  
+  .psb-dropdown {
+    position: absolute;
+    border: 1px solid #8c8c8c;
+    border-top: none;
+    border-radius: 0 0 0.2rem 0.2rem;
+    right: 0;
   }
 }

@@ -50,13 +50,15 @@ interface Bundle {
 }
 
 interface LaptopExtra {
+  type: [string]
   name: string;
   price: number;
   images: [string];
 }
 
 interface Data {
-  laptop: LaptopAndBundle;
+  laptop: LaptopAndBundle
+  bundles: Bundle[]
 }
 
 export const ProductHeader: React.FC = () => {
@@ -208,7 +210,7 @@ export const ProductHeader: React.FC = () => {
             <h3>Create your business bundle and save!</h3>
           </div>
           <div className="bundles-add-title">
-            <h4>Add {data && data.laptop.bundles[0].type}</h4>
+            <h4>Add {!loading && !error && data && data.laptop && data.bundles[0].type}</h4>
           </div>
           <div className="bundles-product-container">
             {data &&
@@ -235,7 +237,7 @@ export const ProductHeader: React.FC = () => {
             />
           </div>
           <hr></hr>
-          <div className="bundles-add-title">
+          {/* <div className="bundles-add-title">
             <h4>Add {data && data.laptop.bundles[1].type}</h4>
           </div>
           <div className="bundles-product-container">
@@ -261,9 +263,9 @@ export const ProductHeader: React.FC = () => {
               icon={faChevronRight}
               className="bundle-chev-right"
             />
-          </div>
+          </div> */}
           <hr></hr>
-          <div className="bundles-add-title">
+          {/* <div className="bundles-add-title">
             <h4>Add {data && data.laptop.bundles[2].type}</h4>
           </div>
           <div className="bundles-product-container">
@@ -289,7 +291,7 @@ export const ProductHeader: React.FC = () => {
               icon={faChevronRight}
               className="bundle-chev-right"
             />
-          </div>
+          </div> */}
         </div>
       )}
     </div>
